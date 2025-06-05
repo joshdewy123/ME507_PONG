@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "motor.h"
+#include "imu.h"
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -47,6 +48,8 @@ ADC_HandleTypeDef hadc1;
 
 I2C_HandleTypeDef hi2c1;
 I2C_HandleTypeDef hi2c2;
+
+IMU_Handle_t imu;
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
@@ -117,7 +120,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  IMU_Init(&imu, &hi2c1);
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -783,6 +786,19 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         int angle_times_100 = (2 * 36000 * turret1_enc_count) / 3200;
         int len = sprintf(msg, "Turret 1 angle: %d.%02d deg\r\n", angle_times_100 / 100, angle_times_100 % 100);
         HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
+      }
+      else if (rx_buffer[0] == 'I')  // IMU command
+      {
+          IMU_Euler_t euler;
+          if (IMU_ReadEuler(&imu, &euler)) {
+              int len = sprintf(msg, "IMU Yaw: %.2f Pitch: %.2f Roll: %.2f\r\n", 
+                                euler.yaw, euler.pitch, euler.roll);
+              HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
+          } else {
+              int len = sprintf(msg, "IMU read failed\r\n");
+              HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
+          }
+          rx_index = 0;
       }
       else
       {
