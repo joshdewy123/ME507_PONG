@@ -1,8 +1,67 @@
 #include "imu.h"
+
+#define EULER_DATA_REG 0x1A
+#define GYRO_DATA_REG  0x14
+#define CALIB_STAT_REG 0x35
+
+bool IMU_Init(IMU_Handle_t* imu, I2C_HandleTypeDef* hi2c) {
+    imu->hi2c = hi2c;
+    HAL_Delay(50);  // Allow sensor boot-up
+    return true;
+}
+
+bool IMU_ReadEuler(IMU_Handle_t* imu, IMU_Euler_t* euler) {
+    uint8_t buf[6];
+    if (HAL_I2C_Mem_Read(imu->hi2c, BNO055_I2C_ADDR, EULER_DATA_REG, I2C_MEMADD_SIZE_8BIT, buf, 6, HAL_MAX_DELAY) != HAL_OK)
+        return false;
+
+    int16_t heading = (buf[1] << 8) | buf[0];
+    int16_t roll    = (buf[3] << 8) | buf[2];
+    int16_t pitch   = (buf[5] << 8) | buf[4];
+
+    euler->yaw   = heading / 16.0f;
+    euler->roll  = roll / 16.0f;
+    euler->pitch = pitch / 16.0f;
+
+    return true;
+}
+
+bool IMU_ReadGyro(IMU_Handle_t* imu, IMU_Gyro_t* gyro) {
+    uint8_t buf[6];
+    if (HAL_I2C_Mem_Read(imu->hi2c, BNO055_I2C_ADDR, GYRO_DATA_REG, I2C_MEMADD_SIZE_8BIT, buf, 6, HAL_MAX_DELAY) != HAL_OK)
+        return false;
+
+    int16_t gx = (buf[1] << 8) | buf[0];
+    int16_t gy = (buf[3] << 8) | buf[2];
+    int16_t gz = (buf[5] << 8) | buf[4];
+
+    gyro->gx = gx / 16.0f;
+    gyro->gy = gy / 16.0f;
+    gyro->gz = gz / 16.0f;
+
+    return true;
+}
+
+bool IMU_GetCalibrationStatus(IMU_Handle_t* imu, uint8_t* sys, uint8_t* gyro, uint8_t* accel, uint8_t* mag) {
+    uint8_t status;
+    if (HAL_I2C_Mem_Read(imu->hi2c, BNO055_I2C_ADDR, CALIB_STAT_REG, I2C_MEMADD_SIZE_8BIT, &status, 1, HAL_MAX_DELAY) != HAL_OK)
+        return false;
+
+    *sys   = (status >> 6) & 0x03;
+    *gyro  = (status >> 4) & 0x03;
+    *accel = (status >> 2) & 0x03;
+    *mag   = status & 0x03;
+
+    return true;
+}
+
+
+/*
+// BNO085
+#include "imu.h"
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 
 // Replace with actual registers for BNO085 if you're using sensor fusion reports
 #define BNO08X_EULER_HEADING_LSB 0x1A
@@ -63,3 +122,4 @@ bool IMU_GetCalibrationStatus(IMU_Handle_t* imu, uint8_t* sys, uint8_t* gyro, ui
     *mag   = status & 0x03;
     return true;
 }
+*/

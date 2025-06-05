@@ -35,7 +35,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define CPR_TURRET 3200
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -67,6 +67,7 @@ int32_t duty_turret1 = 0;
 int32_t duty_turret2 = 0;
 
 int32_t turret1_enc_count = 0;
+int32_t turret1_enc_deg = 0;
 int32_t turret1_target = 0;
 
 motor_t flywheel1 = {.htim = &htim1, .duty = 0, .channel_forward = TIM_CHANNEL_1, .channel_reverse = TIM_CHANNEL_4};
@@ -78,7 +79,6 @@ motor_t turret2   = {.htim = &htim10, .duty = 0, .channel_forward = TIM_CHANNEL_
 uint8_t rx_buffer[RX_BUFFER_SIZE];
 uint8_t rx_index = 0;
 char msg[64];
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -109,28 +109,9 @@ static void MX_USART1_UART_Init(void);
   */
 int main(void)
 {
-
-  /* USER CODE BEGIN 1 */
-
-  /* USER CODE END 1 */
-
-  /* MCU Configuration--------------------------------------------------------*/
-
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
-
-  /* USER CODE BEGIN Init */
-  IMU_Init(&imu, &hi2c1);
-  /* USER CODE END Init */
-
-  /* Configure the system clock */
   SystemClock_Config();
 
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
-  /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_ADC1_Init();
   MX_I2C1_Init();
@@ -142,7 +123,7 @@ int main(void)
   MX_TIM10_Init();
   MX_TIM11_Init();
   MX_USART1_UART_Init();
-  /* USER CODE BEGIN 2 */
+
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
   HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_1);
@@ -152,37 +133,41 @@ int main(void)
   HAL_TIM_PWM_Start(&htim10, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim11, TIM_CHANNEL_1);
   HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
-  HAL_Delay(100);  // Let terminal settle after reset
+
+  HAL_Delay(100);
   int len = sprintf(msg, "Enter 4 characters: M, motor ID, hex value duty cycle\r\n");
   HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
   HAL_UART_Receive_IT(&huart1, &rx_buffer[rx_index], 1);
-  /* USER CODE END 2 */
 
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  //HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_1);
-  //HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_2);
-  int t1_enc_last = -1;
+  // IMU Initialization
+  IMU_Init(&imu, &hi2c1);
+
+  int32_t turret1_enc_last = -1;
   while (1)
   {
-    /* USER CODE END WHILE */
+    // Update encoder count and angle (tenths of degrees)
+    turret1_enc_count = __HAL_TIM_GET_COUNTER(&htim2);
+    if (turret1_enc_count != turret1_enc_last) {
+      turret1_enc_deg = (7200 * turret1_enc_count) / (3200*10); // 7200 = 360.0 deg × 20 (tenths)
+      turret1_enc_last = turret1_enc_count;
+    }
 
-    /* USER CODE BEGIN 3 */
-	  // Encoder test
-	  int turret1_enc_count = __HAL_TIM_GET_COUNTER(&htim2);
-	    if (turret1_enc_count != t1_enc_last) {
-	      int len = sprintf(msg, "Count: %d\r\n", count);
-	      HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
-	      last = count;
-	    }
+    // Simple proportional controller
+    int32_t error = turret1_target - turret1_enc_deg;
+    duty_turret1 = 0.08*error;  // P-gain = 0.5
 
-	    set_duty(&flywheel1, duty_flywheel1);
-	    set_duty(&flywheel2, duty_flywheel2);
-	    set_duty(&turret1, duty_turret1);
-	    set_duty(&turret2, duty_turret2);
+    // Saturate duty to ±100
+    if (duty_turret1 > 80) duty_turret1 = 80;
+    if (duty_turret1 < -80) duty_turret1 = -80;
+
+    // Apply motor control
+    set_duty(&flywheel1, duty_flywheel1);
+    set_duty(&flywheel2, duty_flywheel2);
+    set_duty(&turret1, duty_turret1);
+    set_duty(&turret2, duty_turret2);
   }
-  /* USER CODE END 3 */
 }
+
 
 /**
   * @brief System Clock Configuration
@@ -756,11 +741,18 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     uint8_t received = rx_buffer[rx_index];
     if (received == '\r')
     {
-      if (rx_index != 4)
+      if (rx_index != 4 || rx_index != 3)
       {
-        int len = sprintf(msg, "Invalid length\r\n");
+        int len = sprintf(msg, "Invalid command character length\r\n");
+        HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
+        rx_index = 0;
+        return;
+      }
+      {
+        int len = sprintf(msg, "Invalid command character length\r\n");
         HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
       }
+
       else if ((rx_buffer[0] == 'M' || rx_buffer[0] == 'm') && (rx_buffer[1] >= '1' && rx_buffer[1] <= '4'))
       {
         uint8_t motor_id = rx_buffer[1] - '0';
@@ -780,19 +772,28 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         int len = sprintf(msg, "Motor %d set to %ld%%\r\n", motor_id, duty);
         HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
       }
-      else if (rx_buffer[0] == 'E' && rx_buffer[1] == '1' && rx_buffer[2] == 'a' && rx_buffer[3] == 'n')
+
+      else if (rx_buffer[0] == 'E' && rx_buffer[1] == '1' && rx_buffer[2] == 'r' && rx_buffer[3] == 'a')
       {
-        turret1_enc_count = __HAL_TIM_GET_COUNTER(&htim2);
-        int angle_times_100 = (2 * 36000 * turret1_enc_count) / 3200;
-        int len = sprintf(msg, "Turret 1 angle: %d.%02d deg\r\n", angle_times_100 / 100, angle_times_100 % 100);
+        int len = sprintf(msg, "Turret 1 angle: %d.%01d deg\r\n", turret1_enc_deg, turret1_enc_deg);
         HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
       }
-      else if (rx_buffer[0] == 'I')  // IMU command
+
+      else if (rx_buffer[0] == 'E' && rx_buffer[1] == '1')
       {
-          IMU_Euler_t euler;
-          if (IMU_ReadEuler(&imu, &euler)) {
-              int len = sprintf(msg, "IMU Yaw: %.2f Pitch: %.2f Roll: %.2f\r\n", 
-                                euler.yaw, euler.pitch, euler.roll);
+        char hex_str[3] = { rx_buffer[2], rx_buffer[3], '\0' };
+        uint8_t raw = (uint8_t)strtol(hex_str, NULL, 16);
+        turret1_target = (int32_t)raw;
+
+        int len = sprintf(msg, "Turret 1 target set to: %ld\r\n", turret1_target);
+        HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
+      }
+
+      else if (rx_buffer[0] == 'I' && rx_buffer[1] == 'M' && rx_buffer[2] == 'U')  // Read IMU data
+      {
+          IMU_Euler_t eul;
+          if (IMU_ReadEuler(&imu, &eul)) {
+              int len = sprintf(msg, "Yaw: %.2f  Pitch: %.2f  Roll: %.2f\r\n", eul.yaw, eul.pitch, eul.roll);
               HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
           } else {
               int len = sprintf(msg, "IMU read failed\r\n");
@@ -800,6 +801,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
           }
           rx_index = 0;
       }
+
       else
       {
         int len = sprintf(msg, "Invalid command\r\n");
@@ -807,6 +809,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
       }
       rx_index = 0;
     }
+
     else
     {
       rx_index++;
@@ -816,7 +819,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     HAL_UART_Receive_IT(&huart1, &rx_buffer[rx_index], 1);
   }
 }
-
 /* USER CODE END 4 */
 
 /**
