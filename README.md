@@ -1,135 +1,114 @@
+# ME 507 - Ping Pong Ball Launcher
 
-# Leaflet Cutting Automation System 
+**Team Members:** Josh DeWeese, Nolan Jeung  
+**Support:** Charlie Refvem, Vincent Ngo, Jason Wong
 
-**Team Members:** Gabriella Aclan, Josh DeWeese, Lizzie Dilao, Jason Wong
+---
 
 ## 🛠️ Overview
 
-This project automates the leaflet cutting process using a **Raspberry Pi**. The system is designed to pickup a leaflet from a container, place it flat on a plate, and then store it in a container. The Raspberry Pi controls four stepper motors and one linear actuator through I2C communication with motor controllers. The system runs a defined **finite state machine (FSM)** sequence to:
+This project centers around an autonomous ping pong ball launcher designed for two core functionalities:
 
-- Pick up a leaflet  
-- Place the leaflet flat on a plate
-- Store the leaflet in another container
+1. **Ping Pong Practice Mode**: The system scans the edge of a table using LIDAR and targets the shortest distance to simulate a return serve.
+2. **Beer Pong Mode**: The robot scans the playing field for red Solo cups using signal intensity and shoots into them.
+3. **(Optional)**: Control the launcher via PuTTY or an external controller.
 
-A simple **Tkinter UI** provides control and monitoring of the system. Motors operate through **cooperative multitasking**, where each control task voluntarily yields execution to allow other tasks to run smoothly and in sequence.
-
-> 💡 **Note:** The program can also run on a regular laptop without any hardware for simulation.
-
-When `main.py` is ran, a UI window will pop up. Clicking **Start** will display terminal updates about the system state and motor actions.
-
----
-
-## ⚙️ Hardware 
-
-- Raspberry Pi 4B
-- 4 × Tic Stepper Motor Controllers
-- 1 × Jrk G2 Linear Actuator Controller
-- 4 NEMA23 Stepper Motors
-- Linear Actuator
-- 36V and 12V power supplies
-- I2C bus breakout board or custom wiring
-- Tkinter-compatible display
-- Appropriate wiring for I2C and power
+> 💡 Our primary objective was to build a functional robot that could:
+> - Use an IMU to calibrate orientation  
+> - Use LIDAR for object detection  
+> - Use encoders for accurate turning  
+> - Use a servo to load balls  
+> - Use flywheel motors to launch at specific speeds  
 
 ---
 
-## 📁 File Breakdown
+## ⚙️ Hardware Summary
 
-| File                  | Description |
-|-----------------------|-------------|
-| `main.py`             | Launches the full system and FSM loop |
-| `task_controls.py`    | FSM logic for leaflet handling sequence |
-| `tic_driver.py`       | Low-level I2C interface for Tic stepper controllers |
-| `jrk_driver.py`       | Low-level I2C interface for Jrk actuator controller |
-| `controls.py`         | Medium-level logic for movement validation |
-| `supervisor_UI_task.py` | Tkinter-based user interface code |
-| `task_share.py`       | Manages shared memory between tasks |
-
----
-
-## ▶️ How to Run
-
-1. **Connect and power hardware (if using real devices).**
-2. **Enable I2C on Raspberry Pi:**
-   ```bash
-   sudo raspi-config
-   # Go to Interfacing Options → I2C → Enable
-   ```
-
-3. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Choose your run mode:**
-
-### 🧰 OPTION A: Run with Real Hardware
-In `main.py`, use real I2C devices:
-```python
-tic11 = TicI2C(bus, 0x0E)
-jrk = JrkI2C(bus, 0x12)
-```
-
-For unused motors:
-```python
-tic14 = DummyMotor()
-jrk = DummyActuator()
-```
-
-### 💻 OPTION B: Run WITHOUT Hardware
-Use only dummy instances:
-```python
-tic14 = DummyMotor()
-tic15 = DummyMotor()
-tic16 = DummyMotor()
-tic17 = DummyMotor()
-jrk = DummyActuator()
-```
-
-5. **Run the program:**
-   ```bash
-   python3 main.py
-   ```
+- **Main Controller**: STM32F411CEU6 (Blackpill)
+- **Actuators**:
+  - 2 × Stepper Motors (base orientation)
+  - 2 × Flywheel DC Motors (launching)
+  - 1 × Servo Motor (ball loading)
+- **Sensors**:
+  - LIDAR (distance sensing)
+  - BNO055 IMU (orientation)
+  - 2 × Motor Encoders
+- **Power System**:
+  - 12V Rail via LM22678 Buck Converter  
+  - 3.3V Rail via LMS1587 LDO
+- **Custom PCB**: Used to consolidate motor driver circuitry, power rails, and microcontroller
 
 ---
 
-## 🖥️ User Interface Overview
+## 🧠 Software Implementation
 
-The UI is built using **Tkinter** and allows live monitoring and control of the automation process.
-
-### Key Features
-
-- **START**: Launches the automation sequence.
-- **STOP**: Halts all motors immediately.
-- **APPLY SETUP**: Confirms initial configuration before starting.
-- **Status Display**: Shows current FSM state like _"Picking Up Leaflet"_.
-
-> **Tips:**
-> - Always click **Apply Setup** before clicking **Start**
-> - Dummy motors allow full simulation and UI use without hardware
+- **Language**: C/C++ using STM32CubeIDE
+- **Control Architecture**: Finite State Machine (FSM)
+- **Drivers**:
+  - Custom motor driver interface
+  - I2C drivers for LIDAR and IMU
+  - PWM control for servo
+- **Coding Style**:
+  - FSM-based modular design
+  - Lightweight task-based sequencing
+  - Code structured for real-time behavior with interrupt-driven UART
 
 ---
 
-## 📝 Notes
-- Physical Pins 15 and 16 are SDA6 and SCL6
-- Bus 6 on I2C was used because the designated I2C pins are known for bugs 
-- Fake motors print extra debug info when used on laptops.
-- `[Errno 121] Remote I/O error` means a device is disconnected or miswired.
-- Edit motor timing/behavior in `task_controls.py`
-- The UI **requires a display**; it will not show over SSH/headless mode.
-- Install Tkinter if missing:
-  ```bash
-  sudo apt-get install python3-tk
-  ```
-- UI logic is in: `supervisor_UI_task.py`
-- If the **Start** button fails after Apply Setup, restart the program.
-- Resume after Pause/Terminate is not yet implemented.
+## 🧪 Sensor Processing & Modeling
+
+- **LIDAR**: Closest distance (Ping Pong Mode) or highest signal intensity (Beer Pong Mode)
+- **IMU**: Euler angle readings (heading)
+- **Encoders**: Estimate rotation and confirm motor behavior
 
 ---
 
-## 📞 Support
+## 🛠️ PCB + System Design Challenges
 
-Refer to comments in each `.py` file for inline guidance.  
-For further support, contact the developer directly.
+The team completed a full design cycle:
+
+- Designed and ordered a **custom PCB**
+- Sourced and soldered components
+- Debugged I2C communication issues
+- Validated power rail performance
+- Verified motor driver functionality
+- Integrated electrical and mechanical subsystems
 
 ---
+
+## ❗ Notable Roadblocks & Fixes
+
+| Issue | Fix | Effectiveness |
+|-------|-----|---------------|
+| ❌ No resistors on IPROPI pins | Soldered 1.5kΩ resistors to breakout board | ✅ Fixed in 1 day |
+| ❌ Missing bulk capacitors | Added 330µF caps near motor drivers | ✅ Fixed in 1 day |
+| ❌ Missing LIDAR pullups | Added 3.3V pullups on SDA/SCL | ✅ Fixed in 1 day |
+| ❌ IMU not responsive | Switched to alternate 3.3V/GND pins | ⚠️ Slower to debug |
+| ❌ IMU FSM integration failed | Deferred integration | ⚠️ Future fix |
+| ❌ No TIM PWM channel for servo | Later found unused TIM pin | ⚠️ PCB blocked access |
+
+---
+
+## 💡 Lessons Learned
+
+- Always include **bulk caps** near motor drivers.
+- **Pull-up resistors** are essential for I2C devices.
+- Leave **unused MCU pins accessible** in PCB design.
+- Modular code + FSM simplifies **debugging and testing**.
+- A working schematic **isn’t always** a working system.
+
+---
+
+## ▶️ How to Run (Demo Instructions)
+
+1. Power the PCB via a 12V barrel jack.
+2. Connect STM32 to your PC via ST-Link.
+3. Flash firmware using STM32CubeIDE.
+4. Connect with PuTTY or any serial terminal.
+5. Example commands:
+   - `CAL` – calibrate IMU heading *(future implementation)*
+   - `FIRE` – launch ping pong ball
+   - `MODE` – toggle between game modes
+
+> FSM runs automatically if no command is received.
+
