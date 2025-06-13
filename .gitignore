@@ -1,0 +1,33 @@
+# STM32CubeIDE / STM32CubeMX
+*.launch
+*.ioc
+*.mex
+*.db
+*.project
+*.cproject
+.settings/
+.mxproject
+
+# Build files
+Debug/
+Release/
+build/
+*.elf
+*.bin
+*.hex
+*.map
+*.list
+*.o
+*.d
+
+# IDE-specific metadata
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Misc
+*.bak
+*.swp
+*.tmp
+*.log
