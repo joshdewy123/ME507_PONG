@@ -5,7 +5,7 @@
 
 ---
 
-## 🛠️ Overview
+## Overview
 
 This project centers around an autonomous ping pong ball launcher designed for two core functionalities:
 
