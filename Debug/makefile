@@ -61,7 +61,7 @@ main-build: Term_Project_3.elf secondary-outputs
 
 # Tool invocations
 Term_Project_3.elf Term_Project_3.map: $(OBJS) $(USER_OBJS) C:\Users\NJ\Downloads\Term_Project_Configured_Pins\Term_Project_3\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Term_Project_3.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\NJ\Downloads\Term_Project_Configured_Pins\Term_Project_3\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Term_Project_3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "Term_Project_3.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\NJ\Downloads\Term_Project_Configured_Pins\Term_Project_3\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Term_Project_3.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

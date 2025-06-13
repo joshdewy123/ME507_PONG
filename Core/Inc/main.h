@@ -31,7 +31,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+extern UART_HandleTypeDef huart1; // Added by Josh when incorporating IMU code
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

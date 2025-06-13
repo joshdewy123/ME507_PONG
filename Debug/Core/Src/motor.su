@@ -1,3 +1,4 @@
 ../Core/Src/motor.c:8:6:set_duty	24	static
-../Core/Src/motor.c:45:6:disable	16	static
-../Core/Src/motor.c:51:6:enable	16	static
+../Core/Src/motor.c:54:6:move_to	40	static
+../Core/Src/motor.c:84:6:disable	16	static
+../Core/Src/motor.c:90:6:enable	16	static

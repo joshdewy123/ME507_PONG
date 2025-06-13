@@ -23,14 +23,24 @@
 /* USER CODE BEGIN Includes */
 #include "motor.h"
 #include "imu.h"
+//#include "fsm.h"
+#include <math.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+extern I2C_HandleTypeDef hi2c2;
 
+volatile uint8_t imu_mode = 0;
+volatile uint8_t calib_mode = 0;
+
+volatile uint8_t lidar_mode = 0;
+uint8_t lidar_buf[4];
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -48,8 +58,6 @@ ADC_HandleTypeDef hadc1;
 
 I2C_HandleTypeDef hi2c1;
 I2C_HandleTypeDef hi2c2;
-
-IMU_Handle_t imu;
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
@@ -70,15 +78,63 @@ int32_t turret1_enc_count = 0;
 int32_t turret1_enc_deg = 0;
 int32_t turret1_target = 0;
 
-motor_t flywheel1 = {.htim = &htim1, .duty = 0, .channel_forward = TIM_CHANNEL_1, .channel_reverse = TIM_CHANNEL_4};
-motor_t flywheel2 = {.htim = &htim9, .duty = 0, .channel_forward = TIM_CHANNEL_1, .channel_reverse = TIM_CHANNEL_2};
-motor_t turret1   = {.htim = &htim3, .duty = 0, .channel_forward = TIM_CHANNEL_3, .channel_reverse = TIM_CHANNEL_4};
-motor_t turret2   = {.htim = &htim10, .duty = 0, .channel_forward = TIM_CHANNEL_1, .channel_reverse = TIM_CHANNEL_1};
+int32_t turret2_enc_pos = 0;
+int32_t turret2_enc_deg = 0;
+int32_t turret2_target = 0;
 
-#define RX_BUFFER_SIZE 5
+motor_t flywheel1 = {
+    .htim_forward = &htim1, .channel_forward = TIM_CHANNEL_1,
+    .htim_reverse = &htim1, .channel_reverse = TIM_CHANNEL_4,
+    .duty = 0, .target = 0, .actual = 0
+};
+
+motor_t flywheel2 = {
+    .htim_forward = &htim9, .channel_forward = TIM_CHANNEL_1,
+    .htim_reverse = &htim9, .channel_reverse = TIM_CHANNEL_2,
+    .duty = 0, .target = 0, .actual = 0
+};
+
+motor_t turret1 = {
+    .htim_forward = &htim1, .channel_forward = TIM_CHANNEL_2,
+    .htim_reverse = &htim1, .channel_reverse = TIM_CHANNEL_3,
+    .duty = 0, .target = 0, .actual = 0
+};
+
+motor_t turret2 = {
+    .htim_forward = &htim10, .channel_forward = TIM_CHANNEL_1,
+    .htim_reverse = &htim11, .channel_reverse = TIM_CHANNEL_1,
+    .duty = 0, .target = 0, .actual = 0
+};
+
+// Define FSM states
+typedef enum {
+    STATE_0,
+    STATE_1,
+	STATE_2,
+	STATE_3,
+	STATE_4,
+	STATE_5,
+	STATE_6
+} State_t;
+State_t current_state = STATE_0;
+
+uint8_t auto_mode = 0;
+uint8_t auto_mot = 0;
+uint8_t auto_lidar = 0;
+uint16_t scan_index = 0;
+
+uint32_t turret_move_start = 0;
+uint16_t min_scan_dist = 0xFFFF;
+uint16_t min_scan_index = 0;
+uint16_t scan_res = 20;
+int scan_dist[20];
+int scan_amp[20];
+
+#define RX_BUFFER_SIZE 7
 uint8_t rx_buffer[RX_BUFFER_SIZE];
 uint8_t rx_index = 0;
-char msg[64];
+char msg_int[64];
+char msg_main[64];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -100,7 +156,45 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+// === Servo Software PWM ===
+void dwt_init(void) {
+    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+    DWT->CYCCNT = 0;
+    DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+}
 
+uint16_t servo_angle = 140;  // global control variable
+uint16_t servo_step = 0;
+uint32_t servo_step_time = 0;
+
+void servo_pwm_update(void) {
+    static enum { IDLE, HIGH, LOW } state	 = IDLE;
+    static uint32_t pulse_start_us = 0;
+    static uint32_t period_start_us = 0;
+    uint32_t now_us = DWT->CYCCNT / (SystemCoreClock / 1000000);
+
+    uint32_t pulse_width_us = 1000 + ((uint32_t)servo_angle * 1000) / 180;
+
+    switch (state) {
+        case IDLE:
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
+            pulse_start_us = now_us;
+            period_start_us = now_us;
+            state = HIGH;
+            break;
+        case HIGH:
+            if ((now_us - pulse_start_us) >= pulse_width_us) {
+                HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
+                state = LOW;
+            }
+            break;
+        case LOW:
+            if ((now_us - period_start_us) >= 20000) {
+                state = IDLE;
+            }
+            break;
+    }
+}
 /* USER CODE END 0 */
 
 /**
@@ -109,9 +203,28 @@ static void MX_USART1_UART_Init(void);
   */
 int main(void)
 {
+
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
   SystemClock_Config();
 
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_ADC1_Init();
   MX_I2C1_Init();
@@ -123,51 +236,322 @@ int main(void)
   MX_TIM10_Init();
   MX_TIM11_Init();
   MX_USART1_UART_Init();
-
+  /* USER CODE BEGIN 2 */
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
+  HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_3);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
   HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_2);
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
   HAL_TIM_PWM_Start(&htim10, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim11, TIM_CHANNEL_1);
   HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
-
+  HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, GPIO_PIN_RESET); // Force TF_Luna into I2C mode
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);  // Drive IMU RESET PIN high
+  HAL_Delay(100);  // Optional but useful
+  dwt_init();            // For accurate microsecond delay
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);  // Initialize servo pin low
   HAL_Delay(100);
-  int len = sprintf(msg, "Enter 4 characters: M, motor ID, hex value duty cycle\r\n");
-  HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
+
+  // LUNA LIDAR I2C Check
+  if (HAL_I2C_IsDeviceReady(&hi2c2, 0x10 << 1, 3, 100) == HAL_OK) {
+      HAL_UART_Transmit(&huart1, (uint8_t*)"TF-Luna ready!\r\n", 17, HAL_MAX_DELAY);
+  } else {
+      HAL_UART_Transmit(&huart1, (uint8_t*)"TF-Luna NOT responding\r\n", 25, HAL_MAX_DELAY);
+  }
+
+  // BNO055 IMU I2C Check
+  // #define BNO055_ADDR (0x29 << 1)  // 7-bit address shifted for STM32 HAL
+
+  if (HAL_I2C_IsDeviceReady(&hi2c1, BNO055_ADDR, 3, 100) == HAL_OK) {
+	  HAL_UART_Transmit(&huart1, (uint8_t*)"BNO055 ready!\r\n", 16, HAL_MAX_DELAY);
+  } else {
+   	  HAL_UART_Transmit(&huart1, (uint8_t*)"BNO055 NOT responding\r\n", 25, HAL_MAX_DELAY);
+  }
+
+  // IMU Init
+  BNO055_Init(&hi2c1);
+  //BNO055_StartCalibration();
+
+  //uint8_t sys, gyr, acc, mag;
+  //BNO055_GetCalibStatus(&sys, &gyr, &acc, &mag);
+  //int len = sprintf(msg_main, "Calib SYS:%d GYR:%d ACC:%d MAG:%d\r\n", sys, gyr, acc, mag);
+  //HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
+  HAL_Delay(100);
+  int len = sprintf(msg_main, "Ping Pong Bot Starting...\r\n");
+  HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
   HAL_UART_Receive_IT(&huart1, &rx_buffer[rx_index], 1);
+  /* USER CODE END 2 */
 
-  // IMU Initialization
-  IMU_Init(&imu, &hi2c1);
-
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
   int32_t turret1_enc_last = -1;
+  int16_t turret2_enc_last = -1;
+  uint8_t printed = 0;
+  float heading, roll, pitch;
+  int32_t imu_head_deg10 = 0;
+  int32_t imu_roll_deg10 = 0;
+  HAL_Delay(1000);
+  //FSM_Init();
   while (1)
   {
-    // Update encoder count and angle (tenths of degrees)
-    turret1_enc_count = __HAL_TIM_GET_COUNTER(&htim2);
-    if (turret1_enc_count != turret1_enc_last) {
-      turret1_enc_deg = (7200 * turret1_enc_count) / (3200*10); // 7200 = 360.0 deg × 20 (tenths)
-      turret1_enc_last = turret1_enc_count;
-    }
+    /* USER CODE END WHILE */
 
-    // Simple proportional controller
-    int32_t error = turret1_target - turret1_enc_deg;
-    duty_turret1 = 0.08*error;  // P-gain = 0.5
+    /* USER CODE BEGIN 3 */
+		//uint8_t mode = 0x00;
+		//HAL_I2C_Mem_Write(&hi2c1, (0x29 << 1), 0x3D, I2C_MEMADD_SIZE_8BIT, &mode, 1, 10);
+		//BNO055_ReadEuler(&heading,&roll,&pitch);
+		//imu_head_deg10 = (int32_t)(heading*10.0f);
+		//imu_roll_deg10 = (int32_t)(roll*10.0f);
+		//HAL_Delay(20);
+	    if (imu_mode) {
+	        //float heading, roll, pitch;
+	        //BNO055_ReadEuler(&heading, &roll, &pitch);
 
-    // Saturate duty to ±100
-    if (duty_turret1 > 80) duty_turret1 = 80;
-    if (duty_turret1 < -80) duty_turret1 = -80;
+	        //int len = sprintf(msg_main, "H: %.1f R: %.1f P: %.1f\r\n", heading / 16.0f, roll / 16.0f, pitch / 16.0f);
+	        int len = sprintf(msg_main, "H: %.1f R: %.1f P: %.1f\r\n", heading, roll, pitch);
+	    	HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
+	        len = sprintf(msg_main, "H: %d R: %d\r\n",imu_head_deg10,imu_roll_deg10);
+	    	HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
 
-    // Apply motor control
-    set_duty(&flywheel1, duty_flywheel1);
-    set_duty(&flywheel2, duty_flywheel2);
-    set_duty(&turret1, duty_turret1);
-    set_duty(&turret2, duty_turret2);
-  }
+	        HAL_Delay(500);  // Limit update rate
+	    }
+
+	  // ENCODERS
+	  turret1_enc_count = __HAL_TIM_GET_COUNTER(&htim2);
+	  if (turret1_enc_count != turret1_enc_last) {
+	      turret1_enc_deg = (7200 * turret1_enc_count) / (3200*10); // 7200 = 360.0 deg × 20 (tenths)
+ 	      turret1_enc_last = turret1_enc_count;
+	  }
+	  int16_t turret2_enc_now = (int16_t)__HAL_TIM_GET_COUNTER(&htim3);
+	  int16_t delta = turret2_enc_now - turret2_enc_last;
+      turret2_enc_last = turret2_enc_now;
+      turret2_enc_pos += delta;
+      turret2_enc_deg = (7200 * turret2_enc_pos) / (3200*10); // degrees × 10
+      //turret1_enc_deg = imu_roll_deg10;
+      // SOFTWARE PWM
+      servo_pwm_update();
+      // FINITE-STATE-MACHINE
+      switch(current_state)
+      {
+      	  //int len;
+      	  case STATE_0: // Initialize
+      		  turret1_target = -150;
+      		  turret2_target = 30;
+				if (turret_move_start == 0) {
+					turret_move_start = HAL_GetTick();
+				}
+      		  //turret1_target = 0;
+      		  //turret2_target = 0;
+      		  move_to(&turret1, turret1_target, turret1_enc_deg);
+      		  move_to(&turret2, turret2_target, turret2_enc_deg);
+      		  //if (HAL_GetTick() - turret_move_start >= 2000)
+      		  if (abs(turret1_target - turret1_enc_deg) < 5 && abs(turret2_target - turret2_enc_deg) < 5)
+      		  {
+      		      turret_move_start = 0;
+      		      //enable(&turret2);
+      			  current_state = STATE_1;
+      		      int len = sprintf(msg_main, "Motors Initialized\r\n");
+    	          HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
+      		  }
+      		  break;
+      	  case STATE_1: // Hub
+      		  if (!printed) {
+      			  int len = sprintf(msg_main, "Waiting Command...\r\n");
+    	          HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
+      			  printed = 1;
+      		  }
+      		  break;
+			case STATE_2: // Move turret
+			{
+				// Start timing on first entry into this state
+				if (turret_move_start == 0) {
+					turret_move_start = HAL_GetTick();
+				}
+					move_to(&turret1, turret1_target, turret1_enc_deg);
+					move_to(&turret2, turret2_target, turret2_enc_deg);
+
+					// Wait 1 second before considering the move "complete"
+					if (abs(turret1_target - turret1_enc_deg) < 5 && abs(turret2_target - turret2_enc_deg) < 5){
+					//if (HAL_GetTick() - turret_move_start >= 1000) {
+						turret_move_start = 0;  // Reset for next use
+						enable(&turret1);
+						enable(&turret2);
+						//int len = sprintf(msg_main, "Turret Move Timed Out\r\n");
+						//HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
+						if (auto_mode == 0){
+							current_state = STATE_1;
+							printed = 0;
+						}
+						else {
+							auto_mot = 1;
+							current_state = STATE_6;
+						}
+					}
+			}
+			break;
+      	  case STATE_3: // Lidar
+      	  {
+      		  uint8_t reg = 0x00;
+      	      uint16_t dist = 0;
+      	      uint16_t amp = 0;
+      	      if (HAL_I2C_Master_Transmit(&hi2c2, 0x10 << 1, &reg, 1, 10) == HAL_OK &&
+      	      	  HAL_I2C_Master_Receive(&hi2c2, 0x10 << 1, lidar_buf, 4, 10) == HAL_OK) {
+      	      	  dist = lidar_buf[0] | (lidar_buf[1] << 8);
+      	      	  amp  = lidar_buf[2] | (lidar_buf[3] << 8);
+      	      } else {
+
+      	      }
+	          if (auto_mode == 0){
+	      	      int len = sprintf(msg_main, "Dist: %d cm, Amp: %d\r\n", dist, amp);
+		          HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
+		          current_state = STATE_1;
+		          printed = 0;
+	          }
+	          else {
+	      	      int len = sprintf(msg_main, "Auto Dist: %d cm, Amp: %d\r\n", dist, amp);
+		          HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
+		          scan_dist[scan_index] = dist;
+		          scan_amp[scan_index] = amp;
+		          if (dist < min_scan_dist && amp > 100) {
+		              min_scan_dist = dist;
+		              min_scan_index = scan_index;
+		          }
+		          current_state = STATE_6;
+		          auto_lidar = 1;
+	          }
+      	  }
+	      break;
+      	  case STATE_4: // Flywheels
+      	  {
+      		  set_duty(&flywheel1, duty_flywheel1);
+	          int len = sprintf(msg_main, "Flywheel Speed Set\r\n");
+	          HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
+      		  if (auto_mode == 0){
+      			  current_state = STATE_1;
+      			  printed = 0;
+      		  }
+      		  else {
+      			  current_state = STATE_6;
+      		  }
+      	  }
+          break;
+      	  case STATE_5: // launch
+      	  {
+      	    //int len = sprintf(msg_main, "Servo state: %d\r\n", servo_step);
+      	    //HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
+      	    switch (servo_step) {
+      	        case 0:
+      	            servo_angle = 320;  // move back
+      	            servo_step_time = HAL_GetTick();
+      	            servo_step = 1;
+      	            break;
+      	        case 1:
+      	            if (HAL_GetTick() - servo_step_time >= 300) {
+      	                servo_angle = 140;  // move forward
+      	                servo_step_time = HAL_GetTick();
+      	                servo_step = 2;
+      	            }
+      	            break;
+      	        case 2:
+      	            if (HAL_GetTick() - servo_step_time >= 300) {
+      	                servo_angle = 140;  // return to center
+      	                if (auto_mode == 0){
+      	                	current_state = STATE_1;
+      	                	printed = 0;
+      	                	servo_step = 0;
+      	                }
+      	                else {
+      	                	current_state = STATE_6;
+      	                	servo_step = 0;  // reset step
+      	                }
+      	            }
+      	            break;
+      	    }
+      	}
+      	break;
+      	case STATE_6: // Auto scan
+      	{
+      		HAL_Delay(50); // Avoid console clogging
+      		if (scan_index < 20){
+      			if (auto_mot == 0){
+      				turret2_target = (10*scan_index);
+      				current_state = STATE_2;
+            	    //int len = sprintf(msg_main, "Motor Movement %d \r\n", scan_index);
+      	            //HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
+      			}
+      			else if (auto_lidar == 0){
+      				current_state = STATE_3;
+            	    //int len = sprintf(msg_main, "LIDAR Scan %d \r\n", scan_index);
+      	            //HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
+      			}
+      			else if (auto_mot == 1 && auto_lidar == 1){
+      				scan_index += 1;
+      				auto_mot = 0;
+      				auto_lidar = 0;
+      			}
+      		}
+      		else if (scan_index == 20){
+      		    // Reset scan for next time
+      		    if (min_scan_dist > 450){
+      		    	int len = sprintf(msg_main,"No object in range");
+      		    	HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
+      		    	scan_index = 24;
+      		    }
+      		    else {//scan_index = 0;
+          		    len = sprintf(msg_main, "Scan complete. Closest at index %d, dist %d cm\r\n",
+          		                      min_scan_index, min_scan_dist);
+          		    HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
+      		    	//min_scan_index = 0;
+      		    	turret2_target = (10*min_scan_index);
+      		    	//turret1_target = -180;
+      		    	scan_index = 21;
+      		    	current_state = STATE_2;
+      		    }
+      		}
+      		else if (scan_index == 21){
+      			if (min_scan_dist < 100){
+      				duty_flywheel1 = 85;
+      			}
+      			else if (min_scan_dist < 250){
+      				duty_flywheel1 = 90;
+      			}
+      			else {
+      				duty_flywheel1 = 100;
+      			}
+      			current_state = STATE_4;
+      			scan_index = 22;
+      		}
+      		else if (scan_index == 22){
+      			current_state = STATE_5;
+      			scan_index = 23;
+      		}
+      		else if (scan_index == 23){
+      			duty_flywheel1 = 0;
+      			current_state = 4;
+      			scan_index = 24;
+      		}
+      		else if (scan_index == 24){
+      			auto_mode = 0;
+      			printed = 0;
+      			scan_index = 0;
+      			min_scan_dist = 0xFFFF;
+      			min_scan_index = 0;
+      			current_state = STATE_1;
+      		}
+      		else {
+        	    int len = sprintf(msg_main, "BROKEN CODE");
+        	   	HAL_UART_Transmit(&huart1, (uint8_t*)msg_main, len, HAL_MAX_DELAY);
+        	   	scan_index = 0;
+        	   	current_state = STATE_1;
+      		}
+        }
+      	break;
+      }
+	}
+  /* USER CODE END 3 */
 }
-
 
 /**
   * @brief System Clock Configuration
@@ -382,6 +766,14 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+  {
+    Error_Handler();
+  }
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
   {
     Error_Handler();
@@ -467,21 +859,16 @@ static void MX_TIM3_Init(void)
 
   TIM_Encoder_InitTypeDef sConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIM_OC_InitTypeDef sConfigOC = {0};
 
   /* USER CODE BEGIN TIM3_Init 1 */
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 1;
+  htim3.Init.Prescaler = 0;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 2399;
+  htim3.Init.Period = 65535;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
-  {
-    Error_Handler();
-  }
   sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
@@ -501,22 +888,9 @@ static void MX_TIM3_Init(void)
   {
     Error_Handler();
   }
-  sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
-  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
-  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
-  {
-    Error_Handler();
-  }
   /* USER CODE BEGIN TIM3_Init 2 */
 
   /* USER CODE END TIM3_Init 2 */
-  HAL_TIM_MspPostInit(&htim3);
 
 }
 
@@ -736,89 +1110,162 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-  if (huart->Instance == USART1)
-  {
-    uint8_t received = rx_buffer[rx_index];
-    if (received == '\r')
+    if (huart->Instance == USART1)
     {
-      if (rx_index != 4 || rx_index != 3)
-      {
-        int len = sprintf(msg, "Invalid command character length\r\n");
-        HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
-        rx_index = 0;
-        return;
-      }
-      {
-        int len = sprintf(msg, "Invalid command character length\r\n");
-        HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
-      }
+        uint8_t received = rx_buffer[rx_index];
 
-      else if ((rx_buffer[0] == 'M' || rx_buffer[0] == 'm') && (rx_buffer[1] >= '1' && rx_buffer[1] <= '4'))
-      {
-        uint8_t motor_id = rx_buffer[1] - '0';
-        char hex_str[3] = { rx_buffer[2], rx_buffer[3], '\0' };
-        uint8_t raw = (uint8_t)strtol(hex_str, NULL, 16);
-        int8_t signed_val = *(int8_t*)&raw;
-        int32_t duty = (int32_t)signed_val;
+        if (received == '\r')  // End of command
+        {
+            // Enforce valid format: exactly 4 printable characters
+            if (rx_index != 4 ||
+                !isprint(rx_buffer[0]) ||
+                !isprint(rx_buffer[1]) ||
+                !isprint(rx_buffer[2]) ||
+                !isprint(rx_buffer[3]))
+            {
+                int len = sprintf(msg_int, "Invalid command format\r\n");
+                HAL_UART_Transmit(&huart1, (uint8_t*)msg_int, len, HAL_MAX_DELAY);
+            }
+            else if (current_state == STATE_1)
+            {
+                rx_buffer[rx_index] = '\0';  // Null-terminate
 
-        if (duty > 100) duty = 100;
-        if (duty < -100) duty = -100;
+                // Echo for debugging
+                int len = sprintf(msg_int, "RX: %s\r\n", rx_buffer);
+                HAL_UART_Transmit(&huart1, (uint8_t*)msg_int, len, HAL_MAX_DELAY);
 
-        if (motor_id == 1) duty_flywheel1 = duty;
-        else if (motor_id == 2) duty_flywheel2 = duty;
-        else if (motor_id == 3) duty_turret1 = duty;
-        else if (motor_id == 4) duty_turret2 = duty;
+                // ---------------- Motor Control ----------------
+                if ((rx_buffer[0] == 'M' || rx_buffer[0] == 'm') &&
+                    (rx_buffer[1] >= '1' && rx_buffer[1] <= '2') &&
+                    isxdigit(rx_buffer[2]) && isxdigit(rx_buffer[3]))
+                {
+                    uint8_t motor_id = rx_buffer[1] - '0';
+                    char hex_str[3] = { rx_buffer[2], rx_buffer[3], '\0' };
+                    uint8_t raw = (uint8_t)strtol(hex_str, NULL, 16);
+                    int8_t signed_val = *(int8_t*)&raw;
+                    int32_t duty = signed_val;
 
-        int len = sprintf(msg, "Motor %d set to %ld%%\r\n", motor_id, duty);
-        HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
-      }
+                    if (duty > 100) duty = 100;
+                    if (duty < -100) duty = -100;
 
-      else if (rx_buffer[0] == 'E' && rx_buffer[1] == '1' && rx_buffer[2] == 'r' && rx_buffer[3] == 'a')
-      {
-        int len = sprintf(msg, "Turret 1 angle: %d.%01d deg\r\n", turret1_enc_deg, turret1_enc_deg);
-        HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
-      }
+                    if (motor_id == 1) duty_flywheel1 = duty;
+                    else if (motor_id == 2) duty_flywheel2 = duty;
 
-      else if (rx_buffer[0] == 'E' && rx_buffer[1] == '1')
-      {
-        char hex_str[3] = { rx_buffer[2], rx_buffer[3], '\0' };
-        uint8_t raw = (uint8_t)strtol(hex_str, NULL, 16);
-        turret1_target = (int32_t)raw;
+                    len = sprintf(msg_int, "Motor %d set to %ld%%\r\n", motor_id, duty);
+                    HAL_UART_Transmit(&huart1, (uint8_t*)msg_int, len, HAL_MAX_DELAY);
 
-        int len = sprintf(msg, "Turret 1 target set to: %ld\r\n", turret1_target);
-        HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
-      }
+                    current_state = STATE_4;
+                }
 
-      else if (rx_buffer[0] == 'I' && rx_buffer[1] == 'M' && rx_buffer[2] == 'U')  // Read IMU data
-      {
-          IMU_Euler_t eul;
-          if (IMU_ReadEuler(&imu, &eul)) {
-              int len = sprintf(msg, "Yaw: %.2f  Pitch: %.2f  Roll: %.2f\r\n", eul.yaw, eul.pitch, eul.roll);
-              HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
-          } else {
-              int len = sprintf(msg, "IMU read failed\r\n");
-              HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
-          }
-          rx_index = 0;
-      }
+                // ---------------- Turret 1 Read ----------------
+                else if (strncmp((char*)rx_buffer, "T1re", 4) == 0)
+                {
+                    int len = sprintf(msg_int, "Turret 1 angle: %ld.%01ld deg\r\n", turret1_enc_deg / 10, labs(turret1_enc_deg % 10));
+                    HAL_UART_Transmit(&huart1, (uint8_t*)msg_int, len, HAL_MAX_DELAY);
+                }
 
-      else
-      {
-        int len = sprintf(msg, "Invalid command\r\n");
-        HAL_UART_Transmit(&huart1, (uint8_t*)msg, len, HAL_MAX_DELAY);
-      }
-      rx_index = 0;
+                // ---------------- Turret 1 Set ----------------
+                else if (rx_buffer[0] == 'T' && rx_buffer[1] == '1' &&
+                         isxdigit(rx_buffer[2]) && isxdigit(rx_buffer[3]))
+                {
+                    char hex_str[3] = { rx_buffer[2], rx_buffer[3], '\0' };
+                    uint8_t raw = (uint8_t)strtol(hex_str, NULL, 16);
+                    int8_t signed_val = *(int8_t*)&raw;
+                    turret1_target = (int32_t)signed_val * 10;
+
+                    int len = sprintf(msg_int, "Turret 1 target set to: %ld.%01ld deg\r\n", turret1_target / 10, labs(turret1_target % 10));
+                    HAL_UART_Transmit(&huart1, (uint8_t*)msg_int, len, HAL_MAX_DELAY);
+
+                    current_state = STATE_2;
+                }
+
+                // ---------------- Turret 2 Read ----------------
+                else if (strncmp((char*)rx_buffer, "T2re", 4) == 0)
+                {
+                    int len = sprintf(msg_int, "Turret 2 angle: %ld.%01ld deg\r\n", turret2_enc_deg / 10, labs(turret2_enc_deg % 10));
+                    HAL_UART_Transmit(&huart1, (uint8_t*)msg_int, len, HAL_MAX_DELAY);
+                }
+
+                // ---------------- Turret 2 Set ----------------
+                else if (rx_buffer[0] == 'T' && rx_buffer[1] == '2' &&
+                         isxdigit(rx_buffer[2]) && isxdigit(rx_buffer[3]))
+                {
+                    char hex_str[3] = { rx_buffer[2], rx_buffer[3], '\0' };
+                    uint8_t raw = (uint8_t)strtol(hex_str, NULL, 16);
+                    int8_t signed_val = *(int8_t*)&raw;
+                    turret2_target = (int32_t)signed_val * 10;
+
+                    int len = sprintf(msg_int, "Turret 2 target set to: %ld.%01ld deg\r\n", turret2_target / 10, labs(turret2_target % 10));
+                    HAL_UART_Transmit(&huart1, (uint8_t*)msg_int, len, HAL_MAX_DELAY);
+
+                    current_state = STATE_2;
+                }
+
+                // ---------------- LIDAR Start ----------------
+                else if (strncmp((char*)rx_buffer, "LIDA", 4) == 0)
+                {
+                    lidar_mode = 1;
+                    int len = sprintf(msg_int, "LIDAR streaming started.\r\n");
+                    HAL_UART_Transmit(&huart1, (uint8_t*)msg_int, len, HAL_MAX_DELAY);
+                    current_state = STATE_3;
+                }
+                // SERVO LAUNCH
+                else if (strncmp((char*)rx_buffer, "SRUN", 4) == 0)
+                {
+                	current_state = STATE_5;
+                    int len = sprintf(msg_int, "Servo routine starting\r\n");
+                    HAL_UART_Transmit(&huart1, (uint8_t*)msg_int, len, HAL_MAX_DELAY);
+                }
+                else if (strncmp((char*)rx_buffer, "SCAN", 4) == 0)
+                {
+                	auto_mode = 1;
+                	current_state = STATE_6;
+                    int len = sprintf(msg_int, "Starting scan\r\n");
+                    HAL_UART_Transmit(&huart1, (uint8_t*)msg_int, len, HAL_MAX_DELAY);
+                }
+                else if (strncmp((char*)rx_buffer, "HEAD", 4) == 0) {
+                    imu_mode = 1;
+                    int len = sprintf(msg_int, "IMU heading stream started\r\n");
+                    HAL_UART_Transmit(&huart1, (uint8_t*)msg_int, len, HAL_MAX_DELAY);
+                }
+                else if (strncmp((char*)rx_buffer, "STOP", 4) == 0) {
+                    imu_mode = 0;
+                    int len = sprintf(msg_int, "Streaming stopped\r\n");
+                    HAL_UART_Transmit(&huart1, (uint8_t*)msg_int, len, HAL_MAX_DELAY);
+                }
+                // ---------------- LIDAR Stop ----------------
+                /*else if (strncmp((char*)rx_buffer, "STOP", 4) == 0)
+                {
+                    lidar_mode = 0;
+                    int len = sprintf(msg_int, "LIDAR streaming stopped.\r\n");
+                    HAL_UART_Transmit(&huart1, (uint8_t*)msg_int, len, HAL_MAX_DELAY);
+                    current_state = STATE_1;
+                }*/
+
+                // ---------------- Unknown Command ----------------
+                else
+                {
+                    int len = sprintf(msg_int, "Invalid command\r\n");
+                    HAL_UART_Transmit(&huart1, (uint8_t*)msg_int, len, HAL_MAX_DELAY);
+                }
+            }
+
+            // Always reset buffer after processing a command
+            memset(rx_buffer, 0, RX_BUFFER_SIZE);
+            rx_index = 0;
+        }
+        else
+        {
+            rx_index++;
+            if (rx_index >= RX_BUFFER_SIZE)
+                rx_index = 0;
+        }
+
+        // Re-arm UART reception
+        HAL_UART_Receive_IT(&huart1, &rx_buffer[rx_index], 1);
     }
-
-    else
-    {
-      rx_index++;
-      if (rx_index >= RX_BUFFER_SIZE)
-        rx_index = 0;
-    }
-    HAL_UART_Receive_IT(&huart1, &rx_buffer[rx_index], 1);
-  }
 }
+
 /* USER CODE END 4 */
 
 /**
