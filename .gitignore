@@ -2,10 +2,7 @@
 *.launch
 *.mex
 *.db
-#*.project
-#*.cproject
-#.settings/
-#.mxproject
+
 
 # Build files
 Debug/
@@ -31,6 +28,5 @@ build/
 *.swp
 *.tmp
 *.log
-# *.SLDPRT
-# *.SLDASM
+
 
