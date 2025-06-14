@@ -31,5 +31,5 @@ build/
 *.swp
 *.tmp
 *.log
-*.SLDPRT
-*.SLDASM
+# *.SLDPRT
+# *.SLDASM
