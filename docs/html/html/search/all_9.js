@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['electrical_0',['Hardware (Electrical)',['../index.html#autotoc_md6',1,'']]],
+  ['electrical_0',['Hardware (Electrical)',['../index.html#autotoc_md7',1,'']]],
   ['enable_1',['enable',['../motor_8h.html#a87e0de30f5044f896afc5ddaeff0f632',1,'enable(motor_t *p_mot):&#160;motor.c'],['../motor_8c.html#a87e0de30f5044f896afc5ddaeff0f632',1,'enable(motor_t *p_mot):&#160;motor.c']]],
   ['environ_2',['environ',['../syscalls_8c.html#aa006daaf11f1e2e45a6ababaf463212b',1,'syscalls.c']]],
   ['error_5fhandler_3',['Error_Handler',['../main_8h.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c'],['../main_8c.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c']]],

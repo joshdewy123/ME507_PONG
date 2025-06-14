@@ -5,6 +5,12 @@
 
 ---
 
+**Link to repository:** https://github.com/joshdewy123/ME507_PONG
+
+**Link to video:** https://youtube.com/shorts/3GikZNkVesM?feature=share
+
+---
+
 ## Overview
 
 This autonomous ping pong launcher is capable of both manual and automatic targeting and launching. It rotates about two axes to aim, detects objects using a TF-Luna LIDAR, and fires ping pong balls using dual flywheels. The system is built around a custom PCB featuring an STM32 microcontroller, motor drivers, and dedicated I2C lines.
@@ -27,9 +33,9 @@ Small attachment parts were made during the project’s development, and they pr
 
 Overall, the mechanical design of the robot worked very well. The magazine, launcher, and ball loading mechanism worked especially well. Power transfer between the motors and other components worked well, but over time, the plastic 3-D printed components began losing their grip on the metal shafts, causing more slip over time. If the project were continued with moree time and budget, the robot would utilize more metal mechanical components for longevity.
 
-![Full Mechanical System Model 1](Images/CAD_FULL.png)
+![Full Mechanical System Model](Images/CAD_FULL.png)
 
-![Launcher Mechanical System Model](Images/CAD_LAUNCHER.png)
+![Launcher Portion of the Mechanical System Model](Images/CAD_LAUNCHER.png)
 
 ---
 
@@ -135,7 +141,7 @@ The robot was programmed in C only, as updating the project to C++ caused variou
 
 ---
 
-## 📈 Future Work
+## Future Work
 
 If this project were continued, there are multiple fixes to be implemented that would greatly improve the consistency and functionality of the robot:
 
@@ -146,10 +152,10 @@ If this project were continued, there are multiple fixes to be implemented that 
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```
-📦 ME507_PONG
+ME507_PONG
 ├── CAD_MECHANICAL_SYSTEM/      # CAD files for mechanical design
 ├── Core/                       # Main firmware source code (.c/.h)
 ├── Drivers/                    # Device drivers (e.g. HAL, custom)
