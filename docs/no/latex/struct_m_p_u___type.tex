@@ -1,0 +1,167 @@
+\doxysection{MPU\+\_\+\+Type Struct Reference}
+\hypertarget{struct_m_p_u___type}{}\label{struct_m_p_u___type}\index{MPU\_Type@{MPU\_Type}}
+
+
+Structure type to access the Memory Protection Unit (MPU).  
+
+
+
+
+{\ttfamily \#include $<$core\+\_\+armv81mml.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{core__starmc1_8h_a4cc1649793116d7c2d8afce7a4ffce43}{\+\_\+\+\_\+\+IM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_gaee6e8f4171b9024d763ba87f3ce92e73}{TYPE}}
+\item 
+\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\+\_\+\+\_\+\+IOM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_gac81efc171e9852a36caeb47122bfec5b}{CTRL}}
+\item 
+\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\+\_\+\+\_\+\+IOM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga840e54c4f1cf688fc9f7495ea386abb4}{RNR}}
+\item 
+\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\+\_\+\+\_\+\+IOM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga9c6ca0b5d8ba77e54cb0b01855a2f753}{RBAR}}
+\item 
+\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\+\_\+\+\_\+\+IOM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_gacf27430ffaf2940fc019c14364112353}{RLAR}}
+\item 
+\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\+\_\+\+\_\+\+IOM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_gafe44c1572bc8b056060b86a7265cfb69}{RBAR\+\_\+\+A1}}
+\item 
+\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\+\_\+\+\_\+\+IOM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga264112fc47526e1f333c8f4b380ad31e}{RLAR\+\_\+\+A1}}
+\item 
+\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\+\_\+\+\_\+\+IOM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga883319c839e8c5d2cc768bf2289686c9}{RBAR\+\_\+\+A2}}
+\item 
+\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\+\_\+\+\_\+\+IOM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga36a1e26a1eb74903e8d918ecd6c20234}{RLAR\+\_\+\+A2}}
+\item 
+\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\+\_\+\+\_\+\+IOM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga4718bd9732fdf87af917188aa79c7af3}{RBAR\+\_\+\+A3}}
+\item 
+\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\+\_\+\+\_\+\+IOM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga9801960adf7090637f232df31bba7746}{RLAR\+\_\+\+A3}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga3bc109a372d05329e22cb7e3bf2b84ba}{RESERVED0}} \mbox{[}1\mbox{]}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga4926beceb043d0f01096e88dba6062a4}{MAIR}} \mbox{[}2\mbox{]}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga057e6bbe03c9a5cfaf3d77ecd5b03eb1}{MAIR0}}\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga2eaf19017cd4ccc9af912e6cf61cebd9}{MAIR1}}\\
+\>\} \\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga4926beceb043d0f01096e88dba6062a4}{MAIR}} \mbox{[}2\mbox{]}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga057e6bbe03c9a5cfaf3d77ecd5b03eb1}{MAIR0}}\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga2eaf19017cd4ccc9af912e6cf61cebd9}{MAIR1}}\\
+\>\} \\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga4926beceb043d0f01096e88dba6062a4}{MAIR}} \mbox{[}2\mbox{]}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga057e6bbe03c9a5cfaf3d77ecd5b03eb1}{MAIR0}}\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga2eaf19017cd4ccc9af912e6cf61cebd9}{MAIR1}}\\
+\>\} \\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\+\_\+\+\_\+\+IOM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s___core___sys_tick_functions_gaa0c485d3232774561fda8068a60d4e1f}{RASR}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga4926beceb043d0f01096e88dba6062a4}{MAIR}} \mbox{[}2\mbox{]}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga057e6bbe03c9a5cfaf3d77ecd5b03eb1}{MAIR0}}\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga2eaf19017cd4ccc9af912e6cf61cebd9}{MAIR1}}\\
+\>\} \\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\+\_\+\+\_\+\+IOM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_gad44a348327e8033dafcda034c7c077fc}{RASR\+\_\+\+A1}}
+\item 
+\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\+\_\+\+\_\+\+IOM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga5763e9adcf2fd52b4b1e120db2b5d040}{RASR\+\_\+\+A2}}
+\item 
+\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\+\_\+\+\_\+\+IOM}} uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_gacce01d8f20570510d98e9633e4620f62}{RASR\+\_\+\+A3}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga4926beceb043d0f01096e88dba6062a4}{MAIR}} \mbox{[}2\mbox{]}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga057e6bbe03c9a5cfaf3d77ecd5b03eb1}{MAIR0}}\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga2eaf19017cd4ccc9af912e6cf61cebd9}{MAIR1}}\\
+\>\} \\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga4926beceb043d0f01096e88dba6062a4}{MAIR}} \mbox{[}2\mbox{]}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga057e6bbe03c9a5cfaf3d77ecd5b03eb1}{MAIR0}}\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga2eaf19017cd4ccc9af912e6cf61cebd9}{MAIR1}}\\
+\>\} \\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga4926beceb043d0f01096e88dba6062a4}{MAIR}} \mbox{[}2\mbox{]}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga057e6bbe03c9a5cfaf3d77ecd5b03eb1}{MAIR0}}\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga2eaf19017cd4ccc9af912e6cf61cebd9}{MAIR1}}\\
+\>\} \\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga4926beceb043d0f01096e88dba6062a4}{MAIR}} \mbox{[}2\mbox{]}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga057e6bbe03c9a5cfaf3d77ecd5b03eb1}{MAIR0}}\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga2eaf19017cd4ccc9af912e6cf61cebd9}{MAIR1}}\\
+\>\} \\
+\}; \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga4926beceb043d0f01096e88dba6062a4}{MAIR}} \mbox{[}2\mbox{]}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga057e6bbe03c9a5cfaf3d77ecd5b03eb1}{MAIR0}}\\
+\>\>\mbox{\hyperlink{core__starmc1_8h_ab6caba5853a60a17e8e04499b52bf691}{\_\_IOM}} uint32\_t \mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions_ga2eaf19017cd4ccc9af912e6cf61cebd9}{MAIR1}}\\
+\>\} \\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure type to access the Memory Protection Unit (MPU). 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__armv81mml_8h}{core\+\_\+armv81mml.\+h}}\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__armv8mbl_8h}{core\+\_\+armv8mbl.\+h}}\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__armv8mml_8h}{core\+\_\+armv8mml.\+h}}\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm0plus_8h}{core\+\_\+cm0plus.\+h}}\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm23_8h}{core\+\_\+cm23.\+h}}\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm3_8h}{core\+\_\+cm3.\+h}}\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm33_8h}{core\+\_\+cm33.\+h}}\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm35p_8h}{core\+\_\+cm35p.\+h}}\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm4_8h}{core\+\_\+cm4.\+h}}\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm55_8h}{core\+\_\+cm55.\+h}}\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm7_8h}{core\+\_\+cm7.\+h}}\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__cm85_8h}{core\+\_\+cm85.\+h}}\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__sc000_8h}{core\+\_\+sc000.\+h}}\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__sc300_8h}{core\+\_\+sc300.\+h}}\item 
+Drivers/\+CMSIS/\+Include/\mbox{\hyperlink{core__starmc1_8h}{core\+\_\+starmc1.\+h}}\end{DoxyCompactItemize}

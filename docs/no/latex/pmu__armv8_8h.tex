@@ -1,0 +1,1342 @@
+\doxysection{Drivers/\+CMSIS/\+Include/pmu\+\_\+armv8.h File Reference}
+\hypertarget{pmu__armv8_8h}{}\label{pmu__armv8_8h}\index{Drivers/CMSIS/Include/pmu\_armv8.h@{Drivers/CMSIS/Include/pmu\_armv8.h}}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ade46980d37e0685ee64b825c637a3b6c}{ARM\+\_\+\+PMU\+\_\+\+ARMV8\+\_\+H}}
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a6e02b08550d7e9b273ff7913f1b57bea}{ARM\+\_\+\+PMU\+\_\+\+SW\+\_\+\+INCR}}~0x0000
+\begin{DoxyCompactList}\small\item\em PMU Events. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ac43e0e0f9e385ea66402bdeebf3fea3e}{ARM\+\_\+\+PMU\+\_\+\+L1\+I\+\_\+\+CACHE\+\_\+\+REFILL}}~0x0001
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a64a3d7bfb7ec9d7bdeb073a4fe1bbc38}{ARM\+\_\+\+PMU\+\_\+\+L1\+D\+\_\+\+CACHE\+\_\+\+REFILL}}~0x0003
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a7505ae74c1d905f01b05dd5466c1efc0}{ARM\+\_\+\+PMU\+\_\+\+L1\+D\+\_\+\+CACHE}}~0x0004
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a2e8725ee07c2b2c75a1b54261bc26cc8}{ARM\+\_\+\+PMU\+\_\+\+LD\+\_\+\+RETIRED}}~0x0006
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a8179d1144f8ec993bd1343e276d7b49b}{ARM\+\_\+\+PMU\+\_\+\+ST\+\_\+\+RETIRED}}~0x0007
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a8a5e60eee460addfc66e275a2c4c4800}{ARM\+\_\+\+PMU\+\_\+\+INST\+\_\+\+RETIRED}}~0x0008
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ac97858bd621eab4592569444f0a5c37f}{ARM\+\_\+\+PMU\+\_\+\+EXC\+\_\+\+TAKEN}}~0x0009
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_af9424157e9c5dca3a3689d181005c4f8}{ARM\+\_\+\+PMU\+\_\+\+EXC\+\_\+\+RETURN}}~0x000A
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a54fd2c392399221077c67866a395e587}{ARM\+\_\+\+PMU\+\_\+\+PC\+\_\+\+WRITE\+\_\+\+RETIRED}}~0x000C
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a22bfb189fff7c1ea9f81097a543ed756}{ARM\+\_\+\+PMU\+\_\+\+BR\+\_\+\+IMMED\+\_\+\+RETIRED}}~0x000D
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ab717347b1c3601cffb9c99b43b2a45c5}{ARM\+\_\+\+PMU\+\_\+\+BR\+\_\+\+RETURN\+\_\+\+RETIRED}}~0x000E
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a45d5ea86fdc015f4fc100462150c92da}{ARM\+\_\+\+PMU\+\_\+\+UNALIGNED\+\_\+\+LDST\+\_\+\+RETIRED}}~0x000F
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_abfa921c85a61f0a21c9bee289e63c102}{ARM\+\_\+\+PMU\+\_\+\+BR\+\_\+\+MIS\+\_\+\+PRED}}~0x0010
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a550d524d435a653b2f46acc1380a5ace}{ARM\+\_\+\+PMU\+\_\+\+CPU\+\_\+\+CYCLES}}~0x0011
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a60ccf42eae576e2fde3b9e17a8defeaa}{ARM\+\_\+\+PMU\+\_\+\+BR\+\_\+\+PRED}}~0x0012
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ab3852c2b3d59af106b9db7ea2c20c367}{ARM\+\_\+\+PMU\+\_\+\+MEM\+\_\+\+ACCESS}}~0x0013
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_af8e89b2b098e6bec5916517346925ce2}{ARM\+\_\+\+PMU\+\_\+\+L1\+I\+\_\+\+CACHE}}~0x0014
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a27d1b8b2c37ae0ae41781880ed3893d0}{ARM\+\_\+\+PMU\+\_\+\+L1\+D\+\_\+\+CACHE\+\_\+\+WB}}~0x0015
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_afb1e1f86d091ccb735858769c700e289}{ARM\+\_\+\+PMU\+\_\+\+L2\+D\+\_\+\+CACHE}}~0x0016
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_aeb414c1b0375022abc2502ab503a3284}{ARM\+\_\+\+PMU\+\_\+\+L2\+D\+\_\+\+CACHE\+\_\+\+REFILL}}~0x0017
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a1a0c4a1990eeed88edc3e1e0c4b1aca0}{ARM\+\_\+\+PMU\+\_\+\+L2\+D\+\_\+\+CACHE\+\_\+\+WB}}~0x0018
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_aa681d3db56b42775093869b8fdf1abb9}{ARM\+\_\+\+PMU\+\_\+\+BUS\+\_\+\+ACCESS}}~0x0019
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a2c8d23cc64e87b2044bb39bf8d0bc1b1}{ARM\+\_\+\+PMU\+\_\+\+MEMORY\+\_\+\+ERROR}}~0x001A
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_af7bad54617ace5c2fb48bc2e8aebf9c7}{ARM\+\_\+\+PMU\+\_\+\+INST\+\_\+\+SPEC}}~0x001B
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ae4c955416707f44f066ffd2560b9ae4c}{ARM\+\_\+\+PMU\+\_\+\+BUS\+\_\+\+CYCLES}}~0x001D
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_aca14907c5a1e1f9915159bc4cf323cf0}{ARM\+\_\+\+PMU\+\_\+\+CHAIN}}~0x001E
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ab55334c8510cb30c4c750913f6eb6279}{ARM\+\_\+\+PMU\+\_\+\+L1\+D\+\_\+\+CACHE\+\_\+\+ALLOCATE}}~0x001F
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_aad08dcded491bf257d223e4171af41cc}{ARM\+\_\+\+PMU\+\_\+\+L2\+D\+\_\+\+CACHE\+\_\+\+ALLOCATE}}~0x0020
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ab3b505a8bcc2b2885626d2f2cd542b73}{ARM\+\_\+\+PMU\+\_\+\+BR\+\_\+\+RETIRED}}~0x0021
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ae12baa616c5f0cdd081231fcf8cdad68}{ARM\+\_\+\+PMU\+\_\+\+BR\+\_\+\+MIS\+\_\+\+PRED\+\_\+\+RETIRED}}~0x0022
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a5b068593baa831348664dfa7d44f5483}{ARM\+\_\+\+PMU\+\_\+\+STALL\+\_\+\+FRONTEND}}~0x0023
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a8737bee352820bd7d1bc8e5e4260143c}{ARM\+\_\+\+PMU\+\_\+\+STALL\+\_\+\+BACKEND}}~0x0024
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a3406498b2c17ca080ebd68cc40d9630e}{ARM\+\_\+\+PMU\+\_\+\+L2\+I\+\_\+\+CACHE}}~0x0027
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_aa18cee03802b46076e9ab66fd0a7c61d}{ARM\+\_\+\+PMU\+\_\+\+L2\+I\+\_\+\+CACHE\+\_\+\+REFILL}}~0x0028
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ac11cbc6849dbad7bd8b64ab6e2a3f8d5}{ARM\+\_\+\+PMU\+\_\+\+L3\+D\+\_\+\+CACHE\+\_\+\+ALLOCATE}}~0x0029
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_afe99db0693125100272247c147fb3b02}{ARM\+\_\+\+PMU\+\_\+\+L3\+D\+\_\+\+CACHE\+\_\+\+REFILL}}~0x002A
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a4e96b5a6fb13c657e78da342a02db200}{ARM\+\_\+\+PMU\+\_\+\+L3\+D\+\_\+\+CACHE}}~0x002B
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ab823f95f7ac8196a208d12381b1b2a11}{ARM\+\_\+\+PMU\+\_\+\+L3\+D\+\_\+\+CACHE\+\_\+\+WB}}~0x002C
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a902562d8161fffd45726dc4cc8727545}{ARM\+\_\+\+PMU\+\_\+\+LL\+\_\+\+CACHE\+\_\+\+RD}}~0x0036
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a6979efa69af7d0e62cc3e2f88b0155b8}{ARM\+\_\+\+PMU\+\_\+\+LL\+\_\+\+CACHE\+\_\+\+MISS\+\_\+\+RD}}~0x0037
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a4687d5d7efc6f49db2db9acc25b590f6}{ARM\+\_\+\+PMU\+\_\+\+L1\+D\+\_\+\+CACHE\+\_\+\+MISS\+\_\+\+RD}}~0x0039
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a2fe9d3ea67ce833bd6323e4ce1a4e894}{ARM\+\_\+\+PMU\+\_\+\+OP\+\_\+\+COMPLETE}}~0x003A
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a6c59149e9b1754987b44b62092bc9f09}{ARM\+\_\+\+PMU\+\_\+\+OP\+\_\+\+SPEC}}~0x003B
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a8bf75efa06a125ee2dfa9a130e7ba9a8}{ARM\+\_\+\+PMU\+\_\+\+STALL}}~0x003C
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a9700ec74727a9fe3cd4cd40736628a23}{ARM\+\_\+\+PMU\+\_\+\+STALL\+\_\+\+OP\+\_\+\+BACKEND}}~0x003D
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a69cfd3558cf6c6f3bb621ee75430427c}{ARM\+\_\+\+PMU\+\_\+\+STALL\+\_\+\+OP\+\_\+\+FRONTEND}}~0x003E
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a197b491f691110fb52aef4291782b6ab}{ARM\+\_\+\+PMU\+\_\+\+STALL\+\_\+\+OP}}~0x003F
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_af4236dfbcb4550d3cc98caee837e8e77}{ARM\+\_\+\+PMU\+\_\+\+L1\+D\+\_\+\+CACHE\+\_\+\+RD}}~0x0040
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a345461506c990125b1f2cbc62e3be22f}{ARM\+\_\+\+PMU\+\_\+\+LE\+\_\+\+RETIRED}}~0x0100
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a6a1d9f84bda091e96843665ff3913b50}{ARM\+\_\+\+PMU\+\_\+\+LE\+\_\+\+SPEC}}~0x0101
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ab8570f46393e3e44bb118591d33723f4}{ARM\+\_\+\+PMU\+\_\+\+BF\+\_\+\+RETIRED}}~0x0104
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a6b1e4823d8b45678a29a5f54b859d4e3}{ARM\+\_\+\+PMU\+\_\+\+BF\+\_\+\+SPEC}}~0x0105
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a8b5641a3cb0e922a2b4e16ec14052861}{ARM\+\_\+\+PMU\+\_\+\+LE\+\_\+\+CANCEL}}~0x0108
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_af2e0a38b7c0d63d1194f08478781a3f0}{ARM\+\_\+\+PMU\+\_\+\+BF\+\_\+\+CANCEL}}~0x0109
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ad3ba2effbe303ca3fafdbc022fe206c1}{ARM\+\_\+\+PMU\+\_\+\+SE\+\_\+\+CALL\+\_\+S}}~0x0114
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_aaae2c32a8ecd36b59ac98cf8e23b3cab}{ARM\+\_\+\+PMU\+\_\+\+SE\+\_\+\+CALL\+\_\+\+NS}}~0x0115
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a18d640aa04b97c7d287e8745f6f2b23d}{ARM\+\_\+\+PMU\+\_\+\+DWT\+\_\+\+CMPMATCH0}}~0x0118
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a5dc6eb2be1ff1afe9cbd59af4f6078ab}{ARM\+\_\+\+PMU\+\_\+\+DWT\+\_\+\+CMPMATCH1}}~0x0119
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a58a4815dba8886088b9cac7b934a332d}{ARM\+\_\+\+PMU\+\_\+\+DWT\+\_\+\+CMPMATCH2}}~0x011A
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a594337c6f3c88d8317203a8cd6f9814a}{ARM\+\_\+\+PMU\+\_\+\+DWT\+\_\+\+CMPMATCH3}}~0x011B
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a3c1006bed2fb82b0749386261b397727}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+INST\+\_\+\+RETIRED}}~0x0200
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a1e276b6872345eb3b043626a11f235c6}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+INST\+\_\+\+SPEC}}~0x0201
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a268b0bcbd30e8a928bd0f331fdf53ccf}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+RETIRED}}~0x0204
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_adf9cfd45b59acfc314ebc814a1bcdccd}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+SPEC}}~0x0205
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_aa4c408a006a04e95ade26922669b6695}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+HP\+\_\+\+RETIRED}}~0x0208
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_af01d187b0cbf418d1fac55dd0ddd0827}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+HP\+\_\+\+SPEC}}~0x0209
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ab21171c50ebd1f304b11260edd015f52}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+SP\+\_\+\+RETIRED}}~0x020C
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ae69e310892661af852ca2d4ec947d18a}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+SP\+\_\+\+SPEC}}~0x020D
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ac2dc7d92627b3caa391725a3f080288c}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+MAC\+\_\+\+RETIRED}}~0x0214
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_af5302b3278a862c9264171955328a59a}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+MAC\+\_\+\+SPEC}}~0x0215
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a5e3afafa91ebaeac0469a19ebb54719c}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+INT\+\_\+\+RETIRED}}~0x0224
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a16ed0bb1bb4718da93c41238da652d33}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+INT\+\_\+\+SPEC}}~0x0225
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a9248c93a3f19fddc93d3804a06f7238a}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+INT\+\_\+\+MAC\+\_\+\+RETIRED}}~0x0228
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a7036f00faa9183ae450a3e4d9d6f2bbf}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+INT\+\_\+\+MAC\+\_\+\+SPEC}}~0x0229
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a7d7d465a6c64400c49f93b6c8152296f}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+RETIRED}}~0x0238
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_aa98a18c06bd13daf2df6f89219ec68d5}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+SPEC}}~0x0239
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_aa3379a51350a2fda8d8ab6d7795baa7a}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+RETIRED}}~0x023C
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a78a6f89ab30ed01f7d8388eda697b4f8}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+SPEC}}~0x023D
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ad8d0079977fa97de4ee263703f1b2908}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+RETIRED}}~0x0240
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_abd3984d299b5416aac8d630722680c55}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+SPEC}}~0x0241
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a8acf6a66c63798b76608caf52c96658d}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+CONTIG\+\_\+\+RETIRED}}~0x0244
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a5a83ef6a52739e1d223be503bbdaaab6}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+CONTIG\+\_\+\+SPEC}}~0x0245
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a8732a737f2b7adc43e3d1da7b3da92e6}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+CONTIG\+\_\+\+RETIRED}}~0x0248
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a8e58fe07254256fa3bf3d42fa2062141}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+CONTIG\+\_\+\+SPEC}}~0x0249
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_acb3c0b922eae9aac321df97ec889e0ed}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+CONTIG\+\_\+\+RETIRED}}~0x024C
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a02cd64b9444e4babc7b69e8571d39bdd}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+CONTIG\+\_\+\+SPEC}}~0x024D
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a7065b7f0aea461858b72912d22c329f2}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+NONCONTIG\+\_\+\+RETIRED}}~0x0250
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a193605eb52709741d91a64e3ad1a5894}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+NONCONTIG\+\_\+\+SPEC}}~0x0251
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_aaf2ce8c0ea4c03c934aac6afc31fc5ff}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+NONCONTIG\+\_\+\+RETIRED}}~0x0254
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_adbcb82b7924b7bbee5c0d42a3de38572}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+NONCONTIG\+\_\+\+SPEC}}~0x0255
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a8271f415ecc7573b57e82a24aec86ef1}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+NONCONTIG\+\_\+\+RETIRED}}~0x0258
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a059327c80f396918a9f8192bcd0fa4a8}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+NONCONTIG\+\_\+\+SPEC}}~0x0259
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a7d669378441408fc21aa551e483866cb}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+MULTI\+\_\+\+RETIRED}}~0x025C
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a7ea46cde08cb0cc4a46ef23835fb5aac}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+MULTI\+\_\+\+SPEC}}~0x025D
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a50fb13c874b3f5e2b9ed9c320a36452c}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+MULTI\+\_\+\+RETIRED}}~0x0260
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_af2d4e3d1f06d97899de7fa791477d62b}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+MULTI\+\_\+\+SPEC}}~0x0261
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a76057cbda353b4ad6fbc3b6a63c193a5}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+MULTI\+\_\+\+RETIRED}}~0x0261
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_af6a14402c79dba8fa765e8663dd0734d}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+MULTI\+\_\+\+SPEC}}~0x0265
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_af358a9ed5c83a10cb695d9b19b1b3bc1}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+UNALIGNED\+\_\+\+RETIRED}}~0x028C
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ab2264786bed578c89109859b55909c76}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+UNALIGNED\+\_\+\+SPEC}}~0x028D
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a26ed05deaa7b993904300069f0ecfac4}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+UNALIGNED\+\_\+\+RETIRED}}~0x0290
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_adc3bd0f32e0a08bba2d533479a59bd6e}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+UNALIGNED\+\_\+\+SPEC}}~0x0291
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a391afd8cb92cc65161b13ee3a3256d40}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+UNALIGNED\+\_\+\+RETIRED}}~0x0294
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a21bf105499df85196b4137cb075a6fbe}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+UNALIGNED\+\_\+\+SPEC}}~0x0295
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a627920bebd935709655687d844848934}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+UNALIGNED\+\_\+\+NONCONTIG\+\_\+\+RETIRED}}~0x0298
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_af9ebeb1f49dba56d8f90f9bd5d3da58e}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+UNALIGNED\+\_\+\+NONCONTIG\+\_\+\+SPEC}}~0x0299
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a9546b924daa3c62e5f117026de58ad94}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+VREDUCE\+\_\+\+RETIRED}}~0x02\+A0
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ac714f988ae45871b2865f82c11383b36}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+VREDUCE\+\_\+\+SPEC}}~0x02\+A1
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a77fad5ad424271ed63fec98af071bb79}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+VREDUCE\+\_\+\+FP\+\_\+\+RETIRED}}~0x02\+A4
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_aa07c698f58c622d234a0007249717265}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+VREDUCE\+\_\+\+FP\+\_\+\+SPEC}}~0x02\+A5
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a649e7e81f0fd04ca6611f6a6c4035c57}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+VREDUCE\+\_\+\+INT\+\_\+\+RETIRED}}~0x02\+A8
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a5b6f0bcfd63207c7bab03ea20167dd4b}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+VREDUCE\+\_\+\+INT\+\_\+\+SPEC}}~0x02\+A9
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a01b4792990494b8f084ee00933a1adb0}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+PRED}}~0x02\+B8
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a2a45ec75b2011bd8375d89b7562b2de6}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+STALL}}~0x02\+CC
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a8f4949084efce03d09bf5ba74cc91edd}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+STALL\+\_\+\+RESOURCE}}~0x02\+CD
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ab486f5753edd9f10b0f100ff78944dd3}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+STALL\+\_\+\+RESOURCE\+\_\+\+MEM}}~0x02\+CE
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a7e76060791618f9b4d49ad493cfb6ba9}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+STALL\+\_\+\+RESOURCE\+\_\+\+FP}}~0x02\+CF
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_aef33b3ff7f12d31238ff4dded5e67a11}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+STALL\+\_\+\+RESOURCE\+\_\+\+INT}}~0x02\+D0
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a9a1cfef96ec7cd70acf134e368d8826a}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+STALL\+\_\+\+BREAK}}~0x02\+D3
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a29bc4c2e820914e94e2eb68a6a3352b9}{ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+STALL\+\_\+\+DEPENDENCY}}~0x02\+D4
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_af23d758fe1a4cfe6f114cb3e78709237}{ARM\+\_\+\+PMU\+\_\+\+ITCM\+\_\+\+ACCESS}}~0x4007
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a74aaa0fa0571f74168ee9608d5a02403}{ARM\+\_\+\+PMU\+\_\+\+DTCM\+\_\+\+ACCESS}}~0x4008
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_adaa75dc2ccfbf7a2263da9a9011f1603}{ARM\+\_\+\+PMU\+\_\+\+TRCEXTOUT0}}~0x4010
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a47fe03fe6fe9bfebd98283cb57d94560}{ARM\+\_\+\+PMU\+\_\+\+TRCEXTOUT1}}~0x4011
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ab80e47ffebc3ae6ed2952756b020dbb9}{ARM\+\_\+\+PMU\+\_\+\+TRCEXTOUT2}}~0x4012
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ad70a3b074efd967485ffbfd3e387051d}{ARM\+\_\+\+PMU\+\_\+\+TRCEXTOUT3}}~0x4013
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a290974d72b8cac214f4e9a152ca64a56}{ARM\+\_\+\+PMU\+\_\+\+CTI\+\_\+\+TRIGOUT4}}~0x4018
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a7a05420b7fae6f5c3d35e12a9846c7e2}{ARM\+\_\+\+PMU\+\_\+\+CTI\+\_\+\+TRIGOUT5}}~0x4019
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_ade076a5ee512a14f8882d9aec5d3dc0b}{ARM\+\_\+\+PMU\+\_\+\+CTI\+\_\+\+TRIGOUT6}}~0x401A
+\item 
+\#define \mbox{\hyperlink{pmu__armv8_8h_a4388c85b636bd71b4ee1a03b6e96c488}{ARM\+\_\+\+PMU\+\_\+\+CTI\+\_\+\+TRIGOUT7}}~0x401B
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void \mbox{\hyperlink{pmu__armv8_8h_a618e7140a774ac2a31a59db4b7d13abc}{ARM\+\_\+\+PMU\+\_\+\+Enable}} (void)
+\begin{DoxyCompactList}\small\item\em PMU Functions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void \mbox{\hyperlink{pmu__armv8_8h_a74273d4a47cf1a5e99d857a3e8896f10}{ARM\+\_\+\+PMU\+\_\+\+Disable}} (void)
+\begin{DoxyCompactList}\small\item\em Disable the PMU. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void \mbox{\hyperlink{pmu__armv8_8h_a77ee08f0b3e77d4559cb79fde30d89e9}{ARM\+\_\+\+PMU\+\_\+\+Set\+\_\+\+EVTYPER}} (uint32\+\_\+t num, uint32\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Set event to count for PMU eventer counter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void \mbox{\hyperlink{pmu__armv8_8h_a4288c08039886cd24eb2dd4e743fb97e}{ARM\+\_\+\+PMU\+\_\+\+CYCCNT\+\_\+\+Reset}} (void)
+\begin{DoxyCompactList}\small\item\em Reset cycle counter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void \mbox{\hyperlink{pmu__armv8_8h_a90527859e6f0ef980300c86c2916ee79}{ARM\+\_\+\+PMU\+\_\+\+EVCNTR\+\_\+\+ALL\+\_\+\+Reset}} (void)
+\begin{DoxyCompactList}\small\item\em Reset all event counters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void \mbox{\hyperlink{pmu__armv8_8h_a22e481855ab257180e24f01a38623887}{ARM\+\_\+\+PMU\+\_\+\+CNTR\+\_\+\+Enable}} (uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Enable counters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void \mbox{\hyperlink{pmu__armv8_8h_a76c6f266544c53d93801cfb614155420}{ARM\+\_\+\+PMU\+\_\+\+CNTR\+\_\+\+Disable}} (uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Disable counters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} uint32\+\_\+t \mbox{\hyperlink{pmu__armv8_8h_aaa18c27d39f5a55c1b621f5296b88112}{ARM\+\_\+\+PMU\+\_\+\+Get\+\_\+\+CCNTR}} (void)
+\begin{DoxyCompactList}\small\item\em Read cycle counter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} uint32\+\_\+t \mbox{\hyperlink{pmu__armv8_8h_a9768cbaffcf2c0b31febe96db91a85d8}{ARM\+\_\+\+PMU\+\_\+\+Get\+\_\+\+EVCNTR}} (uint32\+\_\+t num)
+\begin{DoxyCompactList}\small\item\em Read event counter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} uint32\+\_\+t \mbox{\hyperlink{pmu__armv8_8h_a70436b378b75bdfe3fcb47697d309a96}{ARM\+\_\+\+PMU\+\_\+\+Get\+\_\+\+CNTR\+\_\+\+OVS}} (void)
+\begin{DoxyCompactList}\small\item\em Read counter overflow status. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void \mbox{\hyperlink{pmu__armv8_8h_a18376f0e3829e93e99149847667e5864}{ARM\+\_\+\+PMU\+\_\+\+Set\+\_\+\+CNTR\+\_\+\+OVS}} (uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Clear counter overflow status. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void \mbox{\hyperlink{pmu__armv8_8h_a133168437a20566d319c78b751425c44}{ARM\+\_\+\+PMU\+\_\+\+Set\+\_\+\+CNTR\+\_\+\+IRQ\+\_\+\+Enable}} (uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Enable counter overflow interrupt request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void \mbox{\hyperlink{pmu__armv8_8h_a731b6cd01c6eaa6f909164602f19d0bc}{ARM\+\_\+\+PMU\+\_\+\+Set\+\_\+\+CNTR\+\_\+\+IRQ\+\_\+\+Disable}} (uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Disable counter overflow interrupt request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void \mbox{\hyperlink{pmu__armv8_8h_a27b07d38050a16ce416bfaf151a24944}{ARM\+\_\+\+PMU\+\_\+\+CNTR\+\_\+\+Increment}} (uint32\+\_\+t mask)
+\begin{DoxyCompactList}\small\item\em Software increment event counter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{pmu__armv8_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{pmu__armv8_8h_ade46980d37e0685ee64b825c637a3b6c}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_ARMV8\_H@{ARM\_PMU\_ARMV8\_H}}
+\index{ARM\_PMU\_ARMV8\_H@{ARM\_PMU\_ARMV8\_H}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_ARMV8\_H}{ARM\_PMU\_ARMV8\_H}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ade46980d37e0685ee64b825c637a3b6c} 
+\#define ARM\+\_\+\+PMU\+\_\+\+ARMV8\+\_\+H}
+
+\Hypertarget{pmu__armv8_8h_af2e0a38b7c0d63d1194f08478781a3f0}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_BF\_CANCEL@{ARM\_PMU\_BF\_CANCEL}}
+\index{ARM\_PMU\_BF\_CANCEL@{ARM\_PMU\_BF\_CANCEL}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_BF\_CANCEL}{ARM\_PMU\_BF\_CANCEL}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_af2e0a38b7c0d63d1194f08478781a3f0} 
+\#define ARM\+\_\+\+PMU\+\_\+\+BF\+\_\+\+CANCEL~0x0109}
+
+Branch future instruction not taken \Hypertarget{pmu__armv8_8h_ab8570f46393e3e44bb118591d33723f4}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_BF\_RETIRED@{ARM\_PMU\_BF\_RETIRED}}
+\index{ARM\_PMU\_BF\_RETIRED@{ARM\_PMU\_BF\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_BF\_RETIRED}{ARM\_PMU\_BF\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ab8570f46393e3e44bb118591d33723f4} 
+\#define ARM\+\_\+\+PMU\+\_\+\+BF\+\_\+\+RETIRED~0x0104}
+
+Branch future instruction architecturally executed and condition code check pass \Hypertarget{pmu__armv8_8h_a6b1e4823d8b45678a29a5f54b859d4e3}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_BF\_SPEC@{ARM\_PMU\_BF\_SPEC}}
+\index{ARM\_PMU\_BF\_SPEC@{ARM\_PMU\_BF\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_BF\_SPEC}{ARM\_PMU\_BF\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a6b1e4823d8b45678a29a5f54b859d4e3} 
+\#define ARM\+\_\+\+PMU\+\_\+\+BF\+\_\+\+SPEC~0x0105}
+
+Branch future instruction speculatively executed and condition code check pass \Hypertarget{pmu__armv8_8h_a22bfb189fff7c1ea9f81097a543ed756}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_BR\_IMMED\_RETIRED@{ARM\_PMU\_BR\_IMMED\_RETIRED}}
+\index{ARM\_PMU\_BR\_IMMED\_RETIRED@{ARM\_PMU\_BR\_IMMED\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_BR\_IMMED\_RETIRED}{ARM\_PMU\_BR\_IMMED\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a22bfb189fff7c1ea9f81097a543ed756} 
+\#define ARM\+\_\+\+PMU\+\_\+\+BR\+\_\+\+IMMED\+\_\+\+RETIRED~0x000D}
+
+Immediate branch architecturally executed \Hypertarget{pmu__armv8_8h_abfa921c85a61f0a21c9bee289e63c102}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_BR\_MIS\_PRED@{ARM\_PMU\_BR\_MIS\_PRED}}
+\index{ARM\_PMU\_BR\_MIS\_PRED@{ARM\_PMU\_BR\_MIS\_PRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_BR\_MIS\_PRED}{ARM\_PMU\_BR\_MIS\_PRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_abfa921c85a61f0a21c9bee289e63c102} 
+\#define ARM\+\_\+\+PMU\+\_\+\+BR\+\_\+\+MIS\+\_\+\+PRED~0x0010}
+
+Mispredicted or not predicted branch speculatively executed \Hypertarget{pmu__armv8_8h_ae12baa616c5f0cdd081231fcf8cdad68}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_BR\_MIS\_PRED\_RETIRED@{ARM\_PMU\_BR\_MIS\_PRED\_RETIRED}}
+\index{ARM\_PMU\_BR\_MIS\_PRED\_RETIRED@{ARM\_PMU\_BR\_MIS\_PRED\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_BR\_MIS\_PRED\_RETIRED}{ARM\_PMU\_BR\_MIS\_PRED\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ae12baa616c5f0cdd081231fcf8cdad68} 
+\#define ARM\+\_\+\+PMU\+\_\+\+BR\+\_\+\+MIS\+\_\+\+PRED\+\_\+\+RETIRED~0x0022}
+
+Mispredicted branch instruction architecturally executed \Hypertarget{pmu__armv8_8h_a60ccf42eae576e2fde3b9e17a8defeaa}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_BR\_PRED@{ARM\_PMU\_BR\_PRED}}
+\index{ARM\_PMU\_BR\_PRED@{ARM\_PMU\_BR\_PRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_BR\_PRED}{ARM\_PMU\_BR\_PRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a60ccf42eae576e2fde3b9e17a8defeaa} 
+\#define ARM\+\_\+\+PMU\+\_\+\+BR\+\_\+\+PRED~0x0012}
+
+Predictable branch speculatively executed \Hypertarget{pmu__armv8_8h_ab3b505a8bcc2b2885626d2f2cd542b73}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_BR\_RETIRED@{ARM\_PMU\_BR\_RETIRED}}
+\index{ARM\_PMU\_BR\_RETIRED@{ARM\_PMU\_BR\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_BR\_RETIRED}{ARM\_PMU\_BR\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ab3b505a8bcc2b2885626d2f2cd542b73} 
+\#define ARM\+\_\+\+PMU\+\_\+\+BR\+\_\+\+RETIRED~0x0021}
+
+Branch instruction architecturally executed \Hypertarget{pmu__armv8_8h_ab717347b1c3601cffb9c99b43b2a45c5}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_BR\_RETURN\_RETIRED@{ARM\_PMU\_BR\_RETURN\_RETIRED}}
+\index{ARM\_PMU\_BR\_RETURN\_RETIRED@{ARM\_PMU\_BR\_RETURN\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_BR\_RETURN\_RETIRED}{ARM\_PMU\_BR\_RETURN\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ab717347b1c3601cffb9c99b43b2a45c5} 
+\#define ARM\+\_\+\+PMU\+\_\+\+BR\+\_\+\+RETURN\+\_\+\+RETIRED~0x000E}
+
+Function return instruction architecturally executed and the condition code check pass \Hypertarget{pmu__armv8_8h_aa681d3db56b42775093869b8fdf1abb9}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_BUS\_ACCESS@{ARM\_PMU\_BUS\_ACCESS}}
+\index{ARM\_PMU\_BUS\_ACCESS@{ARM\_PMU\_BUS\_ACCESS}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_BUS\_ACCESS}{ARM\_PMU\_BUS\_ACCESS}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_aa681d3db56b42775093869b8fdf1abb9} 
+\#define ARM\+\_\+\+PMU\+\_\+\+BUS\+\_\+\+ACCESS~0x0019}
+
+Bus access \Hypertarget{pmu__armv8_8h_ae4c955416707f44f066ffd2560b9ae4c}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_BUS\_CYCLES@{ARM\_PMU\_BUS\_CYCLES}}
+\index{ARM\_PMU\_BUS\_CYCLES@{ARM\_PMU\_BUS\_CYCLES}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_BUS\_CYCLES}{ARM\_PMU\_BUS\_CYCLES}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ae4c955416707f44f066ffd2560b9ae4c} 
+\#define ARM\+\_\+\+PMU\+\_\+\+BUS\+\_\+\+CYCLES~0x001D}
+
+Bus cycles \Hypertarget{pmu__armv8_8h_aca14907c5a1e1f9915159bc4cf323cf0}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_CHAIN@{ARM\_PMU\_CHAIN}}
+\index{ARM\_PMU\_CHAIN@{ARM\_PMU\_CHAIN}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_CHAIN}{ARM\_PMU\_CHAIN}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_aca14907c5a1e1f9915159bc4cf323cf0} 
+\#define ARM\+\_\+\+PMU\+\_\+\+CHAIN~0x001E}
+
+For an odd numbered counter, increment when an overflow occurs on the preceding even-\/numbered counter on the same PE \Hypertarget{pmu__armv8_8h_a550d524d435a653b2f46acc1380a5ace}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_CPU\_CYCLES@{ARM\_PMU\_CPU\_CYCLES}}
+\index{ARM\_PMU\_CPU\_CYCLES@{ARM\_PMU\_CPU\_CYCLES}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_CPU\_CYCLES}{ARM\_PMU\_CPU\_CYCLES}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a550d524d435a653b2f46acc1380a5ace} 
+\#define ARM\+\_\+\+PMU\+\_\+\+CPU\+\_\+\+CYCLES~0x0011}
+
+Cycle \Hypertarget{pmu__armv8_8h_a290974d72b8cac214f4e9a152ca64a56}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_CTI\_TRIGOUT4@{ARM\_PMU\_CTI\_TRIGOUT4}}
+\index{ARM\_PMU\_CTI\_TRIGOUT4@{ARM\_PMU\_CTI\_TRIGOUT4}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_CTI\_TRIGOUT4}{ARM\_PMU\_CTI\_TRIGOUT4}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a290974d72b8cac214f4e9a152ca64a56} 
+\#define ARM\+\_\+\+PMU\+\_\+\+CTI\+\_\+\+TRIGOUT4~0x4018}
+
+Cross-\/trigger Interface output trigger 4 \Hypertarget{pmu__armv8_8h_a7a05420b7fae6f5c3d35e12a9846c7e2}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_CTI\_TRIGOUT5@{ARM\_PMU\_CTI\_TRIGOUT5}}
+\index{ARM\_PMU\_CTI\_TRIGOUT5@{ARM\_PMU\_CTI\_TRIGOUT5}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_CTI\_TRIGOUT5}{ARM\_PMU\_CTI\_TRIGOUT5}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a7a05420b7fae6f5c3d35e12a9846c7e2} 
+\#define ARM\+\_\+\+PMU\+\_\+\+CTI\+\_\+\+TRIGOUT5~0x4019}
+
+Cross-\/trigger Interface output trigger 5 \Hypertarget{pmu__armv8_8h_ade076a5ee512a14f8882d9aec5d3dc0b}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_CTI\_TRIGOUT6@{ARM\_PMU\_CTI\_TRIGOUT6}}
+\index{ARM\_PMU\_CTI\_TRIGOUT6@{ARM\_PMU\_CTI\_TRIGOUT6}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_CTI\_TRIGOUT6}{ARM\_PMU\_CTI\_TRIGOUT6}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ade076a5ee512a14f8882d9aec5d3dc0b} 
+\#define ARM\+\_\+\+PMU\+\_\+\+CTI\+\_\+\+TRIGOUT6~0x401A}
+
+Cross-\/trigger Interface output trigger 6 \Hypertarget{pmu__armv8_8h_a4388c85b636bd71b4ee1a03b6e96c488}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_CTI\_TRIGOUT7@{ARM\_PMU\_CTI\_TRIGOUT7}}
+\index{ARM\_PMU\_CTI\_TRIGOUT7@{ARM\_PMU\_CTI\_TRIGOUT7}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_CTI\_TRIGOUT7}{ARM\_PMU\_CTI\_TRIGOUT7}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a4388c85b636bd71b4ee1a03b6e96c488} 
+\#define ARM\+\_\+\+PMU\+\_\+\+CTI\+\_\+\+TRIGOUT7~0x401B}
+
+Cross-\/trigger Interface output trigger 7 \Hypertarget{pmu__armv8_8h_a74aaa0fa0571f74168ee9608d5a02403}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_DTCM\_ACCESS@{ARM\_PMU\_DTCM\_ACCESS}}
+\index{ARM\_PMU\_DTCM\_ACCESS@{ARM\_PMU\_DTCM\_ACCESS}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_DTCM\_ACCESS}{ARM\_PMU\_DTCM\_ACCESS}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a74aaa0fa0571f74168ee9608d5a02403} 
+\#define ARM\+\_\+\+PMU\+\_\+\+DTCM\+\_\+\+ACCESS~0x4008}
+
+Data TCM access \Hypertarget{pmu__armv8_8h_a18d640aa04b97c7d287e8745f6f2b23d}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_DWT\_CMPMATCH0@{ARM\_PMU\_DWT\_CMPMATCH0}}
+\index{ARM\_PMU\_DWT\_CMPMATCH0@{ARM\_PMU\_DWT\_CMPMATCH0}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_DWT\_CMPMATCH0}{ARM\_PMU\_DWT\_CMPMATCH0}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a18d640aa04b97c7d287e8745f6f2b23d} 
+\#define ARM\+\_\+\+PMU\+\_\+\+DWT\+\_\+\+CMPMATCH0~0x0118}
+
+DWT comparator 0 match \Hypertarget{pmu__armv8_8h_a5dc6eb2be1ff1afe9cbd59af4f6078ab}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_DWT\_CMPMATCH1@{ARM\_PMU\_DWT\_CMPMATCH1}}
+\index{ARM\_PMU\_DWT\_CMPMATCH1@{ARM\_PMU\_DWT\_CMPMATCH1}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_DWT\_CMPMATCH1}{ARM\_PMU\_DWT\_CMPMATCH1}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a5dc6eb2be1ff1afe9cbd59af4f6078ab} 
+\#define ARM\+\_\+\+PMU\+\_\+\+DWT\+\_\+\+CMPMATCH1~0x0119}
+
+DWT comparator 1 match \Hypertarget{pmu__armv8_8h_a58a4815dba8886088b9cac7b934a332d}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_DWT\_CMPMATCH2@{ARM\_PMU\_DWT\_CMPMATCH2}}
+\index{ARM\_PMU\_DWT\_CMPMATCH2@{ARM\_PMU\_DWT\_CMPMATCH2}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_DWT\_CMPMATCH2}{ARM\_PMU\_DWT\_CMPMATCH2}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a58a4815dba8886088b9cac7b934a332d} 
+\#define ARM\+\_\+\+PMU\+\_\+\+DWT\+\_\+\+CMPMATCH2~0x011A}
+
+DWT comparator 2 match \Hypertarget{pmu__armv8_8h_a594337c6f3c88d8317203a8cd6f9814a}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_DWT\_CMPMATCH3@{ARM\_PMU\_DWT\_CMPMATCH3}}
+\index{ARM\_PMU\_DWT\_CMPMATCH3@{ARM\_PMU\_DWT\_CMPMATCH3}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_DWT\_CMPMATCH3}{ARM\_PMU\_DWT\_CMPMATCH3}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a594337c6f3c88d8317203a8cd6f9814a} 
+\#define ARM\+\_\+\+PMU\+\_\+\+DWT\+\_\+\+CMPMATCH3~0x011B}
+
+DWT comparator 3 match \Hypertarget{pmu__armv8_8h_af9424157e9c5dca3a3689d181005c4f8}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_EXC\_RETURN@{ARM\_PMU\_EXC\_RETURN}}
+\index{ARM\_PMU\_EXC\_RETURN@{ARM\_PMU\_EXC\_RETURN}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_EXC\_RETURN}{ARM\_PMU\_EXC\_RETURN}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_af9424157e9c5dca3a3689d181005c4f8} 
+\#define ARM\+\_\+\+PMU\+\_\+\+EXC\+\_\+\+RETURN~0x000A}
+
+Exception return instruction architecturally executed and the condition code check pass \Hypertarget{pmu__armv8_8h_ac97858bd621eab4592569444f0a5c37f}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_EXC\_TAKEN@{ARM\_PMU\_EXC\_TAKEN}}
+\index{ARM\_PMU\_EXC\_TAKEN@{ARM\_PMU\_EXC\_TAKEN}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_EXC\_TAKEN}{ARM\_PMU\_EXC\_TAKEN}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ac97858bd621eab4592569444f0a5c37f} 
+\#define ARM\+\_\+\+PMU\+\_\+\+EXC\+\_\+\+TAKEN~0x0009}
+
+Exception entry \Hypertarget{pmu__armv8_8h_a8a5e60eee460addfc66e275a2c4c4800}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_INST\_RETIRED@{ARM\_PMU\_INST\_RETIRED}}
+\index{ARM\_PMU\_INST\_RETIRED@{ARM\_PMU\_INST\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_INST\_RETIRED}{ARM\_PMU\_INST\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a8a5e60eee460addfc66e275a2c4c4800} 
+\#define ARM\+\_\+\+PMU\+\_\+\+INST\+\_\+\+RETIRED~0x0008}
+
+Instruction architecturally executed \Hypertarget{pmu__armv8_8h_af7bad54617ace5c2fb48bc2e8aebf9c7}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_INST\_SPEC@{ARM\_PMU\_INST\_SPEC}}
+\index{ARM\_PMU\_INST\_SPEC@{ARM\_PMU\_INST\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_INST\_SPEC}{ARM\_PMU\_INST\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_af7bad54617ace5c2fb48bc2e8aebf9c7} 
+\#define ARM\+\_\+\+PMU\+\_\+\+INST\+\_\+\+SPEC~0x001B}
+
+Instruction speculatively executed \Hypertarget{pmu__armv8_8h_af23d758fe1a4cfe6f114cb3e78709237}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_ITCM\_ACCESS@{ARM\_PMU\_ITCM\_ACCESS}}
+\index{ARM\_PMU\_ITCM\_ACCESS@{ARM\_PMU\_ITCM\_ACCESS}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_ITCM\_ACCESS}{ARM\_PMU\_ITCM\_ACCESS}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_af23d758fe1a4cfe6f114cb3e78709237} 
+\#define ARM\+\_\+\+PMU\+\_\+\+ITCM\+\_\+\+ACCESS~0x4007}
+
+Instruction TCM access \Hypertarget{pmu__armv8_8h_a7505ae74c1d905f01b05dd5466c1efc0}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L1D\_CACHE@{ARM\_PMU\_L1D\_CACHE}}
+\index{ARM\_PMU\_L1D\_CACHE@{ARM\_PMU\_L1D\_CACHE}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L1D\_CACHE}{ARM\_PMU\_L1D\_CACHE}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a7505ae74c1d905f01b05dd5466c1efc0} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L1\+D\+\_\+\+CACHE~0x0004}
+
+L1 D-\/\+Cache access \Hypertarget{pmu__armv8_8h_ab55334c8510cb30c4c750913f6eb6279}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L1D\_CACHE\_ALLOCATE@{ARM\_PMU\_L1D\_CACHE\_ALLOCATE}}
+\index{ARM\_PMU\_L1D\_CACHE\_ALLOCATE@{ARM\_PMU\_L1D\_CACHE\_ALLOCATE}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L1D\_CACHE\_ALLOCATE}{ARM\_PMU\_L1D\_CACHE\_ALLOCATE}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ab55334c8510cb30c4c750913f6eb6279} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L1\+D\+\_\+\+CACHE\+\_\+\+ALLOCATE~0x001F}
+
+Level 1 data cache allocation without refill \Hypertarget{pmu__armv8_8h_a4687d5d7efc6f49db2db9acc25b590f6}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L1D\_CACHE\_MISS\_RD@{ARM\_PMU\_L1D\_CACHE\_MISS\_RD}}
+\index{ARM\_PMU\_L1D\_CACHE\_MISS\_RD@{ARM\_PMU\_L1D\_CACHE\_MISS\_RD}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L1D\_CACHE\_MISS\_RD}{ARM\_PMU\_L1D\_CACHE\_MISS\_RD}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a4687d5d7efc6f49db2db9acc25b590f6} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L1\+D\+\_\+\+CACHE\+\_\+\+MISS\+\_\+\+RD~0x0039}
+
+Level 1 data cache read miss \Hypertarget{pmu__armv8_8h_af4236dfbcb4550d3cc98caee837e8e77}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L1D\_CACHE\_RD@{ARM\_PMU\_L1D\_CACHE\_RD}}
+\index{ARM\_PMU\_L1D\_CACHE\_RD@{ARM\_PMU\_L1D\_CACHE\_RD}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L1D\_CACHE\_RD}{ARM\_PMU\_L1D\_CACHE\_RD}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_af4236dfbcb4550d3cc98caee837e8e77} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L1\+D\+\_\+\+CACHE\+\_\+\+RD~0x0040}
+
+Level 1 data cache read \Hypertarget{pmu__armv8_8h_a64a3d7bfb7ec9d7bdeb073a4fe1bbc38}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L1D\_CACHE\_REFILL@{ARM\_PMU\_L1D\_CACHE\_REFILL}}
+\index{ARM\_PMU\_L1D\_CACHE\_REFILL@{ARM\_PMU\_L1D\_CACHE\_REFILL}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L1D\_CACHE\_REFILL}{ARM\_PMU\_L1D\_CACHE\_REFILL}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a64a3d7bfb7ec9d7bdeb073a4fe1bbc38} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L1\+D\+\_\+\+CACHE\+\_\+\+REFILL~0x0003}
+
+L1 D-\/\+Cache refill \Hypertarget{pmu__armv8_8h_a27d1b8b2c37ae0ae41781880ed3893d0}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L1D\_CACHE\_WB@{ARM\_PMU\_L1D\_CACHE\_WB}}
+\index{ARM\_PMU\_L1D\_CACHE\_WB@{ARM\_PMU\_L1D\_CACHE\_WB}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L1D\_CACHE\_WB}{ARM\_PMU\_L1D\_CACHE\_WB}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a27d1b8b2c37ae0ae41781880ed3893d0} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L1\+D\+\_\+\+CACHE\+\_\+\+WB~0x0015}
+
+Level 1 data cache write-\/back \Hypertarget{pmu__armv8_8h_af8e89b2b098e6bec5916517346925ce2}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L1I\_CACHE@{ARM\_PMU\_L1I\_CACHE}}
+\index{ARM\_PMU\_L1I\_CACHE@{ARM\_PMU\_L1I\_CACHE}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L1I\_CACHE}{ARM\_PMU\_L1I\_CACHE}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_af8e89b2b098e6bec5916517346925ce2} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L1\+I\+\_\+\+CACHE~0x0014}
+
+Level 1 instruction cache access \Hypertarget{pmu__armv8_8h_ac43e0e0f9e385ea66402bdeebf3fea3e}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L1I\_CACHE\_REFILL@{ARM\_PMU\_L1I\_CACHE\_REFILL}}
+\index{ARM\_PMU\_L1I\_CACHE\_REFILL@{ARM\_PMU\_L1I\_CACHE\_REFILL}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L1I\_CACHE\_REFILL}{ARM\_PMU\_L1I\_CACHE\_REFILL}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ac43e0e0f9e385ea66402bdeebf3fea3e} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L1\+I\+\_\+\+CACHE\+\_\+\+REFILL~0x0001}
+
+L1 I-\/\+Cache refill \Hypertarget{pmu__armv8_8h_afb1e1f86d091ccb735858769c700e289}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L2D\_CACHE@{ARM\_PMU\_L2D\_CACHE}}
+\index{ARM\_PMU\_L2D\_CACHE@{ARM\_PMU\_L2D\_CACHE}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L2D\_CACHE}{ARM\_PMU\_L2D\_CACHE}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_afb1e1f86d091ccb735858769c700e289} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L2\+D\+\_\+\+CACHE~0x0016}
+
+Level 2 data cache access \Hypertarget{pmu__armv8_8h_aad08dcded491bf257d223e4171af41cc}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L2D\_CACHE\_ALLOCATE@{ARM\_PMU\_L2D\_CACHE\_ALLOCATE}}
+\index{ARM\_PMU\_L2D\_CACHE\_ALLOCATE@{ARM\_PMU\_L2D\_CACHE\_ALLOCATE}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L2D\_CACHE\_ALLOCATE}{ARM\_PMU\_L2D\_CACHE\_ALLOCATE}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_aad08dcded491bf257d223e4171af41cc} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L2\+D\+\_\+\+CACHE\+\_\+\+ALLOCATE~0x0020}
+
+Level 2 data cache allocation without refill \Hypertarget{pmu__armv8_8h_aeb414c1b0375022abc2502ab503a3284}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L2D\_CACHE\_REFILL@{ARM\_PMU\_L2D\_CACHE\_REFILL}}
+\index{ARM\_PMU\_L2D\_CACHE\_REFILL@{ARM\_PMU\_L2D\_CACHE\_REFILL}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L2D\_CACHE\_REFILL}{ARM\_PMU\_L2D\_CACHE\_REFILL}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_aeb414c1b0375022abc2502ab503a3284} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L2\+D\+\_\+\+CACHE\+\_\+\+REFILL~0x0017}
+
+Level 2 data cache refill \Hypertarget{pmu__armv8_8h_a1a0c4a1990eeed88edc3e1e0c4b1aca0}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L2D\_CACHE\_WB@{ARM\_PMU\_L2D\_CACHE\_WB}}
+\index{ARM\_PMU\_L2D\_CACHE\_WB@{ARM\_PMU\_L2D\_CACHE\_WB}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L2D\_CACHE\_WB}{ARM\_PMU\_L2D\_CACHE\_WB}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a1a0c4a1990eeed88edc3e1e0c4b1aca0} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L2\+D\+\_\+\+CACHE\+\_\+\+WB~0x0018}
+
+Level 2 data cache write-\/back \Hypertarget{pmu__armv8_8h_a3406498b2c17ca080ebd68cc40d9630e}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L2I\_CACHE@{ARM\_PMU\_L2I\_CACHE}}
+\index{ARM\_PMU\_L2I\_CACHE@{ARM\_PMU\_L2I\_CACHE}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L2I\_CACHE}{ARM\_PMU\_L2I\_CACHE}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a3406498b2c17ca080ebd68cc40d9630e} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L2\+I\+\_\+\+CACHE~0x0027}
+
+Level 2 instruction cache access \Hypertarget{pmu__armv8_8h_aa18cee03802b46076e9ab66fd0a7c61d}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L2I\_CACHE\_REFILL@{ARM\_PMU\_L2I\_CACHE\_REFILL}}
+\index{ARM\_PMU\_L2I\_CACHE\_REFILL@{ARM\_PMU\_L2I\_CACHE\_REFILL}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L2I\_CACHE\_REFILL}{ARM\_PMU\_L2I\_CACHE\_REFILL}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_aa18cee03802b46076e9ab66fd0a7c61d} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L2\+I\+\_\+\+CACHE\+\_\+\+REFILL~0x0028}
+
+Level 2 instruction cache refill \Hypertarget{pmu__armv8_8h_a4e96b5a6fb13c657e78da342a02db200}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L3D\_CACHE@{ARM\_PMU\_L3D\_CACHE}}
+\index{ARM\_PMU\_L3D\_CACHE@{ARM\_PMU\_L3D\_CACHE}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L3D\_CACHE}{ARM\_PMU\_L3D\_CACHE}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a4e96b5a6fb13c657e78da342a02db200} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L3\+D\+\_\+\+CACHE~0x002B}
+
+Level 3 data cache access \Hypertarget{pmu__armv8_8h_ac11cbc6849dbad7bd8b64ab6e2a3f8d5}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L3D\_CACHE\_ALLOCATE@{ARM\_PMU\_L3D\_CACHE\_ALLOCATE}}
+\index{ARM\_PMU\_L3D\_CACHE\_ALLOCATE@{ARM\_PMU\_L3D\_CACHE\_ALLOCATE}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L3D\_CACHE\_ALLOCATE}{ARM\_PMU\_L3D\_CACHE\_ALLOCATE}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ac11cbc6849dbad7bd8b64ab6e2a3f8d5} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L3\+D\+\_\+\+CACHE\+\_\+\+ALLOCATE~0x0029}
+
+Level 3 data cache allocation without refill \Hypertarget{pmu__armv8_8h_afe99db0693125100272247c147fb3b02}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L3D\_CACHE\_REFILL@{ARM\_PMU\_L3D\_CACHE\_REFILL}}
+\index{ARM\_PMU\_L3D\_CACHE\_REFILL@{ARM\_PMU\_L3D\_CACHE\_REFILL}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L3D\_CACHE\_REFILL}{ARM\_PMU\_L3D\_CACHE\_REFILL}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_afe99db0693125100272247c147fb3b02} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L3\+D\+\_\+\+CACHE\+\_\+\+REFILL~0x002A}
+
+Level 3 data cache refill \Hypertarget{pmu__armv8_8h_ab823f95f7ac8196a208d12381b1b2a11}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_L3D\_CACHE\_WB@{ARM\_PMU\_L3D\_CACHE\_WB}}
+\index{ARM\_PMU\_L3D\_CACHE\_WB@{ARM\_PMU\_L3D\_CACHE\_WB}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_L3D\_CACHE\_WB}{ARM\_PMU\_L3D\_CACHE\_WB}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ab823f95f7ac8196a208d12381b1b2a11} 
+\#define ARM\+\_\+\+PMU\+\_\+\+L3\+D\+\_\+\+CACHE\+\_\+\+WB~0x002C}
+
+Level 3 data cache write-\/back \Hypertarget{pmu__armv8_8h_a2e8725ee07c2b2c75a1b54261bc26cc8}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_LD\_RETIRED@{ARM\_PMU\_LD\_RETIRED}}
+\index{ARM\_PMU\_LD\_RETIRED@{ARM\_PMU\_LD\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_LD\_RETIRED}{ARM\_PMU\_LD\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a2e8725ee07c2b2c75a1b54261bc26cc8} 
+\#define ARM\+\_\+\+PMU\+\_\+\+LD\+\_\+\+RETIRED~0x0006}
+
+Memory-\/reading instruction architecturally executed and condition code check pass \Hypertarget{pmu__armv8_8h_a8b5641a3cb0e922a2b4e16ec14052861}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_LE\_CANCEL@{ARM\_PMU\_LE\_CANCEL}}
+\index{ARM\_PMU\_LE\_CANCEL@{ARM\_PMU\_LE\_CANCEL}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_LE\_CANCEL}{ARM\_PMU\_LE\_CANCEL}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a8b5641a3cb0e922a2b4e16ec14052861} 
+\#define ARM\+\_\+\+PMU\+\_\+\+LE\+\_\+\+CANCEL~0x0108}
+
+Loop end instruction not taken \Hypertarget{pmu__armv8_8h_a345461506c990125b1f2cbc62e3be22f}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_LE\_RETIRED@{ARM\_PMU\_LE\_RETIRED}}
+\index{ARM\_PMU\_LE\_RETIRED@{ARM\_PMU\_LE\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_LE\_RETIRED}{ARM\_PMU\_LE\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a345461506c990125b1f2cbc62e3be22f} 
+\#define ARM\+\_\+\+PMU\+\_\+\+LE\+\_\+\+RETIRED~0x0100}
+
+Loop end instruction executed \Hypertarget{pmu__armv8_8h_a6a1d9f84bda091e96843665ff3913b50}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_LE\_SPEC@{ARM\_PMU\_LE\_SPEC}}
+\index{ARM\_PMU\_LE\_SPEC@{ARM\_PMU\_LE\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_LE\_SPEC}{ARM\_PMU\_LE\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a6a1d9f84bda091e96843665ff3913b50} 
+\#define ARM\+\_\+\+PMU\+\_\+\+LE\+\_\+\+SPEC~0x0101}
+
+Loop end instruction speculatively executed \Hypertarget{pmu__armv8_8h_a6979efa69af7d0e62cc3e2f88b0155b8}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_LL\_CACHE\_MISS\_RD@{ARM\_PMU\_LL\_CACHE\_MISS\_RD}}
+\index{ARM\_PMU\_LL\_CACHE\_MISS\_RD@{ARM\_PMU\_LL\_CACHE\_MISS\_RD}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_LL\_CACHE\_MISS\_RD}{ARM\_PMU\_LL\_CACHE\_MISS\_RD}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a6979efa69af7d0e62cc3e2f88b0155b8} 
+\#define ARM\+\_\+\+PMU\+\_\+\+LL\+\_\+\+CACHE\+\_\+\+MISS\+\_\+\+RD~0x0037}
+
+Last level data cache read miss \Hypertarget{pmu__armv8_8h_a902562d8161fffd45726dc4cc8727545}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_LL\_CACHE\_RD@{ARM\_PMU\_LL\_CACHE\_RD}}
+\index{ARM\_PMU\_LL\_CACHE\_RD@{ARM\_PMU\_LL\_CACHE\_RD}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_LL\_CACHE\_RD}{ARM\_PMU\_LL\_CACHE\_RD}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a902562d8161fffd45726dc4cc8727545} 
+\#define ARM\+\_\+\+PMU\+\_\+\+LL\+\_\+\+CACHE\+\_\+\+RD~0x0036}
+
+Last level data cache read \Hypertarget{pmu__armv8_8h_ab3852c2b3d59af106b9db7ea2c20c367}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MEM\_ACCESS@{ARM\_PMU\_MEM\_ACCESS}}
+\index{ARM\_PMU\_MEM\_ACCESS@{ARM\_PMU\_MEM\_ACCESS}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MEM\_ACCESS}{ARM\_PMU\_MEM\_ACCESS}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ab3852c2b3d59af106b9db7ea2c20c367} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MEM\+\_\+\+ACCESS~0x0013}
+
+Data memory access \Hypertarget{pmu__armv8_8h_a2c8d23cc64e87b2044bb39bf8d0bc1b1}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MEMORY\_ERROR@{ARM\_PMU\_MEMORY\_ERROR}}
+\index{ARM\_PMU\_MEMORY\_ERROR@{ARM\_PMU\_MEMORY\_ERROR}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MEMORY\_ERROR}{ARM\_PMU\_MEMORY\_ERROR}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a2c8d23cc64e87b2044bb39bf8d0bc1b1} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MEMORY\+\_\+\+ERROR~0x001A}
+
+Local memory error \Hypertarget{pmu__armv8_8h_aa4c408a006a04e95ade26922669b6695}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_FP\_HP\_RETIRED@{ARM\_PMU\_MVE\_FP\_HP\_RETIRED}}
+\index{ARM\_PMU\_MVE\_FP\_HP\_RETIRED@{ARM\_PMU\_MVE\_FP\_HP\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_FP\_HP\_RETIRED}{ARM\_PMU\_MVE\_FP\_HP\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_aa4c408a006a04e95ade26922669b6695} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+HP\+\_\+\+RETIRED~0x0208}
+
+MVE half-\/precision floating-\/point instruction architecturally executed \Hypertarget{pmu__armv8_8h_af01d187b0cbf418d1fac55dd0ddd0827}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_FP\_HP\_SPEC@{ARM\_PMU\_MVE\_FP\_HP\_SPEC}}
+\index{ARM\_PMU\_MVE\_FP\_HP\_SPEC@{ARM\_PMU\_MVE\_FP\_HP\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_FP\_HP\_SPEC}{ARM\_PMU\_MVE\_FP\_HP\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_af01d187b0cbf418d1fac55dd0ddd0827} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+HP\+\_\+\+SPEC~0x0209}
+
+MVE half-\/precision floating-\/point instruction speculatively executed \Hypertarget{pmu__armv8_8h_ac2dc7d92627b3caa391725a3f080288c}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_FP\_MAC\_RETIRED@{ARM\_PMU\_MVE\_FP\_MAC\_RETIRED}}
+\index{ARM\_PMU\_MVE\_FP\_MAC\_RETIRED@{ARM\_PMU\_MVE\_FP\_MAC\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_FP\_MAC\_RETIRED}{ARM\_PMU\_MVE\_FP\_MAC\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ac2dc7d92627b3caa391725a3f080288c} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+MAC\+\_\+\+RETIRED~0x0214}
+
+MVE floating-\/point multiply or multiply-\/accumulate instruction architecturally executed \Hypertarget{pmu__armv8_8h_af5302b3278a862c9264171955328a59a}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_FP\_MAC\_SPEC@{ARM\_PMU\_MVE\_FP\_MAC\_SPEC}}
+\index{ARM\_PMU\_MVE\_FP\_MAC\_SPEC@{ARM\_PMU\_MVE\_FP\_MAC\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_FP\_MAC\_SPEC}{ARM\_PMU\_MVE\_FP\_MAC\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_af5302b3278a862c9264171955328a59a} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+MAC\+\_\+\+SPEC~0x0215}
+
+MVE floating-\/point multiply or multiply-\/accumulate instruction speculatively executed \Hypertarget{pmu__armv8_8h_a268b0bcbd30e8a928bd0f331fdf53ccf}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_FP\_RETIRED@{ARM\_PMU\_MVE\_FP\_RETIRED}}
+\index{ARM\_PMU\_MVE\_FP\_RETIRED@{ARM\_PMU\_MVE\_FP\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_FP\_RETIRED}{ARM\_PMU\_MVE\_FP\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a268b0bcbd30e8a928bd0f331fdf53ccf} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+RETIRED~0x0204}
+
+MVE floating-\/point instruction architecturally executed \Hypertarget{pmu__armv8_8h_ab21171c50ebd1f304b11260edd015f52}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_FP\_SP\_RETIRED@{ARM\_PMU\_MVE\_FP\_SP\_RETIRED}}
+\index{ARM\_PMU\_MVE\_FP\_SP\_RETIRED@{ARM\_PMU\_MVE\_FP\_SP\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_FP\_SP\_RETIRED}{ARM\_PMU\_MVE\_FP\_SP\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ab21171c50ebd1f304b11260edd015f52} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+SP\+\_\+\+RETIRED~0x020C}
+
+MVE single-\/precision floating-\/point instruction architecturally executed \Hypertarget{pmu__armv8_8h_ae69e310892661af852ca2d4ec947d18a}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_FP\_SP\_SPEC@{ARM\_PMU\_MVE\_FP\_SP\_SPEC}}
+\index{ARM\_PMU\_MVE\_FP\_SP\_SPEC@{ARM\_PMU\_MVE\_FP\_SP\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_FP\_SP\_SPEC}{ARM\_PMU\_MVE\_FP\_SP\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ae69e310892661af852ca2d4ec947d18a} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+SP\+\_\+\+SPEC~0x020D}
+
+MVE single-\/precision floating-\/point instruction speculatively executed \Hypertarget{pmu__armv8_8h_adf9cfd45b59acfc314ebc814a1bcdccd}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_FP\_SPEC@{ARM\_PMU\_MVE\_FP\_SPEC}}
+\index{ARM\_PMU\_MVE\_FP\_SPEC@{ARM\_PMU\_MVE\_FP\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_FP\_SPEC}{ARM\_PMU\_MVE\_FP\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_adf9cfd45b59acfc314ebc814a1bcdccd} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+FP\+\_\+\+SPEC~0x0205}
+
+MVE floating-\/point instruction speculatively executed \Hypertarget{pmu__armv8_8h_a3c1006bed2fb82b0749386261b397727}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_INST\_RETIRED@{ARM\_PMU\_MVE\_INST\_RETIRED}}
+\index{ARM\_PMU\_MVE\_INST\_RETIRED@{ARM\_PMU\_MVE\_INST\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_INST\_RETIRED}{ARM\_PMU\_MVE\_INST\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a3c1006bed2fb82b0749386261b397727} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+INST\+\_\+\+RETIRED~0x0200}
+
+MVE instruction architecturally executed \Hypertarget{pmu__armv8_8h_a1e276b6872345eb3b043626a11f235c6}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_INST\_SPEC@{ARM\_PMU\_MVE\_INST\_SPEC}}
+\index{ARM\_PMU\_MVE\_INST\_SPEC@{ARM\_PMU\_MVE\_INST\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_INST\_SPEC}{ARM\_PMU\_MVE\_INST\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a1e276b6872345eb3b043626a11f235c6} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+INST\+\_\+\+SPEC~0x0201}
+
+MVE instruction speculatively executed \Hypertarget{pmu__armv8_8h_a9248c93a3f19fddc93d3804a06f7238a}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_INT\_MAC\_RETIRED@{ARM\_PMU\_MVE\_INT\_MAC\_RETIRED}}
+\index{ARM\_PMU\_MVE\_INT\_MAC\_RETIRED@{ARM\_PMU\_MVE\_INT\_MAC\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_INT\_MAC\_RETIRED}{ARM\_PMU\_MVE\_INT\_MAC\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a9248c93a3f19fddc93d3804a06f7238a} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+INT\+\_\+\+MAC\+\_\+\+RETIRED~0x0228}
+
+MVE multiply or multiply-\/accumulate instruction architecturally executed \Hypertarget{pmu__armv8_8h_a7036f00faa9183ae450a3e4d9d6f2bbf}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_INT\_MAC\_SPEC@{ARM\_PMU\_MVE\_INT\_MAC\_SPEC}}
+\index{ARM\_PMU\_MVE\_INT\_MAC\_SPEC@{ARM\_PMU\_MVE\_INT\_MAC\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_INT\_MAC\_SPEC}{ARM\_PMU\_MVE\_INT\_MAC\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a7036f00faa9183ae450a3e4d9d6f2bbf} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+INT\+\_\+\+MAC\+\_\+\+SPEC~0x0229}
+
+MVE multiply or multiply-\/accumulate instruction speculatively executed \Hypertarget{pmu__armv8_8h_a5e3afafa91ebaeac0469a19ebb54719c}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_INT\_RETIRED@{ARM\_PMU\_MVE\_INT\_RETIRED}}
+\index{ARM\_PMU\_MVE\_INT\_RETIRED@{ARM\_PMU\_MVE\_INT\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_INT\_RETIRED}{ARM\_PMU\_MVE\_INT\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a5e3afafa91ebaeac0469a19ebb54719c} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+INT\+\_\+\+RETIRED~0x0224}
+
+MVE integer instruction architecturally executed \Hypertarget{pmu__armv8_8h_a16ed0bb1bb4718da93c41238da652d33}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_INT\_SPEC@{ARM\_PMU\_MVE\_INT\_SPEC}}
+\index{ARM\_PMU\_MVE\_INT\_SPEC@{ARM\_PMU\_MVE\_INT\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_INT\_SPEC}{ARM\_PMU\_MVE\_INT\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a16ed0bb1bb4718da93c41238da652d33} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+INT\+\_\+\+SPEC~0x0225}
+
+MVE integer instruction speculatively executed \Hypertarget{pmu__armv8_8h_a8732a737f2b7adc43e3d1da7b3da92e6}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LD\_CONTIG\_RETIRED@{ARM\_PMU\_MVE\_LD\_CONTIG\_RETIRED}}
+\index{ARM\_PMU\_MVE\_LD\_CONTIG\_RETIRED@{ARM\_PMU\_MVE\_LD\_CONTIG\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LD\_CONTIG\_RETIRED}{ARM\_PMU\_MVE\_LD\_CONTIG\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a8732a737f2b7adc43e3d1da7b3da92e6} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+CONTIG\+\_\+\+RETIRED~0x0248}
+
+MVE contiguous load instruction architecturally executed \Hypertarget{pmu__armv8_8h_a8e58fe07254256fa3bf3d42fa2062141}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LD\_CONTIG\_SPEC@{ARM\_PMU\_MVE\_LD\_CONTIG\_SPEC}}
+\index{ARM\_PMU\_MVE\_LD\_CONTIG\_SPEC@{ARM\_PMU\_MVE\_LD\_CONTIG\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LD\_CONTIG\_SPEC}{ARM\_PMU\_MVE\_LD\_CONTIG\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a8e58fe07254256fa3bf3d42fa2062141} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+CONTIG\+\_\+\+SPEC~0x0249}
+
+MVE contiguous load instruction speculatively executed \Hypertarget{pmu__armv8_8h_a50fb13c874b3f5e2b9ed9c320a36452c}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LD\_MULTI\_RETIRED@{ARM\_PMU\_MVE\_LD\_MULTI\_RETIRED}}
+\index{ARM\_PMU\_MVE\_LD\_MULTI\_RETIRED@{ARM\_PMU\_MVE\_LD\_MULTI\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LD\_MULTI\_RETIRED}{ARM\_PMU\_MVE\_LD\_MULTI\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a50fb13c874b3f5e2b9ed9c320a36452c} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+MULTI\+\_\+\+RETIRED~0x0260}
+
+MVE memory load instruction targeting multiple registers architecturally executed \Hypertarget{pmu__armv8_8h_af2d4e3d1f06d97899de7fa791477d62b}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LD\_MULTI\_SPEC@{ARM\_PMU\_MVE\_LD\_MULTI\_SPEC}}
+\index{ARM\_PMU\_MVE\_LD\_MULTI\_SPEC@{ARM\_PMU\_MVE\_LD\_MULTI\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LD\_MULTI\_SPEC}{ARM\_PMU\_MVE\_LD\_MULTI\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_af2d4e3d1f06d97899de7fa791477d62b} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+MULTI\+\_\+\+SPEC~0x0261}
+
+MVE memory load instruction targeting multiple registers speculatively executed \Hypertarget{pmu__armv8_8h_aaf2ce8c0ea4c03c934aac6afc31fc5ff}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LD\_NONCONTIG\_RETIRED@{ARM\_PMU\_MVE\_LD\_NONCONTIG\_RETIRED}}
+\index{ARM\_PMU\_MVE\_LD\_NONCONTIG\_RETIRED@{ARM\_PMU\_MVE\_LD\_NONCONTIG\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LD\_NONCONTIG\_RETIRED}{ARM\_PMU\_MVE\_LD\_NONCONTIG\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_aaf2ce8c0ea4c03c934aac6afc31fc5ff} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+NONCONTIG\+\_\+\+RETIRED~0x0254}
+
+MVE non-\/contiguous load instruction architecturally executed \Hypertarget{pmu__armv8_8h_adbcb82b7924b7bbee5c0d42a3de38572}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LD\_NONCONTIG\_SPEC@{ARM\_PMU\_MVE\_LD\_NONCONTIG\_SPEC}}
+\index{ARM\_PMU\_MVE\_LD\_NONCONTIG\_SPEC@{ARM\_PMU\_MVE\_LD\_NONCONTIG\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LD\_NONCONTIG\_SPEC}{ARM\_PMU\_MVE\_LD\_NONCONTIG\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_adbcb82b7924b7bbee5c0d42a3de38572} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+NONCONTIG\+\_\+\+SPEC~0x0255}
+
+MVE non-\/contiguous load instruction speculatively executed \Hypertarget{pmu__armv8_8h_aa3379a51350a2fda8d8ab6d7795baa7a}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LD\_RETIRED@{ARM\_PMU\_MVE\_LD\_RETIRED}}
+\index{ARM\_PMU\_MVE\_LD\_RETIRED@{ARM\_PMU\_MVE\_LD\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LD\_RETIRED}{ARM\_PMU\_MVE\_LD\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_aa3379a51350a2fda8d8ab6d7795baa7a} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+RETIRED~0x023C}
+
+MVE load instruction architecturally executed \Hypertarget{pmu__armv8_8h_a78a6f89ab30ed01f7d8388eda697b4f8}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LD\_SPEC@{ARM\_PMU\_MVE\_LD\_SPEC}}
+\index{ARM\_PMU\_MVE\_LD\_SPEC@{ARM\_PMU\_MVE\_LD\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LD\_SPEC}{ARM\_PMU\_MVE\_LD\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a78a6f89ab30ed01f7d8388eda697b4f8} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+SPEC~0x023D}
+
+MVE load instruction speculatively executed \Hypertarget{pmu__armv8_8h_a26ed05deaa7b993904300069f0ecfac4}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LD\_UNALIGNED\_RETIRED@{ARM\_PMU\_MVE\_LD\_UNALIGNED\_RETIRED}}
+\index{ARM\_PMU\_MVE\_LD\_UNALIGNED\_RETIRED@{ARM\_PMU\_MVE\_LD\_UNALIGNED\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LD\_UNALIGNED\_RETIRED}{ARM\_PMU\_MVE\_LD\_UNALIGNED\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a26ed05deaa7b993904300069f0ecfac4} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+UNALIGNED\+\_\+\+RETIRED~0x0290}
+
+MVE unaligned load instruction architecturally executed \Hypertarget{pmu__armv8_8h_adc3bd0f32e0a08bba2d533479a59bd6e}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LD\_UNALIGNED\_SPEC@{ARM\_PMU\_MVE\_LD\_UNALIGNED\_SPEC}}
+\index{ARM\_PMU\_MVE\_LD\_UNALIGNED\_SPEC@{ARM\_PMU\_MVE\_LD\_UNALIGNED\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LD\_UNALIGNED\_SPEC}{ARM\_PMU\_MVE\_LD\_UNALIGNED\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_adc3bd0f32e0a08bba2d533479a59bd6e} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LD\+\_\+\+UNALIGNED\+\_\+\+SPEC~0x0291}
+
+MVE unaligned load instruction speculatively executed \Hypertarget{pmu__armv8_8h_a8acf6a66c63798b76608caf52c96658d}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LDST\_CONTIG\_RETIRED@{ARM\_PMU\_MVE\_LDST\_CONTIG\_RETIRED}}
+\index{ARM\_PMU\_MVE\_LDST\_CONTIG\_RETIRED@{ARM\_PMU\_MVE\_LDST\_CONTIG\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LDST\_CONTIG\_RETIRED}{ARM\_PMU\_MVE\_LDST\_CONTIG\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a8acf6a66c63798b76608caf52c96658d} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+CONTIG\+\_\+\+RETIRED~0x0244}
+
+MVE contiguous load or store instruction architecturally executed \Hypertarget{pmu__armv8_8h_a5a83ef6a52739e1d223be503bbdaaab6}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LDST\_CONTIG\_SPEC@{ARM\_PMU\_MVE\_LDST\_CONTIG\_SPEC}}
+\index{ARM\_PMU\_MVE\_LDST\_CONTIG\_SPEC@{ARM\_PMU\_MVE\_LDST\_CONTIG\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LDST\_CONTIG\_SPEC}{ARM\_PMU\_MVE\_LDST\_CONTIG\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a5a83ef6a52739e1d223be503bbdaaab6} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+CONTIG\+\_\+\+SPEC~0x0245}
+
+MVE contiguous load or store instruction speculatively executed \Hypertarget{pmu__armv8_8h_a7d669378441408fc21aa551e483866cb}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LDST\_MULTI\_RETIRED@{ARM\_PMU\_MVE\_LDST\_MULTI\_RETIRED}}
+\index{ARM\_PMU\_MVE\_LDST\_MULTI\_RETIRED@{ARM\_PMU\_MVE\_LDST\_MULTI\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LDST\_MULTI\_RETIRED}{ARM\_PMU\_MVE\_LDST\_MULTI\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a7d669378441408fc21aa551e483866cb} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+MULTI\+\_\+\+RETIRED~0x025C}
+
+MVE memory instruction targeting multiple registers architecturally executed \Hypertarget{pmu__armv8_8h_a7ea46cde08cb0cc4a46ef23835fb5aac}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LDST\_MULTI\_SPEC@{ARM\_PMU\_MVE\_LDST\_MULTI\_SPEC}}
+\index{ARM\_PMU\_MVE\_LDST\_MULTI\_SPEC@{ARM\_PMU\_MVE\_LDST\_MULTI\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LDST\_MULTI\_SPEC}{ARM\_PMU\_MVE\_LDST\_MULTI\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a7ea46cde08cb0cc4a46ef23835fb5aac} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+MULTI\+\_\+\+SPEC~0x025D}
+
+MVE memory instruction targeting multiple registers speculatively executed \Hypertarget{pmu__armv8_8h_a7065b7f0aea461858b72912d22c329f2}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LDST\_NONCONTIG\_RETIRED@{ARM\_PMU\_MVE\_LDST\_NONCONTIG\_RETIRED}}
+\index{ARM\_PMU\_MVE\_LDST\_NONCONTIG\_RETIRED@{ARM\_PMU\_MVE\_LDST\_NONCONTIG\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LDST\_NONCONTIG\_RETIRED}{ARM\_PMU\_MVE\_LDST\_NONCONTIG\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a7065b7f0aea461858b72912d22c329f2} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+NONCONTIG\+\_\+\+RETIRED~0x0250}
+
+MVE non-\/contiguous load or store instruction architecturally executed \Hypertarget{pmu__armv8_8h_a193605eb52709741d91a64e3ad1a5894}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LDST\_NONCONTIG\_SPEC@{ARM\_PMU\_MVE\_LDST\_NONCONTIG\_SPEC}}
+\index{ARM\_PMU\_MVE\_LDST\_NONCONTIG\_SPEC@{ARM\_PMU\_MVE\_LDST\_NONCONTIG\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LDST\_NONCONTIG\_SPEC}{ARM\_PMU\_MVE\_LDST\_NONCONTIG\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a193605eb52709741d91a64e3ad1a5894} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+NONCONTIG\+\_\+\+SPEC~0x0251}
+
+MVE non-\/contiguous load or store instruction speculatively executed \Hypertarget{pmu__armv8_8h_a7d7d465a6c64400c49f93b6c8152296f}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LDST\_RETIRED@{ARM\_PMU\_MVE\_LDST\_RETIRED}}
+\index{ARM\_PMU\_MVE\_LDST\_RETIRED@{ARM\_PMU\_MVE\_LDST\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LDST\_RETIRED}{ARM\_PMU\_MVE\_LDST\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a7d7d465a6c64400c49f93b6c8152296f} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+RETIRED~0x0238}
+
+MVE load or store instruction architecturally executed \Hypertarget{pmu__armv8_8h_aa98a18c06bd13daf2df6f89219ec68d5}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LDST\_SPEC@{ARM\_PMU\_MVE\_LDST\_SPEC}}
+\index{ARM\_PMU\_MVE\_LDST\_SPEC@{ARM\_PMU\_MVE\_LDST\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LDST\_SPEC}{ARM\_PMU\_MVE\_LDST\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_aa98a18c06bd13daf2df6f89219ec68d5} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+SPEC~0x0239}
+
+MVE load or store instruction speculatively executed \Hypertarget{pmu__armv8_8h_a627920bebd935709655687d844848934}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LDST\_UNALIGNED\_NONCONTIG\_RETIRED@{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_NONCONTIG\_RETIRED}}
+\index{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_NONCONTIG\_RETIRED@{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_NONCONTIG\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_NONCONTIG\_RETIRED}{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_NONCONTIG\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a627920bebd935709655687d844848934} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+UNALIGNED\+\_\+\+NONCONTIG\+\_\+\+RETIRED~0x0298}
+
+MVE unaligned noncontiguous load or store instruction architecturally executed \Hypertarget{pmu__armv8_8h_af9ebeb1f49dba56d8f90f9bd5d3da58e}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LDST\_UNALIGNED\_NONCONTIG\_SPEC@{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_NONCONTIG\_SPEC}}
+\index{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_NONCONTIG\_SPEC@{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_NONCONTIG\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_NONCONTIG\_SPEC}{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_NONCONTIG\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_af9ebeb1f49dba56d8f90f9bd5d3da58e} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+UNALIGNED\+\_\+\+NONCONTIG\+\_\+\+SPEC~0x0299}
+
+MVE unaligned noncontiguous load or store instruction speculatively executed \Hypertarget{pmu__armv8_8h_af358a9ed5c83a10cb695d9b19b1b3bc1}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LDST\_UNALIGNED\_RETIRED@{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_RETIRED}}
+\index{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_RETIRED@{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_RETIRED}{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_af358a9ed5c83a10cb695d9b19b1b3bc1} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+UNALIGNED\+\_\+\+RETIRED~0x028C}
+
+MVE unaligned memory load or store instruction architecturally executed \Hypertarget{pmu__armv8_8h_ab2264786bed578c89109859b55909c76}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_LDST\_UNALIGNED\_SPEC@{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_SPEC}}
+\index{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_SPEC@{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_SPEC}{ARM\_PMU\_MVE\_LDST\_UNALIGNED\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ab2264786bed578c89109859b55909c76} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+LDST\+\_\+\+UNALIGNED\+\_\+\+SPEC~0x028D}
+
+MVE unaligned memory load or store instruction speculatively executed \Hypertarget{pmu__armv8_8h_a01b4792990494b8f084ee00933a1adb0}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_PRED@{ARM\_PMU\_MVE\_PRED}}
+\index{ARM\_PMU\_MVE\_PRED@{ARM\_PMU\_MVE\_PRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_PRED}{ARM\_PMU\_MVE\_PRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a01b4792990494b8f084ee00933a1adb0} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+PRED~0x02\+B8}
+
+Cycles where one or more predicated beats architecturally executed \Hypertarget{pmu__armv8_8h_acb3c0b922eae9aac321df97ec889e0ed}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_ST\_CONTIG\_RETIRED@{ARM\_PMU\_MVE\_ST\_CONTIG\_RETIRED}}
+\index{ARM\_PMU\_MVE\_ST\_CONTIG\_RETIRED@{ARM\_PMU\_MVE\_ST\_CONTIG\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_ST\_CONTIG\_RETIRED}{ARM\_PMU\_MVE\_ST\_CONTIG\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_acb3c0b922eae9aac321df97ec889e0ed} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+CONTIG\+\_\+\+RETIRED~0x024C}
+
+MVE contiguous store instruction architecturally executed \Hypertarget{pmu__armv8_8h_a02cd64b9444e4babc7b69e8571d39bdd}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_ST\_CONTIG\_SPEC@{ARM\_PMU\_MVE\_ST\_CONTIG\_SPEC}}
+\index{ARM\_PMU\_MVE\_ST\_CONTIG\_SPEC@{ARM\_PMU\_MVE\_ST\_CONTIG\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_ST\_CONTIG\_SPEC}{ARM\_PMU\_MVE\_ST\_CONTIG\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a02cd64b9444e4babc7b69e8571d39bdd} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+CONTIG\+\_\+\+SPEC~0x024D}
+
+MVE contiguous store instruction speculatively executed \Hypertarget{pmu__armv8_8h_a76057cbda353b4ad6fbc3b6a63c193a5}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_ST\_MULTI\_RETIRED@{ARM\_PMU\_MVE\_ST\_MULTI\_RETIRED}}
+\index{ARM\_PMU\_MVE\_ST\_MULTI\_RETIRED@{ARM\_PMU\_MVE\_ST\_MULTI\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_ST\_MULTI\_RETIRED}{ARM\_PMU\_MVE\_ST\_MULTI\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a76057cbda353b4ad6fbc3b6a63c193a5} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+MULTI\+\_\+\+RETIRED~0x0261}
+
+MVE memory store instruction targeting multiple registers architecturally executed \Hypertarget{pmu__armv8_8h_af6a14402c79dba8fa765e8663dd0734d}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_ST\_MULTI\_SPEC@{ARM\_PMU\_MVE\_ST\_MULTI\_SPEC}}
+\index{ARM\_PMU\_MVE\_ST\_MULTI\_SPEC@{ARM\_PMU\_MVE\_ST\_MULTI\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_ST\_MULTI\_SPEC}{ARM\_PMU\_MVE\_ST\_MULTI\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_af6a14402c79dba8fa765e8663dd0734d} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+MULTI\+\_\+\+SPEC~0x0265}
+
+MVE memory store instruction targeting multiple registers speculatively executed \Hypertarget{pmu__armv8_8h_a8271f415ecc7573b57e82a24aec86ef1}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_ST\_NONCONTIG\_RETIRED@{ARM\_PMU\_MVE\_ST\_NONCONTIG\_RETIRED}}
+\index{ARM\_PMU\_MVE\_ST\_NONCONTIG\_RETIRED@{ARM\_PMU\_MVE\_ST\_NONCONTIG\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_ST\_NONCONTIG\_RETIRED}{ARM\_PMU\_MVE\_ST\_NONCONTIG\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a8271f415ecc7573b57e82a24aec86ef1} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+NONCONTIG\+\_\+\+RETIRED~0x0258}
+
+MVE non-\/contiguous store instruction architecturally executed \Hypertarget{pmu__armv8_8h_a059327c80f396918a9f8192bcd0fa4a8}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_ST\_NONCONTIG\_SPEC@{ARM\_PMU\_MVE\_ST\_NONCONTIG\_SPEC}}
+\index{ARM\_PMU\_MVE\_ST\_NONCONTIG\_SPEC@{ARM\_PMU\_MVE\_ST\_NONCONTIG\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_ST\_NONCONTIG\_SPEC}{ARM\_PMU\_MVE\_ST\_NONCONTIG\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a059327c80f396918a9f8192bcd0fa4a8} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+NONCONTIG\+\_\+\+SPEC~0x0259}
+
+MVE non-\/contiguous store instruction speculatively executed \Hypertarget{pmu__armv8_8h_ad8d0079977fa97de4ee263703f1b2908}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_ST\_RETIRED@{ARM\_PMU\_MVE\_ST\_RETIRED}}
+\index{ARM\_PMU\_MVE\_ST\_RETIRED@{ARM\_PMU\_MVE\_ST\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_ST\_RETIRED}{ARM\_PMU\_MVE\_ST\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ad8d0079977fa97de4ee263703f1b2908} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+RETIRED~0x0240}
+
+MVE store instruction architecturally executed \Hypertarget{pmu__armv8_8h_abd3984d299b5416aac8d630722680c55}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_ST\_SPEC@{ARM\_PMU\_MVE\_ST\_SPEC}}
+\index{ARM\_PMU\_MVE\_ST\_SPEC@{ARM\_PMU\_MVE\_ST\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_ST\_SPEC}{ARM\_PMU\_MVE\_ST\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_abd3984d299b5416aac8d630722680c55} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+SPEC~0x0241}
+
+MVE store instruction speculatively executed \Hypertarget{pmu__armv8_8h_a391afd8cb92cc65161b13ee3a3256d40}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_ST\_UNALIGNED\_RETIRED@{ARM\_PMU\_MVE\_ST\_UNALIGNED\_RETIRED}}
+\index{ARM\_PMU\_MVE\_ST\_UNALIGNED\_RETIRED@{ARM\_PMU\_MVE\_ST\_UNALIGNED\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_ST\_UNALIGNED\_RETIRED}{ARM\_PMU\_MVE\_ST\_UNALIGNED\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a391afd8cb92cc65161b13ee3a3256d40} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+UNALIGNED\+\_\+\+RETIRED~0x0294}
+
+MVE unaligned store instruction architecturally executed \Hypertarget{pmu__armv8_8h_a21bf105499df85196b4137cb075a6fbe}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_ST\_UNALIGNED\_SPEC@{ARM\_PMU\_MVE\_ST\_UNALIGNED\_SPEC}}
+\index{ARM\_PMU\_MVE\_ST\_UNALIGNED\_SPEC@{ARM\_PMU\_MVE\_ST\_UNALIGNED\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_ST\_UNALIGNED\_SPEC}{ARM\_PMU\_MVE\_ST\_UNALIGNED\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a21bf105499df85196b4137cb075a6fbe} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+ST\+\_\+\+UNALIGNED\+\_\+\+SPEC~0x0295}
+
+MVE unaligned store instruction speculatively executed \Hypertarget{pmu__armv8_8h_a2a45ec75b2011bd8375d89b7562b2de6}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_STALL@{ARM\_PMU\_MVE\_STALL}}
+\index{ARM\_PMU\_MVE\_STALL@{ARM\_PMU\_MVE\_STALL}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_STALL}{ARM\_PMU\_MVE\_STALL}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a2a45ec75b2011bd8375d89b7562b2de6} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+STALL~0x02\+CC}
+
+Stall cycles caused by an MVE instruction \Hypertarget{pmu__armv8_8h_a9a1cfef96ec7cd70acf134e368d8826a}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_STALL\_BREAK@{ARM\_PMU\_MVE\_STALL\_BREAK}}
+\index{ARM\_PMU\_MVE\_STALL\_BREAK@{ARM\_PMU\_MVE\_STALL\_BREAK}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_STALL\_BREAK}{ARM\_PMU\_MVE\_STALL\_BREAK}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a9a1cfef96ec7cd70acf134e368d8826a} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+STALL\+\_\+\+BREAK~0x02\+D3}
+
+Stall cycles caused by an MVE chain break \Hypertarget{pmu__armv8_8h_a29bc4c2e820914e94e2eb68a6a3352b9}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_STALL\_DEPENDENCY@{ARM\_PMU\_MVE\_STALL\_DEPENDENCY}}
+\index{ARM\_PMU\_MVE\_STALL\_DEPENDENCY@{ARM\_PMU\_MVE\_STALL\_DEPENDENCY}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_STALL\_DEPENDENCY}{ARM\_PMU\_MVE\_STALL\_DEPENDENCY}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a29bc4c2e820914e94e2eb68a6a3352b9} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+STALL\+\_\+\+DEPENDENCY~0x02\+D4}
+
+Stall cycles caused by MVE register dependency \Hypertarget{pmu__armv8_8h_a8f4949084efce03d09bf5ba74cc91edd}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_STALL\_RESOURCE@{ARM\_PMU\_MVE\_STALL\_RESOURCE}}
+\index{ARM\_PMU\_MVE\_STALL\_RESOURCE@{ARM\_PMU\_MVE\_STALL\_RESOURCE}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_STALL\_RESOURCE}{ARM\_PMU\_MVE\_STALL\_RESOURCE}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a8f4949084efce03d09bf5ba74cc91edd} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+STALL\+\_\+\+RESOURCE~0x02\+CD}
+
+Stall cycles caused by an MVE instruction because of resource conflicts \Hypertarget{pmu__armv8_8h_a7e76060791618f9b4d49ad493cfb6ba9}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_STALL\_RESOURCE\_FP@{ARM\_PMU\_MVE\_STALL\_RESOURCE\_FP}}
+\index{ARM\_PMU\_MVE\_STALL\_RESOURCE\_FP@{ARM\_PMU\_MVE\_STALL\_RESOURCE\_FP}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_STALL\_RESOURCE\_FP}{ARM\_PMU\_MVE\_STALL\_RESOURCE\_FP}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a7e76060791618f9b4d49ad493cfb6ba9} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+STALL\+\_\+\+RESOURCE\+\_\+\+FP~0x02\+CF}
+
+Stall cycles caused by an MVE instruction because of floating-\/point resource conflicts \Hypertarget{pmu__armv8_8h_aef33b3ff7f12d31238ff4dded5e67a11}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_STALL\_RESOURCE\_INT@{ARM\_PMU\_MVE\_STALL\_RESOURCE\_INT}}
+\index{ARM\_PMU\_MVE\_STALL\_RESOURCE\_INT@{ARM\_PMU\_MVE\_STALL\_RESOURCE\_INT}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_STALL\_RESOURCE\_INT}{ARM\_PMU\_MVE\_STALL\_RESOURCE\_INT}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_aef33b3ff7f12d31238ff4dded5e67a11} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+STALL\+\_\+\+RESOURCE\+\_\+\+INT~0x02\+D0}
+
+Stall cycles caused by an MVE instruction because of integer resource conflicts \Hypertarget{pmu__armv8_8h_ab486f5753edd9f10b0f100ff78944dd3}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_STALL\_RESOURCE\_MEM@{ARM\_PMU\_MVE\_STALL\_RESOURCE\_MEM}}
+\index{ARM\_PMU\_MVE\_STALL\_RESOURCE\_MEM@{ARM\_PMU\_MVE\_STALL\_RESOURCE\_MEM}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_STALL\_RESOURCE\_MEM}{ARM\_PMU\_MVE\_STALL\_RESOURCE\_MEM}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ab486f5753edd9f10b0f100ff78944dd3} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+STALL\+\_\+\+RESOURCE\+\_\+\+MEM~0x02\+CE}
+
+Stall cycles caused by an MVE instruction because of memory resource conflicts \Hypertarget{pmu__armv8_8h_a77fad5ad424271ed63fec98af071bb79}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_VREDUCE\_FP\_RETIRED@{ARM\_PMU\_MVE\_VREDUCE\_FP\_RETIRED}}
+\index{ARM\_PMU\_MVE\_VREDUCE\_FP\_RETIRED@{ARM\_PMU\_MVE\_VREDUCE\_FP\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_VREDUCE\_FP\_RETIRED}{ARM\_PMU\_MVE\_VREDUCE\_FP\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a77fad5ad424271ed63fec98af071bb79} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+VREDUCE\+\_\+\+FP\+\_\+\+RETIRED~0x02\+A4}
+
+MVE floating-\/point vector reduction instruction architecturally executed \Hypertarget{pmu__armv8_8h_aa07c698f58c622d234a0007249717265}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_VREDUCE\_FP\_SPEC@{ARM\_PMU\_MVE\_VREDUCE\_FP\_SPEC}}
+\index{ARM\_PMU\_MVE\_VREDUCE\_FP\_SPEC@{ARM\_PMU\_MVE\_VREDUCE\_FP\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_VREDUCE\_FP\_SPEC}{ARM\_PMU\_MVE\_VREDUCE\_FP\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_aa07c698f58c622d234a0007249717265} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+VREDUCE\+\_\+\+FP\+\_\+\+SPEC~0x02\+A5}
+
+MVE floating-\/point vector reduction instruction speculatively executed \Hypertarget{pmu__armv8_8h_a649e7e81f0fd04ca6611f6a6c4035c57}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_VREDUCE\_INT\_RETIRED@{ARM\_PMU\_MVE\_VREDUCE\_INT\_RETIRED}}
+\index{ARM\_PMU\_MVE\_VREDUCE\_INT\_RETIRED@{ARM\_PMU\_MVE\_VREDUCE\_INT\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_VREDUCE\_INT\_RETIRED}{ARM\_PMU\_MVE\_VREDUCE\_INT\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a649e7e81f0fd04ca6611f6a6c4035c57} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+VREDUCE\+\_\+\+INT\+\_\+\+RETIRED~0x02\+A8}
+
+MVE integer vector reduction instruction architecturally executed \Hypertarget{pmu__armv8_8h_a5b6f0bcfd63207c7bab03ea20167dd4b}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_VREDUCE\_INT\_SPEC@{ARM\_PMU\_MVE\_VREDUCE\_INT\_SPEC}}
+\index{ARM\_PMU\_MVE\_VREDUCE\_INT\_SPEC@{ARM\_PMU\_MVE\_VREDUCE\_INT\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_VREDUCE\_INT\_SPEC}{ARM\_PMU\_MVE\_VREDUCE\_INT\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a5b6f0bcfd63207c7bab03ea20167dd4b} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+VREDUCE\+\_\+\+INT\+\_\+\+SPEC~0x02\+A9}
+
+MVE integer vector reduction instruction speculatively executed \Hypertarget{pmu__armv8_8h_a9546b924daa3c62e5f117026de58ad94}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_VREDUCE\_RETIRED@{ARM\_PMU\_MVE\_VREDUCE\_RETIRED}}
+\index{ARM\_PMU\_MVE\_VREDUCE\_RETIRED@{ARM\_PMU\_MVE\_VREDUCE\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_VREDUCE\_RETIRED}{ARM\_PMU\_MVE\_VREDUCE\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a9546b924daa3c62e5f117026de58ad94} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+VREDUCE\+\_\+\+RETIRED~0x02\+A0}
+
+MVE vector reduction instruction architecturally executed \Hypertarget{pmu__armv8_8h_ac714f988ae45871b2865f82c11383b36}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_MVE\_VREDUCE\_SPEC@{ARM\_PMU\_MVE\_VREDUCE\_SPEC}}
+\index{ARM\_PMU\_MVE\_VREDUCE\_SPEC@{ARM\_PMU\_MVE\_VREDUCE\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_MVE\_VREDUCE\_SPEC}{ARM\_PMU\_MVE\_VREDUCE\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ac714f988ae45871b2865f82c11383b36} 
+\#define ARM\+\_\+\+PMU\+\_\+\+MVE\+\_\+\+VREDUCE\+\_\+\+SPEC~0x02\+A1}
+
+MVE vector reduction instruction speculatively executed \Hypertarget{pmu__armv8_8h_a2fe9d3ea67ce833bd6323e4ce1a4e894}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_OP\_COMPLETE@{ARM\_PMU\_OP\_COMPLETE}}
+\index{ARM\_PMU\_OP\_COMPLETE@{ARM\_PMU\_OP\_COMPLETE}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_OP\_COMPLETE}{ARM\_PMU\_OP\_COMPLETE}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a2fe9d3ea67ce833bd6323e4ce1a4e894} 
+\#define ARM\+\_\+\+PMU\+\_\+\+OP\+\_\+\+COMPLETE~0x003A}
+
+Operation retired \Hypertarget{pmu__armv8_8h_a6c59149e9b1754987b44b62092bc9f09}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_OP\_SPEC@{ARM\_PMU\_OP\_SPEC}}
+\index{ARM\_PMU\_OP\_SPEC@{ARM\_PMU\_OP\_SPEC}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_OP\_SPEC}{ARM\_PMU\_OP\_SPEC}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a6c59149e9b1754987b44b62092bc9f09} 
+\#define ARM\+\_\+\+PMU\+\_\+\+OP\+\_\+\+SPEC~0x003B}
+
+Operation speculatively executed \Hypertarget{pmu__armv8_8h_a54fd2c392399221077c67866a395e587}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_PC\_WRITE\_RETIRED@{ARM\_PMU\_PC\_WRITE\_RETIRED}}
+\index{ARM\_PMU\_PC\_WRITE\_RETIRED@{ARM\_PMU\_PC\_WRITE\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_PC\_WRITE\_RETIRED}{ARM\_PMU\_PC\_WRITE\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a54fd2c392399221077c67866a395e587} 
+\#define ARM\+\_\+\+PMU\+\_\+\+PC\+\_\+\+WRITE\+\_\+\+RETIRED~0x000C}
+
+Software change to the Program Counter (PC). Instruction is architecturally executed and condition code check pass \Hypertarget{pmu__armv8_8h_aaae2c32a8ecd36b59ac98cf8e23b3cab}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_SE\_CALL\_NS@{ARM\_PMU\_SE\_CALL\_NS}}
+\index{ARM\_PMU\_SE\_CALL\_NS@{ARM\_PMU\_SE\_CALL\_NS}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_SE\_CALL\_NS}{ARM\_PMU\_SE\_CALL\_NS}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_aaae2c32a8ecd36b59ac98cf8e23b3cab} 
+\#define ARM\+\_\+\+PMU\+\_\+\+SE\+\_\+\+CALL\+\_\+\+NS~0x0115}
+
+Call to non-\/secure function, resulting in Security state change \Hypertarget{pmu__armv8_8h_ad3ba2effbe303ca3fafdbc022fe206c1}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_SE\_CALL\_S@{ARM\_PMU\_SE\_CALL\_S}}
+\index{ARM\_PMU\_SE\_CALL\_S@{ARM\_PMU\_SE\_CALL\_S}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_SE\_CALL\_S}{ARM\_PMU\_SE\_CALL\_S}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ad3ba2effbe303ca3fafdbc022fe206c1} 
+\#define ARM\+\_\+\+PMU\+\_\+\+SE\+\_\+\+CALL\+\_\+S~0x0114}
+
+Call to secure function, resulting in Security state change \Hypertarget{pmu__armv8_8h_a8179d1144f8ec993bd1343e276d7b49b}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_ST\_RETIRED@{ARM\_PMU\_ST\_RETIRED}}
+\index{ARM\_PMU\_ST\_RETIRED@{ARM\_PMU\_ST\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_ST\_RETIRED}{ARM\_PMU\_ST\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a8179d1144f8ec993bd1343e276d7b49b} 
+\#define ARM\+\_\+\+PMU\+\_\+\+ST\+\_\+\+RETIRED~0x0007}
+
+Memory-\/writing instruction architecturally executed and condition code check pass \Hypertarget{pmu__armv8_8h_a8bf75efa06a125ee2dfa9a130e7ba9a8}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_STALL@{ARM\_PMU\_STALL}}
+\index{ARM\_PMU\_STALL@{ARM\_PMU\_STALL}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_STALL}{ARM\_PMU\_STALL}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a8bf75efa06a125ee2dfa9a130e7ba9a8} 
+\#define ARM\+\_\+\+PMU\+\_\+\+STALL~0x003C}
+
+Stall cycle for instruction or operation not sent for execution \Hypertarget{pmu__armv8_8h_a8737bee352820bd7d1bc8e5e4260143c}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_STALL\_BACKEND@{ARM\_PMU\_STALL\_BACKEND}}
+\index{ARM\_PMU\_STALL\_BACKEND@{ARM\_PMU\_STALL\_BACKEND}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_STALL\_BACKEND}{ARM\_PMU\_STALL\_BACKEND}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a8737bee352820bd7d1bc8e5e4260143c} 
+\#define ARM\+\_\+\+PMU\+\_\+\+STALL\+\_\+\+BACKEND~0x0024}
+
+No operation issued because of the backend \Hypertarget{pmu__armv8_8h_a5b068593baa831348664dfa7d44f5483}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_STALL\_FRONTEND@{ARM\_PMU\_STALL\_FRONTEND}}
+\index{ARM\_PMU\_STALL\_FRONTEND@{ARM\_PMU\_STALL\_FRONTEND}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_STALL\_FRONTEND}{ARM\_PMU\_STALL\_FRONTEND}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a5b068593baa831348664dfa7d44f5483} 
+\#define ARM\+\_\+\+PMU\+\_\+\+STALL\+\_\+\+FRONTEND~0x0023}
+
+No operation issued because of the frontend \Hypertarget{pmu__armv8_8h_a197b491f691110fb52aef4291782b6ab}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_STALL\_OP@{ARM\_PMU\_STALL\_OP}}
+\index{ARM\_PMU\_STALL\_OP@{ARM\_PMU\_STALL\_OP}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_STALL\_OP}{ARM\_PMU\_STALL\_OP}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a197b491f691110fb52aef4291782b6ab} 
+\#define ARM\+\_\+\+PMU\+\_\+\+STALL\+\_\+\+OP~0x003F}
+
+Instruction or operation slots not occupied each cycle \Hypertarget{pmu__armv8_8h_a9700ec74727a9fe3cd4cd40736628a23}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_STALL\_OP\_BACKEND@{ARM\_PMU\_STALL\_OP\_BACKEND}}
+\index{ARM\_PMU\_STALL\_OP\_BACKEND@{ARM\_PMU\_STALL\_OP\_BACKEND}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_STALL\_OP\_BACKEND}{ARM\_PMU\_STALL\_OP\_BACKEND}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a9700ec74727a9fe3cd4cd40736628a23} 
+\#define ARM\+\_\+\+PMU\+\_\+\+STALL\+\_\+\+OP\+\_\+\+BACKEND~0x003D}
+
+Stall cycle for instruction or operation not sent for execution due to pipeline backend \Hypertarget{pmu__armv8_8h_a69cfd3558cf6c6f3bb621ee75430427c}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_STALL\_OP\_FRONTEND@{ARM\_PMU\_STALL\_OP\_FRONTEND}}
+\index{ARM\_PMU\_STALL\_OP\_FRONTEND@{ARM\_PMU\_STALL\_OP\_FRONTEND}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_STALL\_OP\_FRONTEND}{ARM\_PMU\_STALL\_OP\_FRONTEND}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a69cfd3558cf6c6f3bb621ee75430427c} 
+\#define ARM\+\_\+\+PMU\+\_\+\+STALL\+\_\+\+OP\+\_\+\+FRONTEND~0x003E}
+
+Stall cycle for instruction or operation not sent for execution due to pipeline frontend \Hypertarget{pmu__armv8_8h_a6e02b08550d7e9b273ff7913f1b57bea}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_SW\_INCR@{ARM\_PMU\_SW\_INCR}}
+\index{ARM\_PMU\_SW\_INCR@{ARM\_PMU\_SW\_INCR}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_SW\_INCR}{ARM\_PMU\_SW\_INCR}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a6e02b08550d7e9b273ff7913f1b57bea} 
+\#define ARM\+\_\+\+PMU\+\_\+\+SW\+\_\+\+INCR~0x0000}
+
+
+
+PMU Events. 
+
+\begin{DoxyNote}{Note}
+See the Armv8.\+1-\/M Architecture Reference Manual for full details on these PMU events. Software update to the PMU\+\_\+\+SWINC register, architecturally executed and condition code check pass 
+\end{DoxyNote}
+\Hypertarget{pmu__armv8_8h_adaa75dc2ccfbf7a2263da9a9011f1603}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_TRCEXTOUT0@{ARM\_PMU\_TRCEXTOUT0}}
+\index{ARM\_PMU\_TRCEXTOUT0@{ARM\_PMU\_TRCEXTOUT0}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_TRCEXTOUT0}{ARM\_PMU\_TRCEXTOUT0}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_adaa75dc2ccfbf7a2263da9a9011f1603} 
+\#define ARM\+\_\+\+PMU\+\_\+\+TRCEXTOUT0~0x4010}
+
+ETM external output 0 \Hypertarget{pmu__armv8_8h_a47fe03fe6fe9bfebd98283cb57d94560}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_TRCEXTOUT1@{ARM\_PMU\_TRCEXTOUT1}}
+\index{ARM\_PMU\_TRCEXTOUT1@{ARM\_PMU\_TRCEXTOUT1}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_TRCEXTOUT1}{ARM\_PMU\_TRCEXTOUT1}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a47fe03fe6fe9bfebd98283cb57d94560} 
+\#define ARM\+\_\+\+PMU\+\_\+\+TRCEXTOUT1~0x4011}
+
+ETM external output 1 \Hypertarget{pmu__armv8_8h_ab80e47ffebc3ae6ed2952756b020dbb9}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_TRCEXTOUT2@{ARM\_PMU\_TRCEXTOUT2}}
+\index{ARM\_PMU\_TRCEXTOUT2@{ARM\_PMU\_TRCEXTOUT2}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_TRCEXTOUT2}{ARM\_PMU\_TRCEXTOUT2}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ab80e47ffebc3ae6ed2952756b020dbb9} 
+\#define ARM\+\_\+\+PMU\+\_\+\+TRCEXTOUT2~0x4012}
+
+ETM external output 2 \Hypertarget{pmu__armv8_8h_ad70a3b074efd967485ffbfd3e387051d}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_TRCEXTOUT3@{ARM\_PMU\_TRCEXTOUT3}}
+\index{ARM\_PMU\_TRCEXTOUT3@{ARM\_PMU\_TRCEXTOUT3}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_TRCEXTOUT3}{ARM\_PMU\_TRCEXTOUT3}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_ad70a3b074efd967485ffbfd3e387051d} 
+\#define ARM\+\_\+\+PMU\+\_\+\+TRCEXTOUT3~0x4013}
+
+ETM external output 3 \Hypertarget{pmu__armv8_8h_a45d5ea86fdc015f4fc100462150c92da}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_UNALIGNED\_LDST\_RETIRED@{ARM\_PMU\_UNALIGNED\_LDST\_RETIRED}}
+\index{ARM\_PMU\_UNALIGNED\_LDST\_RETIRED@{ARM\_PMU\_UNALIGNED\_LDST\_RETIRED}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_UNALIGNED\_LDST\_RETIRED}{ARM\_PMU\_UNALIGNED\_LDST\_RETIRED}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a45d5ea86fdc015f4fc100462150c92da} 
+\#define ARM\+\_\+\+PMU\+\_\+\+UNALIGNED\+\_\+\+LDST\+\_\+\+RETIRED~0x000F}
+
+Unaligned memory memory-\/reading or memory-\/writing instruction architecturally executed and condition code check pass 
+
+\label{doc-func-members}
+\Hypertarget{pmu__armv8_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{pmu__armv8_8h_a76c6f266544c53d93801cfb614155420}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_CNTR\_Disable@{ARM\_PMU\_CNTR\_Disable}}
+\index{ARM\_PMU\_CNTR\_Disable@{ARM\_PMU\_CNTR\_Disable}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_CNTR\_Disable()}{ARM\_PMU\_CNTR\_Disable()}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a76c6f266544c53d93801cfb614155420} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void ARM\+\_\+\+PMU\+\_\+\+CNTR\+\_\+\+Disable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Disable counters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mask} & Counters to enable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Disables one or more of the following\+:
+\begin{DoxyItemize}
+\item event counters (0-\/30)
+\item cycle counter 
+\end{DoxyItemize}
+\end{DoxyNote}
+\Hypertarget{pmu__armv8_8h_a22e481855ab257180e24f01a38623887}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_CNTR\_Enable@{ARM\_PMU\_CNTR\_Enable}}
+\index{ARM\_PMU\_CNTR\_Enable@{ARM\_PMU\_CNTR\_Enable}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_CNTR\_Enable()}{ARM\_PMU\_CNTR\_Enable()}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a22e481855ab257180e24f01a38623887} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void ARM\+\_\+\+PMU\+\_\+\+CNTR\+\_\+\+Enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Enable counters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mask} & Counters to enable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Enables one or more of the following\+:
+\begin{DoxyItemize}
+\item event counters (0-\/30)
+\item cycle counter 
+\end{DoxyItemize}
+\end{DoxyNote}
+\Hypertarget{pmu__armv8_8h_a27b07d38050a16ce416bfaf151a24944}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_CNTR\_Increment@{ARM\_PMU\_CNTR\_Increment}}
+\index{ARM\_PMU\_CNTR\_Increment@{ARM\_PMU\_CNTR\_Increment}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_CNTR\_Increment()}{ARM\_PMU\_CNTR\_Increment()}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a27b07d38050a16ce416bfaf151a24944} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void ARM\+\_\+\+PMU\+\_\+\+CNTR\+\_\+\+Increment (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Software increment event counter. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mask} & Counters to increment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Software increment bits for one or more event counters (0-\/30) 
+\end{DoxyNote}
+\Hypertarget{pmu__armv8_8h_a4288c08039886cd24eb2dd4e743fb97e}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_CYCCNT\_Reset@{ARM\_PMU\_CYCCNT\_Reset}}
+\index{ARM\_PMU\_CYCCNT\_Reset@{ARM\_PMU\_CYCCNT\_Reset}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_CYCCNT\_Reset()}{ARM\_PMU\_CYCCNT\_Reset()}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a4288c08039886cd24eb2dd4e743fb97e} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void ARM\+\_\+\+PMU\+\_\+\+CYCCNT\+\_\+\+Reset (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Reset cycle counter. 
+
+\Hypertarget{pmu__armv8_8h_a74273d4a47cf1a5e99d857a3e8896f10}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_Disable@{ARM\_PMU\_Disable}}
+\index{ARM\_PMU\_Disable@{ARM\_PMU\_Disable}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_Disable()}{ARM\_PMU\_Disable()}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a74273d4a47cf1a5e99d857a3e8896f10} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void ARM\+\_\+\+PMU\+\_\+\+Disable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Disable the PMU. 
+
+\Hypertarget{pmu__armv8_8h_a618e7140a774ac2a31a59db4b7d13abc}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_Enable@{ARM\_PMU\_Enable}}
+\index{ARM\_PMU\_Enable@{ARM\_PMU\_Enable}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_Enable()}{ARM\_PMU\_Enable()}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a618e7140a774ac2a31a59db4b7d13abc} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void ARM\+\_\+\+PMU\+\_\+\+Enable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+PMU Functions. 
+
+Enable the PMU. \Hypertarget{pmu__armv8_8h_a90527859e6f0ef980300c86c2916ee79}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_EVCNTR\_ALL\_Reset@{ARM\_PMU\_EVCNTR\_ALL\_Reset}}
+\index{ARM\_PMU\_EVCNTR\_ALL\_Reset@{ARM\_PMU\_EVCNTR\_ALL\_Reset}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_EVCNTR\_ALL\_Reset()}{ARM\_PMU\_EVCNTR\_ALL\_Reset()}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a90527859e6f0ef980300c86c2916ee79} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void ARM\+\_\+\+PMU\+\_\+\+EVCNTR\+\_\+\+ALL\+\_\+\+Reset (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Reset all event counters. 
+
+\Hypertarget{pmu__armv8_8h_aaa18c27d39f5a55c1b621f5296b88112}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_Get\_CCNTR@{ARM\_PMU\_Get\_CCNTR}}
+\index{ARM\_PMU\_Get\_CCNTR@{ARM\_PMU\_Get\_CCNTR}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_Get\_CCNTR()}{ARM\_PMU\_Get\_CCNTR()}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_aaa18c27d39f5a55c1b621f5296b88112} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} uint32\+\_\+t ARM\+\_\+\+PMU\+\_\+\+Get\+\_\+\+CCNTR (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Read cycle counter. 
+
+\begin{DoxyReturn}{Returns}
+Cycle count 
+\end{DoxyReturn}
+\Hypertarget{pmu__armv8_8h_a70436b378b75bdfe3fcb47697d309a96}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_Get\_CNTR\_OVS@{ARM\_PMU\_Get\_CNTR\_OVS}}
+\index{ARM\_PMU\_Get\_CNTR\_OVS@{ARM\_PMU\_Get\_CNTR\_OVS}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_Get\_CNTR\_OVS()}{ARM\_PMU\_Get\_CNTR\_OVS()}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a70436b378b75bdfe3fcb47697d309a96} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} uint32\+\_\+t ARM\+\_\+\+PMU\+\_\+\+Get\+\_\+\+CNTR\+\_\+\+OVS (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Read counter overflow status. 
+
+\begin{DoxyReturn}{Returns}
+Counter overflow status bits for the following\+:
+\begin{DoxyItemize}
+\item event counters (0-\/30)
+\item cycle counter 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{pmu__armv8_8h_a9768cbaffcf2c0b31febe96db91a85d8}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_Get\_EVCNTR@{ARM\_PMU\_Get\_EVCNTR}}
+\index{ARM\_PMU\_Get\_EVCNTR@{ARM\_PMU\_Get\_EVCNTR}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_Get\_EVCNTR()}{ARM\_PMU\_Get\_EVCNTR()}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a9768cbaffcf2c0b31febe96db91a85d8} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} uint32\+\_\+t ARM\+\_\+\+PMU\+\_\+\+Get\+\_\+\+EVCNTR (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{num}{}\end{DoxyParamCaption})}
+
+
+
+Read event counter. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em num} & Event counter (0-\/30) to read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Event count 
+\end{DoxyReturn}
+\Hypertarget{pmu__armv8_8h_a731b6cd01c6eaa6f909164602f19d0bc}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_Set\_CNTR\_IRQ\_Disable@{ARM\_PMU\_Set\_CNTR\_IRQ\_Disable}}
+\index{ARM\_PMU\_Set\_CNTR\_IRQ\_Disable@{ARM\_PMU\_Set\_CNTR\_IRQ\_Disable}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_Set\_CNTR\_IRQ\_Disable()}{ARM\_PMU\_Set\_CNTR\_IRQ\_Disable()}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a731b6cd01c6eaa6f909164602f19d0bc} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void ARM\+\_\+\+PMU\+\_\+\+Set\+\_\+\+CNTR\+\_\+\+IRQ\+\_\+\+Disable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Disable counter overflow interrupt request. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mask} & Counter overflow interrupt request bits to clear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Clears overflow interrupt request bits for one or more of the following\+:
+\begin{DoxyItemize}
+\item event counters (0-\/30)
+\item cycle counter 
+\end{DoxyItemize}
+\end{DoxyNote}
+\Hypertarget{pmu__armv8_8h_a133168437a20566d319c78b751425c44}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_Set\_CNTR\_IRQ\_Enable@{ARM\_PMU\_Set\_CNTR\_IRQ\_Enable}}
+\index{ARM\_PMU\_Set\_CNTR\_IRQ\_Enable@{ARM\_PMU\_Set\_CNTR\_IRQ\_Enable}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_Set\_CNTR\_IRQ\_Enable()}{ARM\_PMU\_Set\_CNTR\_IRQ\_Enable()}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a133168437a20566d319c78b751425c44} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void ARM\+\_\+\+PMU\+\_\+\+Set\+\_\+\+CNTR\+\_\+\+IRQ\+\_\+\+Enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Enable counter overflow interrupt request. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mask} & Counter overflow interrupt request bits to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Sets overflow interrupt request bits for one or more of the following\+:
+\begin{DoxyItemize}
+\item event counters (0-\/30)
+\item cycle counter 
+\end{DoxyItemize}
+\end{DoxyNote}
+\Hypertarget{pmu__armv8_8h_a18376f0e3829e93e99149847667e5864}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_Set\_CNTR\_OVS@{ARM\_PMU\_Set\_CNTR\_OVS}}
+\index{ARM\_PMU\_Set\_CNTR\_OVS@{ARM\_PMU\_Set\_CNTR\_OVS}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_Set\_CNTR\_OVS()}{ARM\_PMU\_Set\_CNTR\_OVS()}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a18376f0e3829e93e99149847667e5864} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void ARM\+\_\+\+PMU\+\_\+\+Set\+\_\+\+CNTR\+\_\+\+OVS (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{mask}{}\end{DoxyParamCaption})}
+
+
+
+Clear counter overflow status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mask} & Counter overflow status bits to clear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Clears overflow status bits for one or more of the following\+:
+\begin{DoxyItemize}
+\item event counters (0-\/30)
+\item cycle counter 
+\end{DoxyItemize}
+\end{DoxyNote}
+\Hypertarget{pmu__armv8_8h_a77ee08f0b3e77d4559cb79fde30d89e9}\index{pmu\_armv8.h@{pmu\_armv8.h}!ARM\_PMU\_Set\_EVTYPER@{ARM\_PMU\_Set\_EVTYPER}}
+\index{ARM\_PMU\_Set\_EVTYPER@{ARM\_PMU\_Set\_EVTYPER}!pmu\_armv8.h@{pmu\_armv8.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_PMU\_Set\_EVTYPER()}{ARM\_PMU\_Set\_EVTYPER()}}
+{\footnotesize\ttfamily \label{pmu__armv8_8h_a77ee08f0b3e77d4559cb79fde30d89e9} 
+\mbox{\hyperlink{cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} void ARM\+\_\+\+PMU\+\_\+\+Set\+\_\+\+EVTYPER (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{num}{, }\item[{uint32\+\_\+t}]{type}{}\end{DoxyParamCaption})}
+
+
+
+Set event to count for PMU eventer counter. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em num} & Event counter (0-\/30) to configure \\
+\hline
+\mbox{\texttt{in}}  & {\em type} & Event to count \\
+\hline
+\end{DoxyParams}
