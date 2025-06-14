@@ -1,8 +1,0 @@
-../Core/Src/imu.c:8:6:BNO055_Init	2
-../Core/Src/imu.c:73:6:BNO055_StartCalibration	1
-../Core/Src/imu.c:85:6:BNO055_ReadCalibStatus	2
-../Core/Src/imu.c:102:6:BNO055_GetCalibStatus	2
-../Core/Src/imu.c:115:6:BNO055_Debug_ReadGyro	1
-../Core/Src/imu.c:129:7:BNO055_ReadHeading	2
-../Core/Src/imu.c:140:6:BNO055_ReadEuler	2
-../Core/Src/imu.c:155:6:BNO055_SaveCalibrationOffsets	2

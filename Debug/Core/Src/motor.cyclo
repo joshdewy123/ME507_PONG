@@ -1,4 +1,0 @@
-../Core/Src/motor.c:8:6:set_duty	26
-../Core/Src/motor.c:54:6:move_to	7
-../Core/Src/motor.c:84:6:disable	1
-../Core/Src/motor.c:90:6:enable	7
