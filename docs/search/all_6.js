@@ -1,9 +1,9 @@
 var searchData=
 [
   ['ball_20launcher_0',['ME 507 - Ping Pong Ball Launcher',['../index.html',1,'']]],
-  ['before_20fix_1',['Before Fix',['../index.html#autotoc_md14',1,'Fusion Schematic Before Fix'],['../index.html#autotoc_md18',1,'Fusion Schematic Before Fix']]],
-  ['before_20hotfixes_2',['Assembled PCB - Before Hotfixes',['../index.html#autotoc_md9',1,'']]],
-  ['behavior_3',['2. &lt;b&gt;LIDAR Inconsistent I2C Behavior&lt;/b&gt;',['../index.html#autotoc_md17',1,'']]],
+  ['before_20fix_1',['Before Fix',['../index.html#autotoc_md15',1,'Fusion Schematic Before Fix'],['../index.html#autotoc_md19',1,'Fusion Schematic Before Fix']]],
+  ['before_20hotfixes_2',['Assembled PCB - Before Hotfixes',['../index.html#autotoc_md10',1,'']]],
+  ['behavior_3',['2. &lt;b&gt;LIDAR Inconsistent I2C Behavior&lt;/b&gt;',['../index.html#autotoc_md18',1,'']]],
   ['bno055_5faddr_4',['BNO055_ADDR',['../imu_8h.html#af99e6b0453d87e52e02f5456095aaac0',1,'imu.h']]],
   ['bno055_5fdebug_5freadgyro_5',['BNO055_Debug_ReadGyro',['../imu_8h.html#afc4a25528329c383a5d29e1a3cbba73f',1,'BNO055_Debug_ReadGyro(void):&#160;imu.c'],['../imu_8c.html#afc4a25528329c383a5d29e1a3cbba73f',1,'BNO055_Debug_ReadGyro(void):&#160;imu.c']]],
   ['bno055_5fgetcalibstatus_6',['BNO055_GetCalibStatus',['../imu_8h.html#a86d0adcbede0135de88c1fd7c6ec840c',1,'BNO055_GetCalibStatus(uint8_t *sys, uint8_t *gyr, uint8_t *acc, uint8_t *mag):&#160;imu.c'],['../imu_8c.html#a86d0adcbede0135de88c1fd7c6ec840c',1,'BNO055_GetCalibStatus(uint8_t *sys, uint8_t *gyr, uint8_t *acc, uint8_t *mag):&#160;imu.c']]],

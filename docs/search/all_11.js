@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['pcb_20after_20hotfixes_0',['Assembled PCB - After Hotfixes',['../index.html#autotoc_md10',1,'']]],
-  ['pcb_20before_20hotfixes_1',['Assembled PCB - Before Hotfixes',['../index.html#autotoc_md9',1,'']]],
+  ['pcb_20after_20hotfixes_0',['Assembled PCB - After Hotfixes',['../index.html#autotoc_md11',1,'']]],
+  ['pcb_20before_20hotfixes_1',['Assembled PCB - Before Hotfixes',['../index.html#autotoc_md10',1,'']]],
   ['pendsv_5fhandler_2',['PendSV_Handler',['../stm32f4xx__it_8h.html#a6303e1f258cbdc1f970ce579cc015623',1,'PendSV_Handler(void):&#160;stm32f4xx_it.c'],['../stm32f4xx__it_8c.html#a6303e1f258cbdc1f970ce579cc015623',1,'PendSV_Handler(void):&#160;stm32f4xx_it.c']]],
   ['phy_5fautonego_5fcomplete_3',['PHY_AUTONEGO_COMPLETE',['../stm32f4xx__hal__conf_8h.html#a36c4dbd5f6df1f5eaefa010929ef9773',1,'stm32f4xx_hal_conf.h']]],
   ['phy_5fautonegotiation_4',['PHY_AUTONEGOTIATION',['../stm32f4xx__hal__conf_8h.html#a9b7f5c8f71047ee449f21562d26b1b43',1,'stm32f4xx_hal_conf.h']]],
@@ -25,10 +25,10 @@ var searchData=
   ['phy_5fspeed_5fstatus_22',['PHY_SPEED_STATUS',['../stm32f4xx__hal__conf_8h.html#a74c081bc55e9ff96bf229f44e96c6155',1,'stm32f4xx_hal_conf.h']]],
   ['phy_5fsr_23',['PHY_SR',['../stm32f4xx__hal__conf_8h.html#a32b55e84d27cf298a77f54b133cd1acc',1,'stm32f4xx_hal_conf.h']]],
   ['phy_5fwrite_5fto_24',['PHY_WRITE_TO',['../stm32f4xx__hal__conf_8h.html#a474bf13e28d09b667e41b151140ee39d',1,'stm32f4xx_hal_conf.h']]],
-  ['physical_20pull_20up_20resistor_20fix_203_20angles_25',['Physical Pull-up Resistor Fix (3 Angles)',['../index.html#autotoc_md20',1,'']]],
+  ['physical_20pull_20up_20resistor_20fix_203_20angles_25',['Physical Pull-up Resistor Fix (3 Angles)',['../index.html#autotoc_md21',1,'']]],
   ['ping_20pong_20ball_20launcher_26',['ME 507 - Ping Pong Ball Launcher',['../index.html',1,'']]],
   ['pong_20ball_20launcher_27',['ME 507 - Ping Pong Ball Launcher',['../index.html',1,'']]],
   ['prefetch_5fenable_28',['PREFETCH_ENABLE',['../stm32f4xx__hal__conf_8h.html#a13fc0d5e7bb925385c0cc0772ba6a391',1,'stm32f4xx_hal_conf.h']]],
-  ['pull_20up_20resistor_20fix_203_20angles_29',['Physical Pull-up Resistor Fix (3 Angles)',['../index.html#autotoc_md20',1,'']]],
+  ['pull_20up_20resistor_20fix_203_20angles_29',['Physical Pull-up Resistor Fix (3 Angles)',['../index.html#autotoc_md21',1,'']]],
   ['pwm_5fmax_30',['PWM_MAX',['../motor_8c.html#a391fa1e490bd712720989b58fa0d9904',1,'motor.c']]]
 ];
