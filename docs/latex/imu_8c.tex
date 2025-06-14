@@ -1,0 +1,149 @@
+\doxysection{Core/\+Src/imu.c File Reference}
+\hypertarget{imu_8c}{}\label{imu_8c}\index{Core/Src/imu.c@{Core/Src/imu.c}}
+
+
+Source file for BNO055 IMU functions (I2C interface)  
+
+
+{\ttfamily \#include "{}imu.\+h"{}}\newline
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include "{}stdio.\+h"{}}\newline
+{\ttfamily \#include "{}string.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{imu_8c_a8a7c9b3e0194fcbea9de99da817ca365}{BNO055\+\_\+\+Init}} (\mbox{\hyperlink{struct_i2_c___handle_type_def}{I2\+C\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hi2c)
+\begin{DoxyCompactList}\small\item\em Initializes the BNO055 IMU in NDOF mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{imu_8c_ad7ecd78362510ecfbff802bed85d1017}{BNO055\+\_\+\+Start\+Calibration}} (void)
+\begin{DoxyCompactList}\small\item\em Sends serial instructions to the user to calibrate the IMU. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{imu_8c_a3e577ee53e412b88193c60606ca3e260}{BNO055\+\_\+\+Read\+Calib\+Status}} (void)
+\begin{DoxyCompactList}\small\item\em Reads and prints the current IMU calibration status over UART. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{imu_8c_a86d0adcbede0135de88c1fd7c6ec840c}{BNO055\+\_\+\+Get\+Calib\+Status}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}sys, uint8\+\_\+t \texorpdfstring{$\ast$}{*}gyr, uint8\+\_\+t \texorpdfstring{$\ast$}{*}acc, uint8\+\_\+t \texorpdfstring{$\ast$}{*}mag)
+\begin{DoxyCompactList}\small\item\em Reads the current calibration status into provided pointers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{imu_8c_afc4a25528329c383a5d29e1a3cbba73f}{BNO055\+\_\+\+Debug\+\_\+\+Read\+Gyro}} (void)
+\begin{DoxyCompactList}\small\item\em Debug function that reads and prints raw gyroscope data over UART. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{imu_8c_a7300824def8ed00f98e42b7da2cdb20f}{BNO055\+\_\+\+Read\+Heading}} (void)
+\begin{DoxyCompactList}\small\item\em Reads the yaw heading angle from the IMU. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{imu_8c_a577c08c3b3e87816cd67c06e43bcd5e0}{BNO055\+\_\+\+Read\+Euler}} (float \texorpdfstring{$\ast$}{*}heading, float \texorpdfstring{$\ast$}{*}roll, float \texorpdfstring{$\ast$}{*}pitch)
+\begin{DoxyCompactList}\small\item\em Reads Euler angles (heading, roll, pitch) from the IMU. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{imu_8c_a15bcaa5c1fe1118eff460b9ea9ed8c67}{BNO055\+\_\+\+Save\+Calibration\+Offsets}} (void)
+\begin{DoxyCompactList}\small\item\em Debug function to print 22-\/byte calibration offset register. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Source file for BNO055 IMU functions (I2C interface) 
+
+Implements configuration and data reading functions for BNO055 sensor. Output includes heading angle and full Euler orientation. The IMU was tested and confirmed functional but not yet integrated into control FSM. 
+
+\label{doc-func-members}
+\Hypertarget{imu_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{imu_8c_afc4a25528329c383a5d29e1a3cbba73f}\index{imu.c@{imu.c}!BNO055\_Debug\_ReadGyro@{BNO055\_Debug\_ReadGyro}}
+\index{BNO055\_Debug\_ReadGyro@{BNO055\_Debug\_ReadGyro}!imu.c@{imu.c}}
+\doxysubsubsection{\texorpdfstring{BNO055\_Debug\_ReadGyro()}{BNO055\_Debug\_ReadGyro()}}
+{\footnotesize\ttfamily \label{imu_8c_afc4a25528329c383a5d29e1a3cbba73f} 
+void BNO055\+\_\+\+Debug\+\_\+\+Read\+Gyro (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Debug function that reads and prints raw gyroscope data over UART. 
+
+\Hypertarget{imu_8c_a86d0adcbede0135de88c1fd7c6ec840c}\index{imu.c@{imu.c}!BNO055\_GetCalibStatus@{BNO055\_GetCalibStatus}}
+\index{BNO055\_GetCalibStatus@{BNO055\_GetCalibStatus}!imu.c@{imu.c}}
+\doxysubsubsection{\texorpdfstring{BNO055\_GetCalibStatus()}{BNO055\_GetCalibStatus()}}
+{\footnotesize\ttfamily \label{imu_8c_a86d0adcbede0135de88c1fd7c6ec840c} 
+void BNO055\+\_\+\+Get\+Calib\+Status (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{sys}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{gyr}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{acc}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{mag}{}\end{DoxyParamCaption})}
+
+
+
+Reads the current calibration status into provided pointers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sys} & Pointer to store system calibration level \\
+\hline
+{\em gyr} & Pointer to store gyroscope calibration level \\
+\hline
+{\em acc} & Pointer to store accelerometer calibration level \\
+\hline
+{\em mag} & Pointer to store magnetometer calibration level \\
+\hline
+\end{DoxyParams}
+\Hypertarget{imu_8c_a8a7c9b3e0194fcbea9de99da817ca365}\index{imu.c@{imu.c}!BNO055\_Init@{BNO055\_Init}}
+\index{BNO055\_Init@{BNO055\_Init}!imu.c@{imu.c}}
+\doxysubsubsection{\texorpdfstring{BNO055\_Init()}{BNO055\_Init()}}
+{\footnotesize\ttfamily \label{imu_8c_a8a7c9b3e0194fcbea9de99da817ca365} 
+void BNO055\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_i2_c___handle_type_def}{I2\+C\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}}]{hi2c}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the BNO055 IMU in NDOF mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hi2c} & Pointer to I2C handle \\
+\hline
+\end{DoxyParams}
+\Hypertarget{imu_8c_a3e577ee53e412b88193c60606ca3e260}\index{imu.c@{imu.c}!BNO055\_ReadCalibStatus@{BNO055\_ReadCalibStatus}}
+\index{BNO055\_ReadCalibStatus@{BNO055\_ReadCalibStatus}!imu.c@{imu.c}}
+\doxysubsubsection{\texorpdfstring{BNO055\_ReadCalibStatus()}{BNO055\_ReadCalibStatus()}}
+{\footnotesize\ttfamily \label{imu_8c_a3e577ee53e412b88193c60606ca3e260} 
+void BNO055\+\_\+\+Read\+Calib\+Status (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Reads and prints the current IMU calibration status over UART. 
+
+SYS/\+GYR/\+ACC/\+MAG status values are printed via UART for debug purposes. \Hypertarget{imu_8c_a577c08c3b3e87816cd67c06e43bcd5e0}\index{imu.c@{imu.c}!BNO055\_ReadEuler@{BNO055\_ReadEuler}}
+\index{BNO055\_ReadEuler@{BNO055\_ReadEuler}!imu.c@{imu.c}}
+\doxysubsubsection{\texorpdfstring{BNO055\_ReadEuler()}{BNO055\_ReadEuler()}}
+{\footnotesize\ttfamily \label{imu_8c_a577c08c3b3e87816cd67c06e43bcd5e0} 
+void BNO055\+\_\+\+Read\+Euler (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{heading}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{roll}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{pitch}{}\end{DoxyParamCaption})}
+
+
+
+Reads Euler angles (heading, roll, pitch) from the IMU. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heading} & Pointer to store heading angle (deg) \\
+\hline
+{\em roll} & Pointer to store roll angle (deg) \\
+\hline
+{\em pitch} & Pointer to store pitch angle (deg) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{imu_8c_a7300824def8ed00f98e42b7da2cdb20f}\index{imu.c@{imu.c}!BNO055\_ReadHeading@{BNO055\_ReadHeading}}
+\index{BNO055\_ReadHeading@{BNO055\_ReadHeading}!imu.c@{imu.c}}
+\doxysubsubsection{\texorpdfstring{BNO055\_ReadHeading()}{BNO055\_ReadHeading()}}
+{\footnotesize\ttfamily \label{imu_8c_a7300824def8ed00f98e42b7da2cdb20f} 
+float BNO055\+\_\+\+Read\+Heading (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Reads the yaw heading angle from the IMU. 
+
+\begin{DoxyReturn}{Returns}
+Heading in degrees (0–360°), or -\/1 on error 
+\end{DoxyReturn}
+\Hypertarget{imu_8c_a15bcaa5c1fe1118eff460b9ea9ed8c67}\index{imu.c@{imu.c}!BNO055\_SaveCalibrationOffsets@{BNO055\_SaveCalibrationOffsets}}
+\index{BNO055\_SaveCalibrationOffsets@{BNO055\_SaveCalibrationOffsets}!imu.c@{imu.c}}
+\doxysubsubsection{\texorpdfstring{BNO055\_SaveCalibrationOffsets()}{BNO055\_SaveCalibrationOffsets()}}
+{\footnotesize\ttfamily \label{imu_8c_a15bcaa5c1fe1118eff460b9ea9ed8c67} 
+void BNO055\+\_\+\+Save\+Calibration\+Offsets (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Debug function to print 22-\/byte calibration offset register. 
+
+This can be used to save offsets for reinitialization later. \Hypertarget{imu_8c_ad7ecd78362510ecfbff802bed85d1017}\index{imu.c@{imu.c}!BNO055\_StartCalibration@{BNO055\_StartCalibration}}
+\index{BNO055\_StartCalibration@{BNO055\_StartCalibration}!imu.c@{imu.c}}
+\doxysubsubsection{\texorpdfstring{BNO055\_StartCalibration()}{BNO055\_StartCalibration()}}
+{\footnotesize\ttfamily \label{imu_8c_ad7ecd78362510ecfbff802bed85d1017} 
+void BNO055\+\_\+\+Start\+Calibration (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Sends serial instructions to the user to calibrate the IMU. 
+
+This function prints out instructions via UART to help the user perform system, gyroscope, accelerometer, and magnetometer calibration. 

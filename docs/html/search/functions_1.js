@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['arm_5fmpu_5fclrregion_0',['ARM_MPU_ClrRegion',['../mpu__armv7_8h.html#a9dcb0afddf4ac351f33f3c7a5169c62c',1,'ARM_MPU_ClrRegion(uint32_t rnr):&#160;mpu_armv7.h'],['../mpu__armv8_8h.html#a9dcb0afddf4ac351f33f3c7a5169c62c',1,'ARM_MPU_ClrRegion(uint32_t rnr):&#160;mpu_armv8.h']]],
+  ['arm_5fmpu_5fclrregionex_1',['ARM_MPU_ClrRegionEx',['../mpu__armv8_8h.html#a01fa1151c9ec0ba5de76f908c0999316',1,'mpu_armv8.h']]],
+  ['arm_5fmpu_5fdisable_2',['ARM_MPU_Disable',['../mpu__armv7_8h.html#a61814eba4652a0fdfb76bbe222086327',1,'ARM_MPU_Disable(void):&#160;mpu_armv7.h'],['../mpu__armv8_8h.html#a61814eba4652a0fdfb76bbe222086327',1,'ARM_MPU_Disable(void):&#160;mpu_armv8.h']]],
+  ['arm_5fmpu_5fenable_3',['ARM_MPU_Enable',['../mpu__armv7_8h.html#a5a3f40314553baccdeea551f86d9a997',1,'ARM_MPU_Enable(uint32_t MPU_Control):&#160;mpu_armv7.h'],['../mpu__armv8_8h.html#a5a3f40314553baccdeea551f86d9a997',1,'ARM_MPU_Enable(uint32_t MPU_Control):&#160;mpu_armv8.h']]],
+  ['arm_5fmpu_5fload_4',['ARM_MPU_Load',['../mpu__armv7_8h.html#a39ae99f1599699474fd39328cd082c92',1,'ARM_MPU_Load(ARM_MPU_Region_t const *table, uint32_t cnt):&#160;mpu_armv7.h'],['../mpu__armv8_8h.html#aca76614e3091c7324aa9d60e634621bf',1,'ARM_MPU_Load(uint32_t rnr, ARM_MPU_Region_t const *table, uint32_t cnt):&#160;mpu_armv8.h']]],
+  ['arm_5fmpu_5floadex_5',['ARM_MPU_LoadEx',['../mpu__armv8_8h.html#ab6094419f2abd678f1f3b121cd115049',1,'mpu_armv8.h']]],
+  ['arm_5fmpu_5forderedmemcpy_6',['ARM_MPU_OrderedMemcpy',['../mpu__armv7_8h.html#ac1a949403bf84eecaf407003fb553ae7',1,'ARM_MPU_OrderedMemcpy(volatile uint32_t *dst, const uint32_t *__RESTRICT src, uint32_t len):&#160;mpu_armv7.h'],['../mpu__armv8_8h.html#ac1a949403bf84eecaf407003fb553ae7',1,'ARM_MPU_OrderedMemcpy(volatile uint32_t *dst, const uint32_t *__RESTRICT src, uint32_t len):&#160;mpu_armv8.h']]],
+  ['arm_5fmpu_5fsetmemattr_7',['ARM_MPU_SetMemAttr',['../mpu__armv8_8h.html#ab5b3c0a53d19c09a5550f1d9071ae65c',1,'mpu_armv8.h']]],
+  ['arm_5fmpu_5fsetmemattrex_8',['ARM_MPU_SetMemAttrEx',['../mpu__armv8_8h.html#a1799413f08a157d636a1491371c15ce2',1,'mpu_armv8.h']]],
+  ['arm_5fmpu_5fsetregion_9',['ARM_MPU_SetRegion',['../mpu__armv7_8h.html#a16931f9ad84d7289e8218e169ae6db5d',1,'ARM_MPU_SetRegion(uint32_t rbar, uint32_t rasr):&#160;mpu_armv7.h'],['../mpu__armv8_8h.html#a6d7f220015c070c0e469948c1775ee3d',1,'ARM_MPU_SetRegion(uint32_t rnr, uint32_t rbar, uint32_t rlar):&#160;mpu_armv8.h']]],
+  ['arm_5fmpu_5fsetregionex_10',['ARM_MPU_SetRegionEx',['../mpu__armv7_8h.html#a042ba1a6a1a58795231459ac0410b809',1,'ARM_MPU_SetRegionEx(uint32_t rnr, uint32_t rbar, uint32_t rasr):&#160;mpu_armv7.h'],['../mpu__armv8_8h.html#a3d50ba8546252bea959e45c8fdf16993',1,'ARM_MPU_SetRegionEx(MPU_Type *mpu, uint32_t rnr, uint32_t rbar, uint32_t rlar):&#160;mpu_armv8.h']]],
+  ['arm_5fpmu_5fcntr_5fdisable_11',['ARM_PMU_CNTR_Disable',['../pmu__armv8_8h.html#a76c6f266544c53d93801cfb614155420',1,'pmu_armv8.h']]],
+  ['arm_5fpmu_5fcntr_5fenable_12',['ARM_PMU_CNTR_Enable',['../pmu__armv8_8h.html#a22e481855ab257180e24f01a38623887',1,'pmu_armv8.h']]],
+  ['arm_5fpmu_5fcntr_5fincrement_13',['ARM_PMU_CNTR_Increment',['../pmu__armv8_8h.html#a27b07d38050a16ce416bfaf151a24944',1,'pmu_armv8.h']]],
+  ['arm_5fpmu_5fcyccnt_5freset_14',['ARM_PMU_CYCCNT_Reset',['../pmu__armv8_8h.html#a4288c08039886cd24eb2dd4e743fb97e',1,'pmu_armv8.h']]],
+  ['arm_5fpmu_5fdisable_15',['ARM_PMU_Disable',['../pmu__armv8_8h.html#a74273d4a47cf1a5e99d857a3e8896f10',1,'pmu_armv8.h']]],
+  ['arm_5fpmu_5fenable_16',['ARM_PMU_Enable',['../pmu__armv8_8h.html#a618e7140a774ac2a31a59db4b7d13abc',1,'pmu_armv8.h']]],
+  ['arm_5fpmu_5fevcntr_5fall_5freset_17',['ARM_PMU_EVCNTR_ALL_Reset',['../pmu__armv8_8h.html#a90527859e6f0ef980300c86c2916ee79',1,'pmu_armv8.h']]],
+  ['arm_5fpmu_5fget_5fccntr_18',['ARM_PMU_Get_CCNTR',['../pmu__armv8_8h.html#aaa18c27d39f5a55c1b621f5296b88112',1,'pmu_armv8.h']]],
+  ['arm_5fpmu_5fget_5fcntr_5fovs_19',['ARM_PMU_Get_CNTR_OVS',['../pmu__armv8_8h.html#a70436b378b75bdfe3fcb47697d309a96',1,'pmu_armv8.h']]],
+  ['arm_5fpmu_5fget_5fevcntr_20',['ARM_PMU_Get_EVCNTR',['../pmu__armv8_8h.html#a9768cbaffcf2c0b31febe96db91a85d8',1,'pmu_armv8.h']]],
+  ['arm_5fpmu_5fset_5fcntr_5firq_5fdisable_21',['ARM_PMU_Set_CNTR_IRQ_Disable',['../pmu__armv8_8h.html#a731b6cd01c6eaa6f909164602f19d0bc',1,'pmu_armv8.h']]],
+  ['arm_5fpmu_5fset_5fcntr_5firq_5fenable_22',['ARM_PMU_Set_CNTR_IRQ_Enable',['../pmu__armv8_8h.html#a133168437a20566d319c78b751425c44',1,'pmu_armv8.h']]],
+  ['arm_5fpmu_5fset_5fcntr_5fovs_23',['ARM_PMU_Set_CNTR_OVS',['../pmu__armv8_8h.html#a18376f0e3829e93e99149847667e5864',1,'pmu_armv8.h']]],
+  ['arm_5fpmu_5fset_5fevtyper_24',['ARM_PMU_Set_EVTYPER',['../pmu__armv8_8h.html#a77ee08f0b3e77d4559cb79fde30d89e9',1,'pmu_armv8.h']]]
+];

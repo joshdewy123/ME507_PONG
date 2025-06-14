@@ -1,0 +1,53 @@
+\doxysection{Drivers/\+CMSIS/\+Include/cachel1\+\_\+armv7.h File Reference}
+\hypertarget{cachel1__armv7_8h}{}\label{cachel1__armv7_8h}\index{Drivers/CMSIS/Include/cachel1\_armv7.h@{Drivers/CMSIS/Include/cachel1\_armv7.h}}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{cachel1__armv7_8h_acbe2d0d37bb172ed5b3de6f758509d3a}{ARM\+\_\+\+CACHEL1\+\_\+\+ARMV7\+\_\+H}}
+\item 
+\#define \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga3d672529cd193537fe2a0141931c6ad9}{CCSIDR\+\_\+\+WAYS}}(x)
+\item 
+\#define \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_gaf20feee7c52fee32b48ee0d2ceaaf932}{CCSIDR\+\_\+\+SETS}}(x)
+\item 
+\#define \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga8f36551f2593cd3715d1e68e37f97f12}{\+\_\+\+\_\+\+SCB\+\_\+\+DCACHE\+\_\+\+LINE\+\_\+\+SIZE}}~32U
+\item 
+\#define \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_gadd99421e7a7d7121063ef94b49f97e90}{\+\_\+\+\_\+\+SCB\+\_\+\+ICACHE\+\_\+\+LINE\+\_\+\+SIZE}}~32U
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} void \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga980ffe52af778f2535ccc52f25f9a7de}{SCB\+\_\+\+Enable\+ICache}} (void)
+\begin{DoxyCompactList}\small\item\em Enable I-\/\+Cache. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} void \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga56baa06298799dea5f207d4c12d9d4a6}{SCB\+\_\+\+Disable\+ICache}} (void)
+\begin{DoxyCompactList}\small\item\em Disable I-\/\+Cache. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} void \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga62419cb7e6773e3d9236f14e458c1b05}{SCB\+\_\+\+Invalidate\+ICache}} (void)
+\begin{DoxyCompactList}\small\item\em Invalidate I-\/\+Cache. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} void \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_gaeb1a2bf181afcfb837ce0502e6bfa4fb}{SCB\+\_\+\+Invalidate\+ICache\+\_\+by\+\_\+\+Addr}} (volatile void \texorpdfstring{$\ast$}{*}addr, int32\+\_\+t isize)
+\begin{DoxyCompactList}\small\item\em I-\/\+Cache Invalidate by address. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} void \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga3861db932100ccb53f994e2cc68ed79c}{SCB\+\_\+\+Enable\+DCache}} (void)
+\begin{DoxyCompactList}\small\item\em Enable D-\/\+Cache. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} void \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_gafe64b44d1a61483a947e44a77a9d3287}{SCB\+\_\+\+Disable\+DCache}} (void)
+\begin{DoxyCompactList}\small\item\em Disable D-\/\+Cache. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} void \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga99fe43c224644881935de135ceaa2dd9}{SCB\+\_\+\+Invalidate\+DCache}} (void)
+\begin{DoxyCompactList}\small\item\em Invalidate D-\/\+Cache. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} void \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_gaf5585be5547cc60585d702a6129f4c17}{SCB\+\_\+\+Clean\+DCache}} (void)
+\begin{DoxyCompactList}\small\item\em Clean D-\/\+Cache. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} void \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga5b22ca58709fadc326da83197a2f28bb}{SCB\+\_\+\+Clean\+Invalidate\+DCache}} (void)
+\begin{DoxyCompactList}\small\item\em Clean \& Invalidate D-\/\+Cache. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} void \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga31c2439722ab4dbd0c67b196e3377ca7}{SCB\+\_\+\+Invalidate\+DCache\+\_\+by\+\_\+\+Addr}} (volatile void \texorpdfstring{$\ast$}{*}addr, int32\+\_\+t dsize)
+\begin{DoxyCompactList}\small\item\em D-\/\+Cache Invalidate by address. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} void \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_gabc9e51347dca344c72948c3dba0364fd}{SCB\+\_\+\+Clean\+DCache\+\_\+by\+\_\+\+Addr}} (volatile void \texorpdfstring{$\ast$}{*}addr, int32\+\_\+t dsize)
+\begin{DoxyCompactList}\small\item\em D-\/\+Cache Clean by address. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} void \mbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga83fe294bcc60d3c4f1c279f13477dda7}{SCB\+\_\+\+Clean\+Invalidate\+DCache\+\_\+by\+\_\+\+Addr}} (volatile void \texorpdfstring{$\ast$}{*}addr, int32\+\_\+t dsize)
+\begin{DoxyCompactList}\small\item\em D-\/\+Cache Clean and Invalidate by address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{cachel1__armv7_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{cachel1__armv7_8h_acbe2d0d37bb172ed5b3de6f758509d3a}\index{cachel1\_armv7.h@{cachel1\_armv7.h}!ARM\_CACHEL1\_ARMV7\_H@{ARM\_CACHEL1\_ARMV7\_H}}
+\index{ARM\_CACHEL1\_ARMV7\_H@{ARM\_CACHEL1\_ARMV7\_H}!cachel1\_armv7.h@{cachel1\_armv7.h}}
+\doxysubsubsection{\texorpdfstring{ARM\_CACHEL1\_ARMV7\_H}{ARM\_CACHEL1\_ARMV7\_H}}
+{\footnotesize\ttfamily \label{cachel1__armv7_8h_acbe2d0d37bb172ed5b3de6f758509d3a} 
+\#define ARM\+\_\+\+CACHEL1\+\_\+\+ARMV7\+\_\+H}
+

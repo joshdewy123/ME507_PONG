@@ -1,0 +1,95 @@
+\doxysection{TIM\+\_\+\+OC\+\_\+\+Init\+Type\+Def Struct Reference}
+\hypertarget{struct_t_i_m___o_c___init_type_def}{}\label{struct_t_i_m___o_c___init_type_def}\index{TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}}
+
+
+TIM Output Compare Configuration Structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32f4xx\+\_\+hal\+\_\+tim.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___o_c___init_type_def_add4ac9143086c89effbede5c54e958bf}{OCMode}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___o_c___init_type_def_a5251c3bce4ca5baf013bc0ace0865a4c}{Pulse}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___o_c___init_type_def_a781c7dae9dec8b6c974b1bdf591b77e7}{OCPolarity}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___o_c___init_type_def_a978da9dd7cda80eb5fe8d04828b9bbcc}{OCNPolarity}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___o_c___init_type_def_aadc3d763f52920adcd0150ffbad1043a}{OCFast\+Mode}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___o_c___init_type_def_a57bb589da3cf2b39b727fe4a3d334ab3}{OCIdle\+State}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___o_c___init_type_def_a78d21970d78c1e3e328692743406ba25}{OCNIdle\+State}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+TIM Output Compare Configuration Structure definition. 
+
+\label{doc-variable-members}
+\Hypertarget{struct_t_i_m___o_c___init_type_def_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_t_i_m___o_c___init_type_def_aadc3d763f52920adcd0150ffbad1043a}\index{TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}!OCFastMode@{OCFastMode}}
+\index{OCFastMode@{OCFastMode}!TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{OCFastMode}{OCFastMode}}
+{\footnotesize\ttfamily \label{struct_t_i_m___o_c___init_type_def_aadc3d763f52920adcd0150ffbad1043a} 
+uint32\+\_\+t OCFast\+Mode}
+
+Specifies the Fast mode state. This parameter can be a value of \doxylink{group___t_i_m___output___fast___state}{TIM Output Fast State} \begin{DoxyNote}{Note}
+This parameter is valid only in PWM1 and PWM2 mode. 
+\end{DoxyNote}
+\Hypertarget{struct_t_i_m___o_c___init_type_def_a57bb589da3cf2b39b727fe4a3d334ab3}\index{TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}!OCIdleState@{OCIdleState}}
+\index{OCIdleState@{OCIdleState}!TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{OCIdleState}{OCIdleState}}
+{\footnotesize\ttfamily \label{struct_t_i_m___o_c___init_type_def_a57bb589da3cf2b39b727fe4a3d334ab3} 
+uint32\+\_\+t OCIdle\+State}
+
+Specifies the TIM Output Compare pin state during Idle state. This parameter can be a value of \doxylink{group___t_i_m___output___compare___idle___state}{TIM Output Compare Idle State} \begin{DoxyNote}{Note}
+This parameter is valid only for timer instances supporting break feature. 
+\end{DoxyNote}
+\Hypertarget{struct_t_i_m___o_c___init_type_def_add4ac9143086c89effbede5c54e958bf}\index{TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}!OCMode@{OCMode}}
+\index{OCMode@{OCMode}!TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{OCMode}{OCMode}}
+{\footnotesize\ttfamily \label{struct_t_i_m___o_c___init_type_def_add4ac9143086c89effbede5c54e958bf} 
+uint32\+\_\+t OCMode}
+
+Specifies the TIM mode. This parameter can be a value of \doxylink{group___t_i_m___output___compare__and___p_w_m__modes}{TIM Output Compare and PWM Modes} \Hypertarget{struct_t_i_m___o_c___init_type_def_a78d21970d78c1e3e328692743406ba25}\index{TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}!OCNIdleState@{OCNIdleState}}
+\index{OCNIdleState@{OCNIdleState}!TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{OCNIdleState}{OCNIdleState}}
+{\footnotesize\ttfamily \label{struct_t_i_m___o_c___init_type_def_a78d21970d78c1e3e328692743406ba25} 
+uint32\+\_\+t OCNIdle\+State}
+
+Specifies the TIM Output Compare pin state during Idle state. This parameter can be a value of \doxylink{group___t_i_m___output___compare___n___idle___state}{TIM Complementary Output Compare Idle State} \begin{DoxyNote}{Note}
+This parameter is valid only for timer instances supporting break feature. 
+\end{DoxyNote}
+\Hypertarget{struct_t_i_m___o_c___init_type_def_a978da9dd7cda80eb5fe8d04828b9bbcc}\index{TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}!OCNPolarity@{OCNPolarity}}
+\index{OCNPolarity@{OCNPolarity}!TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{OCNPolarity}{OCNPolarity}}
+{\footnotesize\ttfamily \label{struct_t_i_m___o_c___init_type_def_a978da9dd7cda80eb5fe8d04828b9bbcc} 
+uint32\+\_\+t OCNPolarity}
+
+Specifies the complementary output polarity. This parameter can be a value of \doxylink{group___t_i_m___output___compare___n___polarity}{TIM Complementary Output Compare Polarity} \begin{DoxyNote}{Note}
+This parameter is valid only for timer instances supporting break feature. 
+\end{DoxyNote}
+\Hypertarget{struct_t_i_m___o_c___init_type_def_a781c7dae9dec8b6c974b1bdf591b77e7}\index{TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}!OCPolarity@{OCPolarity}}
+\index{OCPolarity@{OCPolarity}!TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{OCPolarity}{OCPolarity}}
+{\footnotesize\ttfamily \label{struct_t_i_m___o_c___init_type_def_a781c7dae9dec8b6c974b1bdf591b77e7} 
+uint32\+\_\+t OCPolarity}
+
+Specifies the output polarity. This parameter can be a value of \doxylink{group___t_i_m___output___compare___polarity}{TIM Output Compare Polarity} \Hypertarget{struct_t_i_m___o_c___init_type_def_a5251c3bce4ca5baf013bc0ace0865a4c}\index{TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}!Pulse@{Pulse}}
+\index{Pulse@{Pulse}!TIM\_OC\_InitTypeDef@{TIM\_OC\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{Pulse}{Pulse}}
+{\footnotesize\ttfamily \label{struct_t_i_m___o_c___init_type_def_a5251c3bce4ca5baf013bc0ace0865a4c} 
+uint32\+\_\+t Pulse}
+
+Specifies the pulse value to be loaded into the Capture Compare Register. This parameter can be a number between Min\+\_\+\+Data = 0x0000 and Max\+\_\+\+Data = 0x\+FFFF 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Drivers/\+STM32\+F4xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32f4xx__hal__tim_8h}{stm32f4xx\+\_\+hal\+\_\+tim.\+h}}\end{DoxyCompactItemize}

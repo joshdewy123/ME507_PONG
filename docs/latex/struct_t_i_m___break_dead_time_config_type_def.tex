@@ -1,0 +1,96 @@
+\doxysection{TIM\+\_\+\+Break\+Dead\+Time\+Config\+Type\+Def Struct Reference}
+\hypertarget{struct_t_i_m___break_dead_time_config_type_def}{}\label{struct_t_i_m___break_dead_time_config_type_def}\index{TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}}
+
+
+TIM Break input(s) and Dead time configuration Structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32f4xx\+\_\+hal\+\_\+tim.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___break_dead_time_config_type_def_af45695121f3b3fe1ab24e8fbdb56d781}{Off\+State\+Run\+Mode}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___break_dead_time_config_type_def_a24f5a355f44432458801392e40a80faa}{Off\+State\+IDLEMode}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___break_dead_time_config_type_def_a5fb4b2ca5382b21df284a2d0ce75d32c}{Lock\+Level}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___break_dead_time_config_type_def_a5a08cf07668e90bc708f8cccf709f2b4}{Dead\+Time}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___break_dead_time_config_type_def_a2a1604bd7f46bd571a2507c5f873474f}{Break\+State}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___break_dead_time_config_type_def_a9ac85dcd5135063196b8954d9b779aa7}{Break\+Polarity}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___break_dead_time_config_type_def_a9832cc0d752f1106cd4fc5a2f0e510c0}{Break\+Filter}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___break_dead_time_config_type_def_a811ab6cfce79a2aadab7fc040413c037}{Automatic\+Output}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+TIM Break input(s) and Dead time configuration Structure definition. 
+
+\begin{DoxyNote}{Note}
+2 break inputs can be configured (BKIN and BKIN2) with configurable filter and polarity. 
+\end{DoxyNote}
+
+
+\label{doc-variable-members}
+\Hypertarget{struct_t_i_m___break_dead_time_config_type_def_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_t_i_m___break_dead_time_config_type_def_a811ab6cfce79a2aadab7fc040413c037}\index{TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}!AutomaticOutput@{AutomaticOutput}}
+\index{AutomaticOutput@{AutomaticOutput}!TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{AutomaticOutput}{AutomaticOutput}}
+{\footnotesize\ttfamily \label{struct_t_i_m___break_dead_time_config_type_def_a811ab6cfce79a2aadab7fc040413c037} 
+uint32\+\_\+t Automatic\+Output}
+
+TIM Automatic Output Enable state, This parameter can be a value of \doxylink{group___t_i_m___a_o_e___bit___set___reset}{TIM Automatic Output Enable} \Hypertarget{struct_t_i_m___break_dead_time_config_type_def_a9832cc0d752f1106cd4fc5a2f0e510c0}\index{TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}!BreakFilter@{BreakFilter}}
+\index{BreakFilter@{BreakFilter}!TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{BreakFilter}{BreakFilter}}
+{\footnotesize\ttfamily \label{struct_t_i_m___break_dead_time_config_type_def_a9832cc0d752f1106cd4fc5a2f0e510c0} 
+uint32\+\_\+t Break\+Filter}
+
+Specifies the break input filter.\+This parameter can be a number between Min\+\_\+\+Data = 0x0 and Max\+\_\+\+Data = 0xF \Hypertarget{struct_t_i_m___break_dead_time_config_type_def_a9ac85dcd5135063196b8954d9b779aa7}\index{TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}!BreakPolarity@{BreakPolarity}}
+\index{BreakPolarity@{BreakPolarity}!TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{BreakPolarity}{BreakPolarity}}
+{\footnotesize\ttfamily \label{struct_t_i_m___break_dead_time_config_type_def_a9ac85dcd5135063196b8954d9b779aa7} 
+uint32\+\_\+t Break\+Polarity}
+
+TIM Break input polarity, This parameter can be a value of \doxylink{group___t_i_m___break___polarity}{TIM Break Input Polarity} \Hypertarget{struct_t_i_m___break_dead_time_config_type_def_a2a1604bd7f46bd571a2507c5f873474f}\index{TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}!BreakState@{BreakState}}
+\index{BreakState@{BreakState}!TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{BreakState}{BreakState}}
+{\footnotesize\ttfamily \label{struct_t_i_m___break_dead_time_config_type_def_a2a1604bd7f46bd571a2507c5f873474f} 
+uint32\+\_\+t Break\+State}
+
+TIM Break State, This parameter can be a value of \doxylink{group___t_i_m___break___input__enable__disable}{TIM Break Input Enable} \Hypertarget{struct_t_i_m___break_dead_time_config_type_def_a5a08cf07668e90bc708f8cccf709f2b4}\index{TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}!DeadTime@{DeadTime}}
+\index{DeadTime@{DeadTime}!TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{DeadTime}{DeadTime}}
+{\footnotesize\ttfamily \label{struct_t_i_m___break_dead_time_config_type_def_a5a08cf07668e90bc708f8cccf709f2b4} 
+uint32\+\_\+t Dead\+Time}
+
+TIM dead Time, This parameter can be a number between Min\+\_\+\+Data = 0x00 and Max\+\_\+\+Data = 0x\+FF \Hypertarget{struct_t_i_m___break_dead_time_config_type_def_a5fb4b2ca5382b21df284a2d0ce75d32c}\index{TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}!LockLevel@{LockLevel}}
+\index{LockLevel@{LockLevel}!TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{LockLevel}{LockLevel}}
+{\footnotesize\ttfamily \label{struct_t_i_m___break_dead_time_config_type_def_a5fb4b2ca5382b21df284a2d0ce75d32c} 
+uint32\+\_\+t Lock\+Level}
+
+TIM Lock level, This parameter can be a value of \doxylink{group___t_i_m___lock__level}{TIM Lock level} \Hypertarget{struct_t_i_m___break_dead_time_config_type_def_a24f5a355f44432458801392e40a80faa}\index{TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}!OffStateIDLEMode@{OffStateIDLEMode}}
+\index{OffStateIDLEMode@{OffStateIDLEMode}!TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{OffStateIDLEMode}{OffStateIDLEMode}}
+{\footnotesize\ttfamily \label{struct_t_i_m___break_dead_time_config_type_def_a24f5a355f44432458801392e40a80faa} 
+uint32\+\_\+t Off\+State\+IDLEMode}
+
+TIM off state in IDLE mode, This parameter can be a value of \doxylink{group___t_i_m___o_s_s_i___off___state___selection__for___idle__mode__state}{TIM OSSI Off\+State Selection for Idle mode state} \Hypertarget{struct_t_i_m___break_dead_time_config_type_def_af45695121f3b3fe1ab24e8fbdb56d781}\index{TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}!OffStateRunMode@{OffStateRunMode}}
+\index{OffStateRunMode@{OffStateRunMode}!TIM\_BreakDeadTimeConfigTypeDef@{TIM\_BreakDeadTimeConfigTypeDef}}
+\doxysubsubsection{\texorpdfstring{OffStateRunMode}{OffStateRunMode}}
+{\footnotesize\ttfamily \label{struct_t_i_m___break_dead_time_config_type_def_af45695121f3b3fe1ab24e8fbdb56d781} 
+uint32\+\_\+t Off\+State\+Run\+Mode}
+
+TIM off state in run mode, This parameter can be a value of \doxylink{group___t_i_m___o_s_s_r___off___state___selection__for___run__mode__state}{TIM OSSR Off\+State Selection for Run mode state} 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Drivers/\+STM32\+F4xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32f4xx__hal__tim_8h}{stm32f4xx\+\_\+hal\+\_\+tim.\+h}}\end{DoxyCompactItemize}

@@ -1,3 +1,12 @@
+/**
+ * @file imu.c
+ * @brief Source file for BNO055 IMU functions (I2C interface)
+ *
+ * Implements configuration and data reading functions for BNO055 sensor.
+ * Output includes heading angle and full Euler orientation. The IMU was tested
+ * and confirmed functional but not yet integrated into control FSM.
+ */
+
 #include "imu.h"
 #include "main.h"       // To access huart1
 #include "stdio.h"      // For sprintf
@@ -72,7 +81,7 @@ void BNO055_Init(I2C_HandleTypeDef *hi2c) {
 
 void BNO055_StartCalibration(void) {
     const char* instructions =
-        "⚙️ Calibrate IMU:\r\n"
+        "Calibrate IMU:\r\n"
         "- Move in a figure 8\r\n"
         "- Tilt forward/backward\r\n"
         "- Roll side to side\r\n"

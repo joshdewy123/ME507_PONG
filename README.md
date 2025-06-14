@@ -7,108 +7,116 @@
 
 ## Overview
 
-This project centers around an autonomous ping pong ball launcher designed for two core functionalities:
+This autonomous ping pong launcher is capable of both manual and automatic targeting and launching. It rotates about two axes to aim, detects objects using a TF-Luna LIDAR, and fires ping pong balls using dual flywheels. The system is built around a custom PCB featuring an STM32 microcontroller, motor drivers, and dedicated I2C lines.
 
-1. **Ping Pong Practice Mode**: The system scans the edge of a table using LIDAR and targets the shortest distance to simulate a return serve.
-2. **Beer Pong Mode**: The robot scans the playing field for red Solo cups using signal intensity and shoots into them.
-3. **(Optional)**: Control the launcher via PuTTY or an external controller.
-
-> 💡 Our primary objective was to build a functional robot that could:
-> - Use an IMU to calibrate orientation  
-> - Use LIDAR for object detection  
-> - Use encoders for accurate turning  
-> - Use a servo to load balls  
-> - Use flywheel motors to launch at specific speeds  
+The goal of this project was to create a functional and robust autonomous targeting system while designing and assembling most of the electronics and mechanical components from scratch.
 
 ---
 
-## ⚙️ Hardware Summary
+## 🔧 Major Hardware Components
 
-- **Main Controller**: STM32F411CEU6 (Blackpill)
-- **Actuators**:
-  - 2 × Stepper Motors (base orientation)
-  - 2 × Flywheel DC Motors (launching)
-  - 1 × Servo Motor (ball loading)
-- **Sensors**:
-  - LIDAR (distance sensing)
-  - BNO055 IMU (orientation)
-  - 2 × Motor Encoders
-- **Power System**:
-  - 12V Rail via LM22678 Buck Converter  
-  - 3.3V Rail via LMS1587 LDO
-- **Custom PCB**: Used to consolidate motor driver circuitry, power rails, and microcontroller
+- **2× Pololu 50:1 Gearmotors with Encoders** – control turret rotation
+- **2× Maxon DCX 22 mm Motors** – power the flywheels
+- **1× MG90 Servo** – feeds ping pong balls into flywheels
+- **TF-Luna LIDAR Sensor** – detects range to target
+- **BNO055 IMU** – reports heading (used for debug; not integrated into control loop)
+- **Custom PCB** – provides regulated power, microcontroller I/O, and motor driver interfaces
 
 ---
 
-## 🧠 Software Implementation
+## 📦 PCB Design and Iteration
 
-- **Language**: C/C++ using STM32CubeIDE
-- **Control Architecture**: Finite State Machine (FSM)
-- **Drivers**:
-  - Custom motor driver interface
-  - I2C drivers for LIDAR and IMU
-  - PWM control for servo
-- **Coding Style**:
-  - FSM-based modular design
-  - Lightweight task-based sequencing
-  - Code structured for real-time behavior with interrupt-driven UART
+### Fusion 360 CAD Render
 
----
+![PCB CAD Model](Images/pcb_model.png)
 
-## 🧪 Sensor Processing & Modeling
+### Assembled PCB - Before Hotfixes
 
-- **LIDAR**: Closest distance (Ping Pong Mode) or highest signal intensity (Beer Pong Mode)
-- **IMU**: Euler angle readings (heading)
-- **Encoders**: Estimate rotation and confirm motor behavior
+![Before Fix](Images/pcb_before_hotfix.jpg)
 
----
+### Assembled PCB - After Hotfixes
 
-## 🛠️ PCB + System Design Challenges
+![After Fix](Images/pcb_after_hotfix.jpg)
 
-The team completed a full design cycle:
+**This board includes:**
 
-- Designed and ordered a **custom PCB**
-- Sourced and soldered components
-- Debugged I2C communication issues
-- Validated power rail performance
-- Verified motor driver functionality
-- Integrated electrical and mechanical subsystems
+- STM32F411CEU6 microcontroller
+- DRV8251 motor drivers
+- Barrel jack for 12V input
+- 5V and 3.3V rails (via Buck and LDO regulators)
+- I2C, UART, and GPIO breakout headers
 
 ---
 
-## ❗ Notable Roadblocks & Fixes
+## ⚠️ Roadblocks and Debugging Challenges
 
-| Issue | Fix | Effectiveness |
-|-------|-----|---------------|
-| ❌ No resistors on IPROPI pins | Soldered 1.5kΩ resistors to breakout board | ✅ Fixed in 1 day |
-| ❌ Missing bulk capacitors | Added 330µF caps near motor drivers | ✅ Fixed in 1 day |
-| ❌ Missing LIDAR pullups | Added 3.3V pullups on SDA/SCL | ✅ Fixed in 1 day |
-| ❌ IMU not responsive | Switched to alternate 3.3V/GND pins | ⚠️ Slower to debug |
-| ❌ IMU FSM integration failed | Deferred integration | ⚠️ Future fix |
-| ❌ No TIM PWM channel for servo | Later found unused TIM pin | ⚠️ PCB blocked access |
+### 1. **Motor Driver Output Failures**
+
+**Issue:** Turret motor driver (DRV8251) failed to drive motors consistently.
+
+**Cause:** Missing or insufficient bulk capacitance and improper IPROPI pin handling.  
+**Fix:**
+
+- Added 0.1 µF and 4.7 µF capacitors to stabilize power rails
+- Pulled IPROPI to GND through a 1.5kΩ resistor
+
+#### Fusion Schematic Before Fix
+
+![Motor Driver Schematic Before](Images/motor_driver_before_hotfix.png)
+
+#### Fusion Schematic After Fix
+
+![Motor Driver Schematic After](Images/motor_driver_after_hotfix.png)
 
 ---
 
-## 💡 Lessons Learned
+### 2. **LIDAR Inconsistent I2C Behavior**
 
-- Always include **bulk caps** near motor drivers.
-- **Pull-up resistors** are essential for I2C devices.
-- Leave **unused MCU pins accessible** in PCB design.
-- Modular code + FSM simplifies **debugging and testing**.
-- A working schematic **isn’t always** a working system.
+**Issue:** TF-Luna LIDAR would intermittently drop off the I2C bus.  
+**Cause:** No pull-up resistors on SDA and SCL lines.  
+**Fix:** Manually added 10kΩ pull-ups from both lines to 3.3V.
+
+#### Fusion Schematic Before Fix
+
+![LIDAR Schematic Before](Images/lidar_i2c_before_hotfix.png)
+
+#### Fusion Schematic After Fix
+
+![LIDAR Schematic After](Images/lidar_i2c_after_hotfix.png)
+
+#### Physical Pull-up Resistor Fix (3 Angles)
+
+![Pull-up Fix 1](Images/i2c_pull_up_resist_fix_1.jpg)  
+![Pull-up Fix 2](Images/i2c_pull_up_resist_fix_2.jpg)  
+![Pull-up Fix 3](Images/i2c_pull_up_resist_fix_3.jpg)
 
 ---
 
-## ▶️ How to Run (Demo Instructions)
+## 🧠 Software & Control Strategy
 
-1. Power the PCB via a 12V barrel jack.
-2. Connect STM32 to your PC via ST-Link.
-3. Flash firmware using STM32CubeIDE.
-4. Connect with PuTTY or any serial terminal.
-5. Example commands:
-   - `CAL` – calibrate IMU heading *(future implementation)*
-   - `FIRE` – launch ping pong ball
-   - `MODE` – toggle between game modes
+- **Main Loop FSM**: Manages launcher states (initialize, idle, move, scan, fire)
+- **Manual Mode**: Accepts UART commands like `T1XX`, `M2XX`, `FIRE`, etc.
+- **Auto Mode**: Scans with turret, stores LIDAR readings, picks closest target
+- **IMU Mode**: Streams heading data (future FSM integration planned)
 
-> FSM runs automatically if no command is received.
+**FSM States Include:**
 
+- `STATE_0`: Initialize
+- `STATE_1`: Idle/Wait
+- `STATE_2`: Move Turret
+- `STATE_3`: Read LIDAR
+- `STATE_4`: Spin Flywheels
+- `STATE_5`: Fire via Servo
+- `STATE_6`: Autonomous Scan Mode
+
+---
+
+## 📈 Future Work
+
+- Use IMU feedback to correct turret drift
+- Add computer vision for target recognition
+- Replace UART shell with GUI or wireless input
+
+---
+
+## 📂 Repository Structure

@@ -1,0 +1,115 @@
+\doxysection{Core/\+Inc/fsm.h File Reference}
+\hypertarget{fsm_8h}{}\label{fsm_8h}\index{Core/Inc/fsm.h@{Core/Inc/fsm.h}}
+
+
+Finite State Machine (FSM) header for autonomous launcher behavior.  
+
+
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} \{ \mbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8a830154cdb7fd42f54f25f9f428c2538d}{STATE\+\_\+0}}
+, \mbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8a3be8ff1b14d8f456ec4f53f6ce5790fa}{STATE\+\_\+1}}
+, \mbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8acd69fec890fc58a3ce12d157e80ab7cc}{STATE\+\_\+2}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration of system states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fsm_8h_a3ee94969f8f72065406ca3d0a3cfab30}{FSM\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes FSM-\/related state and subsystems. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fsm_8h_a55d0165131f9e9ab8165eb2f15cc23c8}{FSM\+\_\+\+Run}} (void)
+\begin{DoxyCompactList}\small\item\em Runs one cycle of the FSM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fsm_8h_a5de317d0d201e6e2189d72e20a158c05}{FSM\+\_\+\+Set\+State}} (\mbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} new\+\_\+state)
+\begin{DoxyCompactList}\small\item\em Set the FSM to a specific state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} \mbox{\hyperlink{fsm_8h_ae71c08615da05b0a6c8ee77f9e13ab96}{FSM\+\_\+\+Get\+State}} (void)
+\begin{DoxyCompactList}\small\item\em Get the current state of the FSM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Finite State Machine (FSM) header for autonomous launcher behavior. 
+
+This module defines the interface for an FSM that coordinates different states of the ping pong launcher system. These may include manual control, auto-\/targeting, loading, launching, and safety handling.
+
+The FSM is run in a loop from {\ttfamily \doxylink{main_8c}{main.\+c}}, and each state should define its own entry actions and transitions. 
+
+\label{doc-enum-members}
+\Hypertarget{fsm_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{fsm_8h_ae2946618e700f814e6147195c808f4c8}\index{fsm.h@{fsm.h}!State\_t@{State\_t}}
+\index{State\_t@{State\_t}!fsm.h@{fsm.h}}
+\doxysubsubsection{\texorpdfstring{State\_t}{State\_t}}
+{\footnotesize\ttfamily \label{fsm_8h_ae2946618e700f814e6147195c808f4c8} 
+enum \mbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}}}
+
+
+
+Enumeration of system states. 
+
+Update the enum to reflect the actual robot states used in the project. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_0@{STATE\_0}!fsm.h@{fsm.h}}\index{fsm.h@{fsm.h}!STATE\_0@{STATE\_0}}}\Hypertarget{fsm_8h_ae2946618e700f814e6147195c808f4c8a830154cdb7fd42f54f25f9f428c2538d}\label{fsm_8h_ae2946618e700f814e6147195c808f4c8a830154cdb7fd42f54f25f9f428c2538d} 
+STATE\+\_\+0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_1@{STATE\_1}!fsm.h@{fsm.h}}\index{fsm.h@{fsm.h}!STATE\_1@{STATE\_1}}}\Hypertarget{fsm_8h_ae2946618e700f814e6147195c808f4c8a3be8ff1b14d8f456ec4f53f6ce5790fa}\label{fsm_8h_ae2946618e700f814e6147195c808f4c8a3be8ff1b14d8f456ec4f53f6ce5790fa} 
+STATE\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_2@{STATE\_2}!fsm.h@{fsm.h}}\index{fsm.h@{fsm.h}!STATE\_2@{STATE\_2}}}\Hypertarget{fsm_8h_ae2946618e700f814e6147195c808f4c8acd69fec890fc58a3ce12d157e80ab7cc}\label{fsm_8h_ae2946618e700f814e6147195c808f4c8acd69fec890fc58a3ce12d157e80ab7cc} 
+STATE\+\_\+2&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{fsm_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{fsm_8h_ae71c08615da05b0a6c8ee77f9e13ab96}\index{fsm.h@{fsm.h}!FSM\_GetState@{FSM\_GetState}}
+\index{FSM\_GetState@{FSM\_GetState}!fsm.h@{fsm.h}}
+\doxysubsubsection{\texorpdfstring{FSM\_GetState()}{FSM\_GetState()}}
+{\footnotesize\ttfamily \label{fsm_8h_ae71c08615da05b0a6c8ee77f9e13ab96} 
+\mbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}} FSM\+\_\+\+Get\+State (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Get the current state of the FSM. 
+
+\begin{DoxyReturn}{Returns}
+Current FSM state 
+\end{DoxyReturn}
+\Hypertarget{fsm_8h_a3ee94969f8f72065406ca3d0a3cfab30}\index{fsm.h@{fsm.h}!FSM\_Init@{FSM\_Init}}
+\index{FSM\_Init@{FSM\_Init}!fsm.h@{fsm.h}}
+\doxysubsubsection{\texorpdfstring{FSM\_Init()}{FSM\_Init()}}
+{\footnotesize\ttfamily \label{fsm_8h_a3ee94969f8f72065406ca3d0a3cfab30} 
+void FSM\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes FSM-\/related state and subsystems. 
+
+Call this during system startup to set initial state and configure variables. \Hypertarget{fsm_8h_a55d0165131f9e9ab8165eb2f15cc23c8}\index{fsm.h@{fsm.h}!FSM\_Run@{FSM\_Run}}
+\index{FSM\_Run@{FSM\_Run}!fsm.h@{fsm.h}}
+\doxysubsubsection{\texorpdfstring{FSM\_Run()}{FSM\_Run()}}
+{\footnotesize\ttfamily \label{fsm_8h_a55d0165131f9e9ab8165eb2f15cc23c8} 
+void FSM\+\_\+\+Run (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Runs one cycle of the FSM. 
+
+Called repeatedly in {\ttfamily \doxylink{main_8c}{main.\+c}} to progress through states based on conditions. \Hypertarget{fsm_8h_a5de317d0d201e6e2189d72e20a158c05}\index{fsm.h@{fsm.h}!FSM\_SetState@{FSM\_SetState}}
+\index{FSM\_SetState@{FSM\_SetState}!fsm.h@{fsm.h}}
+\doxysubsubsection{\texorpdfstring{FSM\_SetState()}{FSM\_SetState()}}
+{\footnotesize\ttfamily \label{fsm_8h_a5de317d0d201e6e2189d72e20a158c05} 
+void FSM\+\_\+\+Set\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fsm_8h_ae2946618e700f814e6147195c808f4c8}{State\+\_\+t}}}]{new\+\_\+state}{}\end{DoxyParamCaption})}
+
+
+
+Set the FSM to a specific state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+state} & Desired state to transition into \\
+\hline
+\end{DoxyParams}

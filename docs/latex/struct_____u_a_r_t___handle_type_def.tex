@@ -1,0 +1,155 @@
+\doxysection{\+\_\+\+\_\+\+UART\+\_\+\+Handle\+Type\+Def Struct Reference}
+\hypertarget{struct_____u_a_r_t___handle_type_def}{}\label{struct_____u_a_r_t___handle_type_def}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+
+
+UART handle Structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32f4xx\+\_\+hal\+\_\+uart.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\+\_\+\+Type\+Def}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a2b30b6d22df80fbebd8ceefc6f162310}{Instance}}
+\item 
+\mbox{\hyperlink{struct_u_a_r_t___init_type_def}{UART\+\_\+\+Init\+Type\+Def}} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a6b5ab0619ea07655a7f3bc92f78fafaa}{Init}}
+\item 
+const uint8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a56746f60fbacd516e52e344de94f8195}{p\+Tx\+Buff\+Ptr}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a80907b65d6f9541bc0dee444d16bc45b}{Tx\+Xfer\+Size}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint16\+\_\+t \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a1823437fbed80bdd1510782ced4e5532}{Tx\+Xfer\+Count}}
+\item 
+uint8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a7cee540cb21048ac48ba17355440e668}{p\+Rx\+Buff\+Ptr}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_ac12f5f1f6295b3c3327d5feabf5a96fb}{Rx\+Xfer\+Size}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint16\+\_\+t \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_ad95a26d6b12b7087bba3d1b769175db2}{Rx\+Xfer\+Count}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___u_a_r_t___exported___types_ga9f272475ea543a68fd8cb19f03a9bce9}{HAL\+\_\+\+UART\+\_\+\+Rx\+Type\+Type\+Def}} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a861b12a5639c751ef2c54a2508b7919f}{Reception\+Type}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___u_a_r_t___exported___types_gadddf3d5480235c945dc8eec58f961203}{HAL\+\_\+\+UART\+\_\+\+Rx\+Event\+Type\+Type\+Def}} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a372214fec6d84261294a8783e9a10ef2}{Rx\+Event\+Type}}
+\item 
+\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a33e13c28b1a70e6164417abb026d7a22}{hdmatx}}
+\item 
+\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_abd0aeec20298a55d89a440320e35634f}{hdmarx}}
+\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_ab367482e943333a1299294eadaad284b}{HAL\+\_\+\+Lock\+Type\+Def}} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_ad4cf225029dbefe8d3fe660c33b8bb6b}{Lock}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___u_a_r_t___exported___types_gaf55d844a35379c204c90be5d1e8e50ba}{HAL\+\_\+\+UART\+\_\+\+State\+Type\+Def}} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_ab596705b6ce037e8debc149ccee148da}{g\+State}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___u_a_r_t___exported___types_gaf55d844a35379c204c90be5d1e8e50ba}{HAL\+\_\+\+UART\+\_\+\+State\+Type\+Def}} \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a198c30da19a1529e1665bec6dc455815}{Rx\+State}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{struct_____u_a_r_t___handle_type_def_a123c5063e6a3b1901b2fbe5f88c53a7e}{Error\+Code}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+UART handle Structure definition. 
+
+\label{doc-variable-members}
+\Hypertarget{struct_____u_a_r_t___handle_type_def_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_____u_a_r_t___handle_type_def_a123c5063e6a3b1901b2fbe5f88c53a7e}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!ErrorCode@{ErrorCode}}
+\index{ErrorCode@{ErrorCode}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{ErrorCode}{ErrorCode}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_a123c5063e6a3b1901b2fbe5f88c53a7e} 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t Error\+Code}
+
+UART Error code \Hypertarget{struct_____u_a_r_t___handle_type_def_ab596705b6ce037e8debc149ccee148da}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!gState@{gState}}
+\index{gState@{gState}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{gState}{gState}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_ab596705b6ce037e8debc149ccee148da} 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___u_a_r_t___exported___types_gaf55d844a35379c204c90be5d1e8e50ba}{HAL\+\_\+\+UART\+\_\+\+State\+Type\+Def}} g\+State}
+
+UART state information related to global Handle management and also related to Tx operations. This parameter can be a value of \doxylink{group___u_a_r_t___exported___types_gaf55d844a35379c204c90be5d1e8e50ba}{HAL\+\_\+\+UART\+\_\+\+State\+Type\+Def} \Hypertarget{struct_____u_a_r_t___handle_type_def_abd0aeec20298a55d89a440320e35634f}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!hdmarx@{hdmarx}}
+\index{hdmarx@{hdmarx}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{hdmarx}{hdmarx}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_abd0aeec20298a55d89a440320e35634f} 
+\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}}\texorpdfstring{$\ast$}{*} hdmarx}
+
+UART Rx DMA Handle parameters \Hypertarget{struct_____u_a_r_t___handle_type_def_a33e13c28b1a70e6164417abb026d7a22}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!hdmatx@{hdmatx}}
+\index{hdmatx@{hdmatx}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{hdmatx}{hdmatx}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_a33e13c28b1a70e6164417abb026d7a22} 
+\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}}\texorpdfstring{$\ast$}{*} hdmatx}
+
+UART Tx DMA Handle parameters \Hypertarget{struct_____u_a_r_t___handle_type_def_a6b5ab0619ea07655a7f3bc92f78fafaa}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!Init@{Init}}
+\index{Init@{Init}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{Init}{Init}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_a6b5ab0619ea07655a7f3bc92f78fafaa} 
+\mbox{\hyperlink{struct_u_a_r_t___init_type_def}{UART\+\_\+\+Init\+Type\+Def}} Init}
+
+UART communication parameters \Hypertarget{struct_____u_a_r_t___handle_type_def_a2b30b6d22df80fbebd8ceefc6f162310}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!Instance@{Instance}}
+\index{Instance@{Instance}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_a2b30b6d22df80fbebd8ceefc6f162310} 
+\mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\+\_\+\+Type\+Def}}\texorpdfstring{$\ast$}{*} Instance}
+
+UART registers base address \Hypertarget{struct_____u_a_r_t___handle_type_def_ad4cf225029dbefe8d3fe660c33b8bb6b}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!Lock@{Lock}}
+\index{Lock@{Lock}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{Lock}{Lock}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_ad4cf225029dbefe8d3fe660c33b8bb6b} 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_ab367482e943333a1299294eadaad284b}{HAL\+\_\+\+Lock\+Type\+Def}} Lock}
+
+Locking object \Hypertarget{struct_____u_a_r_t___handle_type_def_a7cee540cb21048ac48ba17355440e668}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!pRxBuffPtr@{pRxBuffPtr}}
+\index{pRxBuffPtr@{pRxBuffPtr}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{pRxBuffPtr}{pRxBuffPtr}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_a7cee540cb21048ac48ba17355440e668} 
+uint8\+\_\+t\texorpdfstring{$\ast$}{*} p\+Rx\+Buff\+Ptr}
+
+Pointer to UART Rx transfer Buffer \Hypertarget{struct_____u_a_r_t___handle_type_def_a56746f60fbacd516e52e344de94f8195}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!pTxBuffPtr@{pTxBuffPtr}}
+\index{pTxBuffPtr@{pTxBuffPtr}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{pTxBuffPtr}{pTxBuffPtr}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_a56746f60fbacd516e52e344de94f8195} 
+const uint8\+\_\+t\texorpdfstring{$\ast$}{*} p\+Tx\+Buff\+Ptr}
+
+Pointer to UART Tx transfer Buffer \Hypertarget{struct_____u_a_r_t___handle_type_def_a861b12a5639c751ef2c54a2508b7919f}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!ReceptionType@{ReceptionType}}
+\index{ReceptionType@{ReceptionType}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{ReceptionType}{ReceptionType}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_a861b12a5639c751ef2c54a2508b7919f} 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___u_a_r_t___exported___types_ga9f272475ea543a68fd8cb19f03a9bce9}{HAL\+\_\+\+UART\+\_\+\+Rx\+Type\+Type\+Def}} Reception\+Type}
+
+Type of ongoing reception \Hypertarget{struct_____u_a_r_t___handle_type_def_a372214fec6d84261294a8783e9a10ef2}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!RxEventType@{RxEventType}}
+\index{RxEventType@{RxEventType}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{RxEventType}{RxEventType}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_a372214fec6d84261294a8783e9a10ef2} 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___u_a_r_t___exported___types_gadddf3d5480235c945dc8eec58f961203}{HAL\+\_\+\+UART\+\_\+\+Rx\+Event\+Type\+Type\+Def}} Rx\+Event\+Type}
+
+Type of Rx Event \Hypertarget{struct_____u_a_r_t___handle_type_def_a198c30da19a1529e1665bec6dc455815}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!RxState@{RxState}}
+\index{RxState@{RxState}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{RxState}{RxState}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_a198c30da19a1529e1665bec6dc455815} 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___u_a_r_t___exported___types_gaf55d844a35379c204c90be5d1e8e50ba}{HAL\+\_\+\+UART\+\_\+\+State\+Type\+Def}} Rx\+State}
+
+UART state information related to Rx operations. This parameter can be a value of \doxylink{group___u_a_r_t___exported___types_gaf55d844a35379c204c90be5d1e8e50ba}{HAL\+\_\+\+UART\+\_\+\+State\+Type\+Def} \Hypertarget{struct_____u_a_r_t___handle_type_def_ad95a26d6b12b7087bba3d1b769175db2}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!RxXferCount@{RxXferCount}}
+\index{RxXferCount@{RxXferCount}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{RxXferCount}{RxXferCount}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_ad95a26d6b12b7087bba3d1b769175db2} 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint16\+\_\+t Rx\+Xfer\+Count}
+
+UART Rx Transfer Counter \Hypertarget{struct_____u_a_r_t___handle_type_def_ac12f5f1f6295b3c3327d5feabf5a96fb}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!RxXferSize@{RxXferSize}}
+\index{RxXferSize@{RxXferSize}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{RxXferSize}{RxXferSize}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_ac12f5f1f6295b3c3327d5feabf5a96fb} 
+uint16\+\_\+t Rx\+Xfer\+Size}
+
+UART Rx Transfer size \Hypertarget{struct_____u_a_r_t___handle_type_def_a1823437fbed80bdd1510782ced4e5532}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!TxXferCount@{TxXferCount}}
+\index{TxXferCount@{TxXferCount}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{TxXferCount}{TxXferCount}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_a1823437fbed80bdd1510782ced4e5532} 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint16\+\_\+t Tx\+Xfer\+Count}
+
+UART Tx Transfer Counter \Hypertarget{struct_____u_a_r_t___handle_type_def_a80907b65d6f9541bc0dee444d16bc45b}\index{\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}!TxXferSize@{TxXferSize}}
+\index{TxXferSize@{TxXferSize}!\_\_UART\_HandleTypeDef@{\_\_UART\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{TxXferSize}{TxXferSize}}
+{\footnotesize\ttfamily \label{struct_____u_a_r_t___handle_type_def_a80907b65d6f9541bc0dee444d16bc45b} 
+uint16\+\_\+t Tx\+Xfer\+Size}
+
+UART Tx Transfer size 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Drivers/\+STM32\+F4xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32f4xx__hal__uart_8h}{stm32f4xx\+\_\+hal\+\_\+uart.\+h}}\end{DoxyCompactItemize}
