@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['launcher_0',['ME 507 - Ping Pong Ball Launcher',['../index.html',1,'']]],
-  ['lidar_20inconsistent_20i2c_20behavior_1',['2. &lt;b&gt;LIDAR Inconsistent I2C Behavior&lt;/b&gt;',['../index.html#autotoc_md17',1,'']]]
+  ['i2c_20behavior_0',['2. &lt;b&gt;LIDAR Inconsistent I2C Behavior&lt;/b&gt;',['../index.html#autotoc_md17',1,'']]],
+  ['implementation_1',['Software Implementation',['../index.html#autotoc_md22',1,'']]],
+  ['inconsistent_20i2c_20behavior_2',['2. &lt;b&gt;LIDAR Inconsistent I2C Behavior&lt;/b&gt;',['../index.html#autotoc_md17',1,'']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['i2c_20behavior_0',['2. &lt;b&gt;LIDAR Inconsistent I2C Behavior&lt;/b&gt;',['../index.html#autotoc_md17',1,'']]],
-  ['inconsistent_20i2c_20behavior_1',['2. &lt;b&gt;LIDAR Inconsistent I2C Behavior&lt;/b&gt;',['../index.html#autotoc_md17',1,'']]],
-  ['iteration_2',['📦 PCB Design and Iteration',['../index.html#autotoc_md6',1,'']]]
+  ['hardware_20electrical_0',['Hardware (Electrical)',['../index.html#autotoc_md6',1,'']]],
+  ['hardware_20mechanical_1',['Hardware (Mechanical)',['../index.html#autotoc_md4',1,'']]],
+  ['hotfixes_2',['Hotfixes',['../index.html#autotoc_md10',1,'Assembled PCB - After Hotfixes'],['../index.html#autotoc_md9',1,'Assembled PCB - Before Hotfixes']]]
 ];

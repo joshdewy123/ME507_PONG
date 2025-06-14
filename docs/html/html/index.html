@@ -101,18 +101,19 @@ Overview</h1>
 <p>The goal of this project was to create a functional and robust autonomous targeting system while designing and assembling most of the electronics and mechanical components from scratch.</p>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
-🔧 Major Hardware Components</h1>
+Hardware (Mechanical)</h1>
+<p>The robot was designed to use primarily hardware already in our possession in order to be cost-efficient, since the robot was not anticipated to pull extremely heavy loads anyways. The list of actuators and their purposes are below:</p>
 <ul>
-<li><b>2× Pololu 50:1 Gearmotors with Encoders</b> – control turret rotation</li>
-<li><b>2× Maxon DCX 22 mm Motors</b> – power the flywheels</li>
-<li><b>1× MG90 Servo</b> – feeds ping pong balls into flywheels</li>
-<li><b>TF-Luna LIDAR Sensor</b> – detects range to target</li>
-<li><b>BNO055 IMU</b> – reports heading (used for debug; not integrated into control loop)</li>
-<li><b>Custom PCB</b> – provides regulated power, microcontroller I/O, and motor driver interfaces</li>
+<li><b>2x Pololu 50:1 Gearmotor (4753):</b> – 12V DC motor with built-in encoders to control the turret/aiming of the robot. Their reasonable size and torque made them a viable choice for this project.</li>
+<li><b>2x Maxon DCX 22 mm OD Motors:</b> - 18V DC motor with no external gearbox or sensors. They are able to reach up to about 5000 RPM at nominal speeds, making them a great choice for our flywheels. Despite their nominal voltage of 18V, they were run using 12V instead to limit the necessary power redistribution of our electronics.</li>
+<li><b>1x MG90 Servo Motor:</b> - simple 5V servo motor used to control ball loading and launching. Moves to certain angles dependent on the signal sent to it. They were used to push balls forward into the launcher while blocking the next ball from launching at the same time, providing the robot functionality to control when and the quantity of balls launched.</li>
 </ul>
+<p>The rest of the robot was constructed using a combination of 3-D printed and off-the-shelf components. The robot implements a modular design to allow for easy re-design, removal, and reattachment of components when necessary. Power transfer between the launcher and motors was achieved using belts, pulleys, hand-cut shafts, and bearings. All fasteners are a combination of M2, M2.5, or M3 screws when necessary, and heat-set inserts were used in many locations for ease of assembly and a high overall quality of work.</p>
+<p>Small attachment parts were made during the project’s development, and they proved to be very important. First, the flywheels were simply 3-D printed to attach to the Maxon DCX motor’s shaft, as well as be supported by bearings below. Launcher compression was achieved using super-glued foam strips around the wheels. Secondly, the different tensioners were created to improve the grip of the belt-pulley systems. On initial testing, the motors did not have enough tension with the components they were meant to move. Tensioners were added and vastly improved the power transfer of the robot.</p>
+<p>Overall, the mechanical design of the robot worked very well. The magazine, launcher, and ball loading mechanism worked especially well. Power transfer between the motors and other components worked well, but over time, the plastic 3-D printed components began losing their grip on the metal shafts, causing more slip over time. If the project were continued with moree time and budget, the robot would utilize more metal mechanical components for longevity.</p>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
-📦 PCB Design and Iteration</h1>
+Hardware (Electrical)</h1>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
 Fusion 360 Schematics</h2>
 <div class="image">
@@ -155,7 +156,7 @@ After Fix</div></div>
 </ul>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
-⚠️ Roadblocks and Debugging Challenges</h1>
+Roadblocks and Debugging Challenges</h1>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
 1. <b>Motor Driver Output Failures</b></h2>
 <p><b>Issue:</b> Turret motor driver (DRV8251) failed to drive motors consistently.</p>
@@ -204,34 +205,41 @@ Physical Pull-up Resistor Fix (3 Angles)</h3>
  <img src="i2c_pull_up_resist_fix_3.jpg" alt="" class="inline" title="Pull-up Fix 3"/>    </p>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
-🧠 Software &amp; Control Strategy</h1>
+Software Implementation</h1>
+<p>The robot was programmed in C only, as updating the project to C++ caused various issues to occur. The program features a few drivers, a primary main loop, and a finite state machine inside of the main loop. Some primary features of the program include:</p>
 <ul>
-<li><b>Main Loop FSM</b>: Manages launcher states (initialize, idle, move, scan, fire)</li>
-<li><b>Manual Mode</b>: Accepts UART commands like <span class="tt">T1XX</span>, <span class="tt">M2XX</span>, <span class="tt">FIRE</span>, etc.</li>
-<li><b>Auto Mode</b>: Scans with turret, stores LIDAR readings, picks closest target</li>
-<li><b>IMU Mode</b>: Streams heading data (future FSM integration planned)</li>
-</ul>
-<p><b>FSM States Include:</b></p>
-<ul>
-<li><span class="tt">STATE_0</span>: Initialize</li>
-<li><span class="tt">STATE_1</span>: Idle/Wait</li>
-<li><span class="tt">STATE_2</span>: Move Turret</li>
-<li><span class="tt">STATE_3</span>: Read LIDAR</li>
-<li><span class="tt">STATE_4</span>: Spin Flywheels</li>
-<li><span class="tt">STATE_5</span>: Fire via Servo</li>
-<li><span class="tt">STATE_6</span>: Autonomous Scan Mode</li>
+<li><b>Software PWM:</b> - created due to lack of timers on hardware pins for the servo motor. It functions by setting the pin to high or low depending on the system’s core clock using switch states. While this is not as accurate as hardware PWM, it was OK to use for the servo motor, since its usage was not a primary development focus and it just needed to move back and forth. However, it did cause the program to not support any HAL delays in the main loop or functions due to it causing the servo to move. This function would be removed in future iterations of the robot if possible.</li>
+<li><b>Main Loop:</b> - used to run both the finite-state-machine and a few functions that always need to be called for accuracy. The main loop always updates both turret encoders and converts the ticks into degrees. It also updates the servo software pwm. If the BNO055 is implemented, it would also update the euler angles in this portion as well.</li>
+<li><b>Finite State Machine:</b> - The FSM has 6 states, also described in the diagram. Entering the commands (COMM) into the console triggers different states.</li>
+<li>Initialization, moves the turret motors to a more optimal angle for later movements. See the link: <a href="https://youtube.com/shorts/3GikZNkVesM?feature=share">https://youtube.com/shorts/3GikZNkVesM?feature=share</a></li>
+<li>State 1: Hub, waiting for commands to be entered in the PUTTY console</li>
+<li>State 2: Aim, moves the turret motors to desired angle</li>
+<li>State 3: Lidar, reads the current distance and amp values from the laser sensor</li>
+<li>State 4: Fly, spins the flywheel motors to a set duty</li>
+<li>State 5: Launch, launches the ball currently loaded in a sequence of movements</li>
+<li>State 6: Auto scan, an autonomous routine to scan the area using a set of movements and lidar scan stored data. Scans area, moves to closest distance, launches the ball, then returns to State 1.</li>
 </ul>
 <div class="image">
 <img src="ME507_FSM.png" alt=""/>
 <div class="caption">
 FSM Diagram</div></div>
-    <hr  />
+    <ul>
+<li><b>Commands:</b></li>
+<li>M1xx (or M2xx) (S4): sets the duty cycle of the flywheels to the percent hex xx value.</li>
+<li>T1xx / T2 xx (S2): sets the desired value for the respective turret to the hex xx value.</li>
+<li>LIDA (S3): returns the lidar sensor values: distance (in cm) and amp (determines validity of reading).</li>
+<li>SRUN (S5): servo routine to launch the ball.</li>
+<li>SCAN (S6): autonomous scan routine</li>
+</ul>
+<hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
 📈 Future Work</h1>
+<p>If this project were continued, there are multiple fixes to be implemented that would greatly improve the consistency and functionality of the robot:</p>
 <ul>
-<li>Use IMU feedback to correct turret drift</li>
-<li>Add computer vision for target recognition</li>
-<li>Replace UART shell with GUI or wireless input</li>
+<li><b>Improve material choices and design:</b> - Physical slop between the shafts and 3-D printed components developed over time when operating the robot. By adding more metal components or inserts to connect the shafts to 3-D printed components, the removed slop would improve the encoder angle reading accuracy and ensure proper movement when intended.</li>
+<li><b>Review datasheets to optimize PCB design:</b> - Because of the hotfixes implemented to make the motor drivers functional on the PCB, there were more temperature and motor driver overcurrent than intended. This sometimes caused the motors to not run when intended when the robot was left on for extended periods of time. This would also sometimes cause the robot to get stuck in certain states due to not reaching its intended motor angles. If the current sensing resistors and bulk capacitors were more properly implemented into the PCB design, the motor driver would be much more consistent, leading to easier testing and functionality over time.</li>
+<li><b>Implement BNO055 (IMU) logic:</b> - Since the IMU is attached to the end of the launching mechanism, its angle readings would be more accurate than the encoder readings. It would also account for the physical slop, which the motors could then compensate for in a control loop. However, even though the IMU was functional, there was not time to implement refined control loops using the IMU readings.</li>
+<li><b>Improve UI:</b> - The PUTTY console UI was usable and had all the necessary functionality. However, an actual UI using buttons instead of commands would be more intuitive. Additionally, wireless control would be beneficial for ease of use.</li>
 </ul>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
