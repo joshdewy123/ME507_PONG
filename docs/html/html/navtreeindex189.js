@@ -1,5 +1,6 @@
 var NAVTREEINDEX189 =
 {
+"struct_g_p_i_o___type_def.html#abff7fffd2b5a718715a130006590c75c":[3,91,0,2,8,5],
 "struct_g_p_i_o___type_def.html#ac25dd6b9e3d55e17589195b461c5ec80":[3,91,0,2,8,1],
 "struct_i2_c___handle_type_def.html":[3,92,12,0,4,0],
 "struct_i2_c___handle_type_def.html#a009bdd1b89c6ca994760617de151645d":[3,92,12,0,4,0,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX189 =
 "struct_t_i_m___encoder___init_type_def.html#ae0c7ebe03057c1dd939555d1d924afd1":[3,92,18,0,4,4],
 "struct_t_i_m___encoder___init_type_def.html#af5b15660e7593a0fa62ee00059b3a9f4":[3,92,18,0,4,8],
 "struct_t_i_m___hall_sensor___init_type_def.html":[3,92,19,0,0],
-"struct_t_i_m___hall_sensor___init_type_def.html#a5d74bf14283eb95439d6d37952274f07":[3,92,19,0,0,0],
-"struct_t_i_m___hall_sensor___init_type_def.html#a5efa2ad5085fe72fb0b5dc2e2fc61def":[3,92,19,0,0,1]
+"struct_t_i_m___hall_sensor___init_type_def.html#a5d74bf14283eb95439d6d37952274f07":[3,92,19,0,0,0]
 };

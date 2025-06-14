@@ -1,5 +1,6 @@
 var NAVTREEINDEX187 =
 {
+"pmu__armv8_8h.html#af9424157e9c5dca3a3689d181005c4f8":[5,0,2,0,1,28,23],
 "pmu__armv8_8h.html#af9ebeb1f49dba56d8f90f9bd5d3da58e":[5,0,2,0,1,28,87],
 "pmu__armv8_8h.html#afb1e1f86d091ccb735858769c700e289":[5,0,2,0,1,28,36],
 "pmu__armv8_8h.html#afe99db0693125100272247c147fb3b02":[5,0,2,0,1,28,44],
@@ -248,6 +249,5 @@ var NAVTREEINDEX187 =
 "stm32f4xx__ll__adc_8h_source.html":[5,0,2,1,0,23],
 "stm32f4xx__ll__bus_8h.html":[5,0,2,1,0,24],
 "stm32f4xx__ll__bus_8h_source.html":[5,0,2,1,0,24],
-"stm32f4xx__ll__cortex_8h.html":[5,0,2,1,0,25],
-"stm32f4xx__ll__cortex_8h_source.html":[5,0,2,1,0,25]
+"stm32f4xx__ll__cortex_8h.html":[5,0,2,1,0,25]
 };

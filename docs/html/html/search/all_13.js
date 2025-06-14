@@ -104,7 +104,7 @@ var searchData=
   ['output_20compare_20polarity_101',['Output Compare Polarity',['../group___t_i_m___output___compare___n___polarity.html',1,'TIM Complementary Output Compare Polarity'],['../group___t_i_m___output___compare___polarity.html',1,'TIM Output Compare Polarity']]],
   ['output_20compare_20state_102',['Output Compare State',['../group___t_i_m___output___compare___n___state.html',1,'TIM Complementary Output Compare State'],['../group___t_i_m___output___compare___state.html',1,'TIM Output Compare State']]],
   ['output_20enable_103',['TIM Automatic Output Enable',['../group___t_i_m___a_o_e___bit___set___reset.html',1,'']]],
-  ['output_20failures_104',['1. &lt;b&gt;Motor Driver Output Failures&lt;/b&gt;',['../md__r_e_a_d_m_e.html#autotoc_md12',1,'']]],
+  ['output_20failures_104',['1. &lt;b&gt;Motor Driver Output Failures&lt;/b&gt;',['../md__r_e_a_d_m_e.html#autotoc_md13',1,'']]],
   ['output_20fast_20state_105',['TIM Output Fast State',['../group___t_i_m___output___fast___state.html',1,'']]],
   ['output_20operation_20functions_106',['Input and Output operation functions',['../group___i2_c___exported___functions___group2.html',1,'']]],
   ['output_5fod_107',['OUTPUT_OD',['../group___g_p_i_o___private___constants.html#gaea041a6db0843f4b27a6a39b829d56e7',1,'stm32f4xx_hal_gpio.h']]],

@@ -114,18 +114,32 @@ Overview</h1>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
 📦 PCB Design and Iteration</h1>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+Fusion 360 Schematics</h2>
+<div class="image">
+<img src="sheet1_me507.png" alt=""/>
+<div class="caption">
+Power Regulation</div></div>
+    <div class="image">
+<img src="sheet2_me507.png" alt=""/>
+<div class="caption">
+MCU Pinouts</div></div>
+    <div class="image">
+<img src="sheet3_me507.png" alt=""/>
+<div class="caption">
+Motor Drivers w/ Sensor + Actuator Outputs</div></div>
+    <h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
 Fusion 360 CAD Render</h2>
 <div class="image">
 <img src="pcb_model.png" alt=""/>
 <div class="caption">
 PCB CAD Model</div></div>
-    <h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+    <h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
 Assembled PCB - Before Hotfixes</h2>
 <div class="image">
 <img src="pcb_before_hotfix.jpg" alt=""/>
 <div class="caption">
 Before Fix</div></div>
-    <h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+    <h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
 Assembled PCB - After Hotfixes</h2>
 <div class="image">
 <img src="pcb_after_hotfix.jpg" alt=""/>
@@ -140,9 +154,9 @@ After Fix</div></div>
 <li>I2C, UART, and GPIO breakout headers</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
 ⚠️ Roadblocks and Debugging Challenges</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
 1. <b>Motor Driver Output Failures</b></h2>
 <p><b>Issue:</b> Turret motor driver (DRV8251) failed to drive motors consistently.</p>
 <p><b>Cause:</b> Missing or insufficient bulk capacitance and improper IPROPI pin handling. <br  />
@@ -151,37 +165,37 @@ After Fix</div></div>
 <li>Added 0.1 µF and 4.7 µF capacitors to stabilize power rails</li>
 <li>Pulled IPROPI to GND through a 1.5kΩ resistor</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
 Fusion Schematic Before Fix</h3>
 <div class="image">
 <img src="motor_driver_before_hotfix.png" alt=""/>
 <div class="caption">
 Motor Driver Schematic Before</div></div>
-    <h3 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+    <h3 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
 Fusion Schematic After Fix</h3>
 <div class="image">
 <img src="motor_driver_after_hotfix.png" alt=""/>
 <div class="caption">
 Motor Driver Schematic After</div></div>
     <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
 2. <b>LIDAR Inconsistent I2C Behavior</b></h2>
 <p><b>Issue:</b> TF-Luna LIDAR would intermittently drop off the I2C bus. <br  />
  <b>Cause:</b> No pull-up resistors on SDA and SCL lines. <br  />
  <b>Fix:</b> Manually added 10kΩ pull-ups from both lines to 3.3V.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
 Fusion Schematic Before Fix</h3>
 <div class="image">
 <img src="lidar_i2c_before_hotfix.png" alt=""/>
 <div class="caption">
 LIDAR Schematic Before</div></div>
-    <h3 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+    <h3 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
 Fusion Schematic After Fix</h3>
 <div class="image">
 <img src="lidar_i2c_after_hotfix.png" alt=""/>
 <div class="caption">
 LIDAR Schematic After</div></div>
-    <h3 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+    <h3 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
 Physical Pull-up Resistor Fix (3 Angles)</h3>
 <p><img src="i2c_pull_up_resist_fix_1.jpg" alt="" class="inline" title="Pull-up Fix 1"/>    </p>
 <p><br  />
@@ -189,7 +203,7 @@ Physical Pull-up Resistor Fix (3 Angles)</h3>
 <p><br  />
  <img src="i2c_pull_up_resist_fix_3.jpg" alt="" class="inline" title="Pull-up Fix 3"/>    </p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
 🧠 Software &amp; Control Strategy</h1>
 <ul>
 <li><b>Main Loop FSM</b>: Manages launcher states (initialize, idle, move, scan, fire)</li>
@@ -207,8 +221,12 @@ Physical Pull-up Resistor Fix (3 Angles)</h3>
 <li><span class="tt">STATE_5</span>: Fire via Servo</li>
 <li><span class="tt">STATE_6</span>: Autonomous Scan Mode</li>
 </ul>
-<hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
+<div class="image">
+<img src="ME507_FSM.png" alt=""/>
+<div class="caption">
+FSM Diagram</div></div>
+    <hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
 📈 Future Work</h1>
 <ul>
 <li>Use IMU feedback to correct turret drift</li>
@@ -216,7 +234,7 @@ Physical Pull-up Resistor Fix (3 Angles)</h3>
 <li>Replace UART shell with GUI or wireless input</li>
 </ul>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
 📂 Repository Structure</h1>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

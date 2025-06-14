@@ -10,7 +10,7 @@ var searchData=
   ['level_7',['level',['../group___d_m_a___f_i_f_o__threshold__level.html',1,'DMA FIFO threshold level'],['../group___d_m_a___priority__level.html',1,'DMA Priority level'],['../group___p_w_r___p_v_d__detection__level.html',1,'PWR PVD detection level'],['../group___t_i_m___lock__level.html',1,'TIM Lock level']]],
   ['library_20observation_20registers_8',['Software Test Library Observation Registers',['../group___s_t_l___type.html',1,'']]],
   ['library_5fconfiguration_5fsection_9',['Library_configuration_section',['../group___library__configuration__section.html',1,'']]],
-  ['lidar_20inconsistent_20i2c_20behavior_10',['2. &lt;b&gt;LIDAR Inconsistent I2C Behavior&lt;/b&gt;',['../md__r_e_a_d_m_e.html#autotoc_md16',1,'']]],
+  ['lidar_20inconsistent_20i2c_20behavior_10',['2. &lt;b&gt;LIDAR Inconsistent I2C Behavior&lt;/b&gt;',['../md__r_e_a_d_m_e.html#autotoc_md17',1,'']]],
   ['lidar_5fbuf_11',['lidar_buf',['../main_8c.html#a5c1c771a6bca2a8939852e597c8054f6',1,'main.c']]],
   ['lidar_5fmode_12',['lidar_mode',['../main_8c.html#adce9412a27849ba591609b337dbc1369',1,'main.c']]],
   ['lifcr_13',['LIFCR',['../struct_d_m_a___type_def.html#ac4f7bf4cb172024bfc940c00167cd04e',1,'DMA_TypeDef']]],

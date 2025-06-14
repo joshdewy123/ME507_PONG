@@ -26,6 +26,14 @@ The goal of this project was to create a functional and robust autonomous target
 
 ## 📦 PCB Design and Iteration
 
+### Fusion 360 Schematics
+
+![Power Regulation](Images/sheet1_me507.png)
+
+![MCU Pinouts](Images/sheet2_me507.png)
+
+![Motor Drivers w/ Sensor + Actuator Outputs](Images/sheet3_me507.png)
+
 ### Fusion 360 CAD Render
 
 ![PCB CAD Model](Images/pcb_model.png)
@@ -108,6 +116,8 @@ The goal of this project was to create a functional and robust autonomous target
 - `STATE_4`: Spin Flywheels
 - `STATE_5`: Fire via Servo
 - `STATE_6`: Autonomous Scan Mode
+
+![FSM Diagram](Images/ME507_FSM.png)
 
 ---
 

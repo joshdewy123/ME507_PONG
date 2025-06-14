@@ -1,5 +1,6 @@
 var NAVTREEINDEX190 =
 {
+"struct_t_i_m___hall_sensor___init_type_def.html#a5efa2ad5085fe72fb0b5dc2e2fc61def":[3,92,19,0,0,1],
 "struct_t_i_m___hall_sensor___init_type_def.html#aa913a8df0a4c97fefa87ff760fae10cb":[3,92,19,0,0,3],
 "struct_t_i_m___hall_sensor___init_type_def.html#ac1191c7421a3ca4c53ec7875870812e5":[3,92,19,0,0,2],
 "struct_t_i_m___handle_type_def.html":[3,92,18,0,10],

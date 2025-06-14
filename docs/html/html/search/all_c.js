@@ -786,7 +786,7 @@ var searchData=
   ['highthreshold_783',['HighThreshold',['../struct_a_d_c___analog_w_d_g_conf_type_def.html#a5c3a76d9a8ac84c537e7df10b0315e5a',1,'ADC_AnalogWDGConfTypeDef']]],
   ['hisr_784',['HISR',['../struct_d_m_a___type_def.html#a6fe40f7ac1a18c2726b328b5ec02b262',1,'DMA_TypeDef']]],
   ['hnptxsts_785',['HNPTXSTS',['../struct_u_s_b___o_t_g___global_type_def.html#a6ff3c8a6647ae7e5dfcd2ccfbfed4948',1,'USB_OTG_GlobalTypeDef']]],
-  ['hotfixes_786',['Hotfixes',['../md__r_e_a_d_m_e.html#autotoc_md9',1,'Assembled PCB - After Hotfixes'],['../md__r_e_a_d_m_e.html#autotoc_md8',1,'Assembled PCB - Before Hotfixes']]],
+  ['hotfixes_786',['Hotfixes',['../md__r_e_a_d_m_e.html#autotoc_md10',1,'Assembled PCB - After Hotfixes'],['../md__r_e_a_d_m_e.html#autotoc_md9',1,'Assembled PCB - Before Hotfixes']]],
   ['hptxfsiz_787',['HPTXFSIZ',['../struct_u_s_b___o_t_g___global_type_def.html#a928fd38284165374eb5aa85ed8d4e6cb',1,'USB_OTG_GlobalTypeDef']]],
   ['hptxsts_788',['HPTXSTS',['../struct_u_s_b___o_t_g___host_type_def.html#a3903a00940c32a9f09889e08881e7a6a',1,'USB_OTG_HostTypeDef']]],
   ['hrtim_20aliased_20functions_20maintained_20for_20legacy_20purpose_789',['HAL HRTIM Aliased Functions maintained for legacy purpose',['../group___h_a_l___h_r_t_i_m___aliased___functions.html',1,'']]],

@@ -10,7 +10,7 @@ var searchData=
   ['watchpoint_20and_20trace_20dwt_7',['Data Watchpoint and Trace (DWT)',['../group___c_m_s_i_s___d_w_t.html',1,'']]],
   ['word_20length_8',['UART Word Length',['../group___u_a_r_t___word___length.html',1,'']]],
   ['wordlength_9',['WordLength',['../struct_u_a_r_t___init_type_def.html#ae5e60b9a021fe0009588fc86c7584a5a',1,'UART_InitTypeDef']]],
-  ['work_10',['📈 Future Work',['../md__r_e_a_d_m_e.html#autotoc_md23',1,'']]],
+  ['work_10',['📈 Future Work',['../md__r_e_a_d_m_e.html#autotoc_md24',1,'']]],
   ['wpr_11',['WPR',['../struct_r_t_c___type_def.html#a6204786b050eb135fabb15784698e86e',1,'RTC_TypeDef']]],
   ['write_20protection_12',['FLASH Option Bytes Write Protection',['../group___f_l_a_s_h_ex___option___bytes___write___protection.html',1,'']]],
   ['write_5freg_13',['WRITE_REG',['../group___exported__macro.html#ga32f78bffcaf6d13023dcd7f05e0c4d57',1,'stm32f4xx.h']]],

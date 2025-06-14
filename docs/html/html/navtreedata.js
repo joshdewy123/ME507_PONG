@@ -30,24 +30,25 @@ var NAVTREE =
       [ "Overview", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
       [ "🔧 Major Hardware Components", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
       [ "📦 PCB Design and Iteration", "md__r_e_a_d_m_e.html#autotoc_md6", [
-        [ "Fusion 360 CAD Render", "md__r_e_a_d_m_e.html#autotoc_md7", null ],
-        [ "Assembled PCB - Before Hotfixes", "md__r_e_a_d_m_e.html#autotoc_md8", null ],
-        [ "Assembled PCB - After Hotfixes", "md__r_e_a_d_m_e.html#autotoc_md9", null ]
+        [ "Fusion 360 Schematics", "md__r_e_a_d_m_e.html#autotoc_md7", null ],
+        [ "Fusion 360 CAD Render", "md__r_e_a_d_m_e.html#autotoc_md8", null ],
+        [ "Assembled PCB - Before Hotfixes", "md__r_e_a_d_m_e.html#autotoc_md9", null ],
+        [ "Assembled PCB - After Hotfixes", "md__r_e_a_d_m_e.html#autotoc_md10", null ]
       ] ],
-      [ "⚠️ Roadblocks and Debugging Challenges", "md__r_e_a_d_m_e.html#autotoc_md11", [
-        [ "1. <b>Motor Driver Output Failures</b>", "md__r_e_a_d_m_e.html#autotoc_md12", [
-          [ "Fusion Schematic Before Fix", "md__r_e_a_d_m_e.html#autotoc_md13", null ],
-          [ "Fusion Schematic After Fix", "md__r_e_a_d_m_e.html#autotoc_md14", null ]
+      [ "⚠️ Roadblocks and Debugging Challenges", "md__r_e_a_d_m_e.html#autotoc_md12", [
+        [ "1. <b>Motor Driver Output Failures</b>", "md__r_e_a_d_m_e.html#autotoc_md13", [
+          [ "Fusion Schematic Before Fix", "md__r_e_a_d_m_e.html#autotoc_md14", null ],
+          [ "Fusion Schematic After Fix", "md__r_e_a_d_m_e.html#autotoc_md15", null ]
         ] ],
-        [ "2. <b>LIDAR Inconsistent I2C Behavior</b>", "md__r_e_a_d_m_e.html#autotoc_md16", [
-          [ "Fusion Schematic Before Fix", "md__r_e_a_d_m_e.html#autotoc_md17", null ],
-          [ "Fusion Schematic After Fix", "md__r_e_a_d_m_e.html#autotoc_md18", null ],
-          [ "Physical Pull-up Resistor Fix (3 Angles)", "md__r_e_a_d_m_e.html#autotoc_md19", null ]
+        [ "2. <b>LIDAR Inconsistent I2C Behavior</b>", "md__r_e_a_d_m_e.html#autotoc_md17", [
+          [ "Fusion Schematic Before Fix", "md__r_e_a_d_m_e.html#autotoc_md18", null ],
+          [ "Fusion Schematic After Fix", "md__r_e_a_d_m_e.html#autotoc_md19", null ],
+          [ "Physical Pull-up Resistor Fix (3 Angles)", "md__r_e_a_d_m_e.html#autotoc_md20", null ]
         ] ]
       ] ],
-      [ "🧠 Software &amp; Control Strategy", "md__r_e_a_d_m_e.html#autotoc_md21", null ],
-      [ "📈 Future Work", "md__r_e_a_d_m_e.html#autotoc_md23", null ],
-      [ "📂 Repository Structure", "md__r_e_a_d_m_e.html#autotoc_md25", null ]
+      [ "🧠 Software &amp; Control Strategy", "md__r_e_a_d_m_e.html#autotoc_md22", null ],
+      [ "📈 Future Work", "md__r_e_a_d_m_e.html#autotoc_md24", null ],
+      [ "📂 Repository Structure", "md__r_e_a_d_m_e.html#autotoc_md26", null ]
     ] ],
     [ "Deprecated List", "deprecated.html", null ],
     [ "Topics", "topics.html", "topics" ],
@@ -262,11 +263,11 @@ var NAVTREEINDEX =
 "group___t_i_m___event___source.html#ga529eadf26cd17108dd95b9707a3d0f55",
 "group___t_i_m___output___compare___state.html#ga98fa585adffeb0d3654b47040576c6b7",
 "group___u_a_r_t___exported___macros.html#ga9cdc2f2d55eaaa7895996bf6848df42e",
-"md__r_e_a_d_m_e.html#autotoc_md25",
-"pmu__armv8_8h.html#af9ebeb1f49dba56d8f90f9bd5d3da58e",
-"stm32f4xx__ll__dma_8h.html",
-"struct_g_p_i_o___type_def.html#ac25dd6b9e3d55e17589195b461c5ec80",
-"struct_t_i_m___hall_sensor___init_type_def.html#aa913a8df0a4c97fefa87ff760fae10cb"
+"md__r_e_a_d_m_e.html#autotoc_md24",
+"pmu__armv8_8h.html#af9424157e9c5dca3a3689d181005c4f8",
+"stm32f4xx__ll__cortex_8h_source.html",
+"struct_g_p_i_o___type_def.html#abff7fffd2b5a718715a130006590c75c",
+"struct_t_i_m___hall_sensor___init_type_def.html#a5efa2ad5085fe72fb0b5dc2e2fc61def"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
