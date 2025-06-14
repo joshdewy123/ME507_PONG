@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ME_507_Ping_Pong_Ball_Launcher: Main Page</title>
+<title>ME_507_Ping_Pong_Ball_Launcher: ME 507 - Ping Pong Ball Launcher</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,10 +87,170 @@ $(function(){initNavTree('index.html','',''); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">ME_507_Ping_Pong_Ball_Launcher Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">ME 507 - Ping Pong Ball Launcher </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a></p>
+<p><b>Team Members:</b> Josh DeWeese, Nolan Jeung <br  />
+ <b>Support:</b> Charlie Refvem, Vincent Ngo, Jason Wong</p>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+Overview</h1>
+<p>This autonomous ping pong launcher is capable of both manual and automatic targeting and launching. It rotates about two axes to aim, detects objects using a TF-Luna LIDAR, and fires ping pong balls using dual flywheels. The system is built around a custom PCB featuring an STM32 microcontroller, motor drivers, and dedicated I2C lines.</p>
+<p>The goal of this project was to create a functional and robust autonomous targeting system while designing and assembling most of the electronics and mechanical components from scratch.</p>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+🔧 Major Hardware Components</h1>
+<ul>
+<li><b>2× Pololu 50:1 Gearmotors with Encoders</b> – control turret rotation</li>
+<li><b>2× Maxon DCX 22 mm Motors</b> – power the flywheels</li>
+<li><b>1× MG90 Servo</b> – feeds ping pong balls into flywheels</li>
+<li><b>TF-Luna LIDAR Sensor</b> – detects range to target</li>
+<li><b>BNO055 IMU</b> – reports heading (used for debug; not integrated into control loop)</li>
+<li><b>Custom PCB</b> – provides regulated power, microcontroller I/O, and motor driver interfaces</li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+📦 PCB Design and Iteration</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+Fusion 360 Schematics</h2>
+<div class="image">
+<img src="sheet1_me507.png" alt=""/>
+<div class="caption">
+Power Regulation</div></div>
+    <div class="image">
+<img src="sheet2_me507.png" alt=""/>
+<div class="caption">
+MCU Pinouts</div></div>
+    <div class="image">
+<img src="sheet3_me507.png" alt=""/>
+<div class="caption">
+Motor Drivers w/ Sensor + Actuator Outputs</div></div>
+    <h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+Fusion 360 CAD Render</h2>
+<div class="image">
+<img src="pcb_model.png" alt=""/>
+<div class="caption">
+PCB CAD Model</div></div>
+    <h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+Assembled PCB - Before Hotfixes</h2>
+<div class="image">
+<img src="pcb_before_hotfix.jpg" alt=""/>
+<div class="caption">
+Before Fix</div></div>
+    <h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+Assembled PCB - After Hotfixes</h2>
+<div class="image">
+<img src="pcb_after_hotfix.jpg" alt=""/>
+<div class="caption">
+After Fix</div></div>
+    <p><b>This board includes:</b></p>
+<ul>
+<li>STM32F411CEU6 microcontroller</li>
+<li>DRV8251 motor drivers</li>
+<li>Barrel jack for 12V input</li>
+<li>5V and 3.3V rails (via Buck and LDO regulators)</li>
+<li>I2C, UART, and GPIO breakout headers</li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+⚠️ Roadblocks and Debugging Challenges</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+1. <b>Motor Driver Output Failures</b></h2>
+<p><b>Issue:</b> Turret motor driver (DRV8251) failed to drive motors consistently.</p>
+<p><b>Cause:</b> Missing or insufficient bulk capacitance and improper IPROPI pin handling. <br  />
+ <b>Fix:</b></p>
+<ul>
+<li>Added 0.1 µF and 4.7 µF capacitors to stabilize power rails</li>
+<li>Pulled IPROPI to GND through a 1.5kΩ resistor</li>
+</ul>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+Fusion Schematic Before Fix</h3>
+<div class="image">
+<img src="motor_driver_before_hotfix.png" alt=""/>
+<div class="caption">
+Motor Driver Schematic Before</div></div>
+    <h3 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+Fusion Schematic After Fix</h3>
+<div class="image">
+<img src="motor_driver_after_hotfix.png" alt=""/>
+<div class="caption">
+Motor Driver Schematic After</div></div>
+    <hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+2. <b>LIDAR Inconsistent I2C Behavior</b></h2>
+<p><b>Issue:</b> TF-Luna LIDAR would intermittently drop off the I2C bus. <br  />
+ <b>Cause:</b> No pull-up resistors on SDA and SCL lines. <br  />
+ <b>Fix:</b> Manually added 10kΩ pull-ups from both lines to 3.3V.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+Fusion Schematic Before Fix</h3>
+<div class="image">
+<img src="lidar_i2c_before_hotfix.png" alt=""/>
+<div class="caption">
+LIDAR Schematic Before</div></div>
+    <h3 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+Fusion Schematic After Fix</h3>
+<div class="image">
+<img src="lidar_i2c_after_hotfix.png" alt=""/>
+<div class="caption">
+LIDAR Schematic After</div></div>
+    <h3 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+Physical Pull-up Resistor Fix (3 Angles)</h3>
+<p><img src="i2c_pull_up_resist_fix_1.jpg" alt="" class="inline" title="Pull-up Fix 1"/>    </p>
+<p><br  />
+ <img src="i2c_pull_up_resist_fix_2.jpg" alt="" class="inline" title="Pull-up Fix 2"/>    </p>
+<p><br  />
+ <img src="i2c_pull_up_resist_fix_3.jpg" alt="" class="inline" title="Pull-up Fix 3"/>    </p>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
+🧠 Software &amp; Control Strategy</h1>
+<ul>
+<li><b>Main Loop FSM</b>: Manages launcher states (initialize, idle, move, scan, fire)</li>
+<li><b>Manual Mode</b>: Accepts UART commands like <span class="tt">T1XX</span>, <span class="tt">M2XX</span>, <span class="tt">FIRE</span>, etc.</li>
+<li><b>Auto Mode</b>: Scans with turret, stores LIDAR readings, picks closest target</li>
+<li><b>IMU Mode</b>: Streams heading data (future FSM integration planned)</li>
+</ul>
+<p><b>FSM States Include:</b></p>
+<ul>
+<li><span class="tt">STATE_0</span>: Initialize</li>
+<li><span class="tt">STATE_1</span>: Idle/Wait</li>
+<li><span class="tt">STATE_2</span>: Move Turret</li>
+<li><span class="tt">STATE_3</span>: Read LIDAR</li>
+<li><span class="tt">STATE_4</span>: Spin Flywheels</li>
+<li><span class="tt">STATE_5</span>: Fire via Servo</li>
+<li><span class="tt">STATE_6</span>: Autonomous Scan Mode</li>
+</ul>
+<div class="image">
+<img src="ME507_FSM.png" alt=""/>
+<div class="caption">
+FSM Diagram</div></div>
+    <hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
+📈 Future Work</h1>
+<ul>
+<li>Use IMU feedback to correct turret drift</li>
+<li>Add computer vision for target recognition</li>
+<li>Replace UART shell with GUI or wireless input</li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
+📂 Repository Structure</h1>
+<div class="fragment"><div class="line">📦 ME507_PONG</div>
+<div class="line">├── CAD_MECHANICAL_SYSTEM/      # CAD files for mechanical design</div>
+<div class="line">├── Core/                       # Main firmware source code (.c/.h)</div>
+<div class="line">├── Drivers/                    # Device drivers (e.g. HAL, custom)</div>
+<div class="line">├── Images/                     # Images for Doxygen/README</div>
+<div class="line">├── docs/                       # GitHub Pages deployment folder</div>
+<div class="line">│   └── index.html              # Doxygen homepage</div>
+<div class="line">├── .gitignore                  # Excludes build &amp; local files</div>
+<div class="line">├── .project, .cproject         # Eclipse project configs</div>
+<div class="line">├── .mxproject                  # STM32CubeMX project file</div>
+<div class="line">├── README.md                   # Project overview and documentation</div>
+<div class="line">├── STM32F411CEUX_FLASH.ld      # Linker script (FLASH region)</div>
+<div class="line">├── STM32F411CEUX_RAM.ld        # Linker script (RAM region)</div>
+<div class="line">└── Term_Project_3.ioc          # STM32CubeMX configuration file</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 </div><!-- doc-content -->

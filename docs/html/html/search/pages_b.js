@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['i2c_20behavior_0',['2. &lt;b&gt;LIDAR Inconsistent I2C Behavior&lt;/b&gt;',['../md__r_e_a_d_m_e.html#autotoc_md17',1,'']]],
-  ['inconsistent_20i2c_20behavior_1',['2. &lt;b&gt;LIDAR Inconsistent I2C Behavior&lt;/b&gt;',['../md__r_e_a_d_m_e.html#autotoc_md17',1,'']]],
-  ['iteration_2',['📦 PCB Design and Iteration',['../md__r_e_a_d_m_e.html#autotoc_md6',1,'']]]
+  ['launcher_0',['ME 507 - Ping Pong Ball Launcher',['../index.html',1,'']]],
+  ['lidar_20inconsistent_20i2c_20behavior_1',['2. &lt;b&gt;LIDAR Inconsistent I2C Behavior&lt;/b&gt;',['../index.html#autotoc_md17',1,'']]]
 ];

@@ -96,11 +96,11 @@ $(function(){initNavTree('imu_8h_source.html','',''); });
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifndef INC_IMU_H_</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define INC_IMU_H_</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="stm32f4xx__hal_8h.html">stm32f4xx_hal.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;stm32f4xx_hal.h&quot;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="imu_8h.html#af99e6b0453d87e52e02f5456095aaac0">   18</a></span><span class="preprocessor">#define BNO055_ADDR (0x28 &lt;&lt; 1)  </span><span class="comment">// 7-bit address, shifted for HAL</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">void</span> <a class="code hl_function" href="imu_8h.html#a8a7c9b3e0194fcbea9de99da817ca365">BNO055_Init</a>(<a class="code hl_struct" href="struct_i2_c___handle_type_def.html">I2C_HandleTypeDef</a> *hi2c);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">void</span> <a class="code hl_function" href="imu_8h.html#a8a7c9b3e0194fcbea9de99da817ca365">BNO055_Init</a>(I2C_HandleTypeDef *hi2c);</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> <a class="code hl_function" href="imu_8h.html#ad7ecd78362510ecfbff802bed85d1017">BNO055_StartCalibration</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
@@ -125,8 +125,6 @@ $(function(){initNavTree('imu_8h_source.html','',''); });
 <div class="ttc" id="aimu_8h_html_a8a7c9b3e0194fcbea9de99da817ca365"><div class="ttname"><a href="imu_8h.html#a8a7c9b3e0194fcbea9de99da817ca365">BNO055_Init</a></div><div class="ttdeci">void BNO055_Init(I2C_HandleTypeDef *hi2c)</div><div class="ttdoc">Initializes the BNO055 IMU in NDOF mode.</div><div class="ttdef"><b>Definition</b> imu.c:17</div></div>
 <div class="ttc" id="aimu_8h_html_ad7ecd78362510ecfbff802bed85d1017"><div class="ttname"><a href="imu_8h.html#ad7ecd78362510ecfbff802bed85d1017">BNO055_StartCalibration</a></div><div class="ttdeci">void BNO055_StartCalibration(void)</div><div class="ttdoc">Sends serial instructions to the user to calibrate the IMU.</div><div class="ttdef"><b>Definition</b> imu.c:82</div></div>
 <div class="ttc" id="aimu_8h_html_afc4a25528329c383a5d29e1a3cbba73f"><div class="ttname"><a href="imu_8h.html#afc4a25528329c383a5d29e1a3cbba73f">BNO055_Debug_ReadGyro</a></div><div class="ttdeci">void BNO055_Debug_ReadGyro(void)</div><div class="ttdoc">Debug function that reads and prints raw gyroscope data over UART.</div><div class="ttdef"><b>Definition</b> imu.c:124</div></div>
-<div class="ttc" id="astm32f4xx__hal_8h_html"><div class="ttname"><a href="stm32f4xx__hal_8h.html">stm32f4xx_hal.h</a></div><div class="ttdoc">This file contains all the functions prototypes for the HAL module driver.</div></div>
-<div class="ttc" id="astruct_i2_c___handle_type_def_html"><div class="ttname"><a href="struct_i2_c___handle_type_def.html">I2C_HandleTypeDef</a></div><div class="ttdef"><b>Definition</b> stm32f4xx_hal_i2c.h:189</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

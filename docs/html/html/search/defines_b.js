@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rx_5fbuffer_5fsize_0',['RX_BUFFER_SIZE',['../main_8c.html#a739a2a1a0047c98ac1b18ecd25dac092',1,'main.c']]]
+  ['tick_5fint_5fpriority_0',['TICK_INT_PRIORITY',['../stm32f4xx__hal__conf_8h.html#ae27809d4959b9fd5b5d974e3e1c77d2e',1,'stm32f4xx_hal_conf.h']]]
 ];

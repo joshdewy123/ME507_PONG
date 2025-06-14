@@ -104,12 +104,12 @@ $(function(){initNavTree('main_8h_source.html','',''); });
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/* Includes ------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &quot;<a class="code" href="stm32f4xx__hal_8h.html">stm32f4xx_hal.h</a>&quot;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &quot;stm32f4xx_hal.h&quot;</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">/* Private includes ----------------------------------------------------------*/</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">/* USER CODE BEGIN Includes */</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">extern</span> <a class="code hl_typedef" href="group___u_a_r_t___exported___types.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> <a class="code hl_variable" href="main_8h.html#a2cf715bef37f7e8ef385a30974a5f0d5">huart1</a>; <span class="comment">// Added by Josh when incorporating IMU code</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">extern</span> UART_HandleTypeDef <a class="code hl_variable" href="main_8h.html#a2cf715bef37f7e8ef385a30974a5f0d5">huart1</a>; <span class="comment">// Added by Josh when incorporating IMU code</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">/* USER CODE END Includes */</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">/* Exported types ------------------------------------------------------------*/</span></div>
@@ -127,7 +127,7 @@ $(function(){initNavTree('main_8h_source.html','',''); });
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">/* USER CODE END EM */</span></div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">void</span> <a class="code hl_function" href="main_8h.html#ae70bce6c39d0b570a7523b86738cec4b">HAL_TIM_MspPostInit</a>(<a class="code hl_struct" href="struct_t_i_m___handle_type_def.html">TIM_HandleTypeDef</a> *htim);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">void</span> <a class="code hl_function" href="main_8h.html#ae70bce6c39d0b570a7523b86738cec4b">HAL_TIM_MspPostInit</a>(TIM_HandleTypeDef *htim);</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">/* Exported functions prototypes ---------------------------------------------*/</span></div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keywordtype">void</span> <a class="code hl_function" href="main_8h.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a>(<span class="keywordtype">void</span>);</div>
@@ -147,12 +147,9 @@ $(function(){initNavTree('main_8h_source.html','',''); });
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#endif </span><span class="comment">/* __MAIN_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="agroup___u_a_r_t___exported___types_html_ga5de4a49eb132735325e706f406c69d6e"><div class="ttname"><a href="group___u_a_r_t___exported___types.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a></div><div class="ttdeci">struct __UART_HandleTypeDef UART_HandleTypeDef</div><div class="ttdoc">UART handle Structure definition.</div></div>
 <div class="ttc" id="amain_8h_html_a1730ffe1e560465665eb47d9264826f9"><div class="ttname"><a href="main_8h.html#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a></div><div class="ttdeci">void Error_Handler(void)</div><div class="ttdoc">General error handler; enters infinite loop on fault.</div><div class="ttdef"><b>Definition</b> main.c:1285</div></div>
 <div class="ttc" id="amain_8h_html_a2cf715bef37f7e8ef385a30974a5f0d5"><div class="ttname"><a href="main_8h.html#a2cf715bef37f7e8ef385a30974a5f0d5">huart1</a></div><div class="ttdeci">UART_HandleTypeDef huart1</div><div class="ttdoc">UART interface used for IMU debug and user command output.</div><div class="ttdef"><b>Definition</b> main.c:79</div></div>
 <div class="ttc" id="amain_8h_html_ae70bce6c39d0b570a7523b86738cec4b"><div class="ttname"><a href="main_8h.html#ae70bce6c39d0b570a7523b86738cec4b">HAL_TIM_MspPostInit</a></div><div class="ttdeci">void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim)</div><div class="ttdef"><b>Definition</b> stm32f4xx_hal_msp.c:388</div></div>
-<div class="ttc" id="astm32f4xx__hal_8h_html"><div class="ttname"><a href="stm32f4xx__hal_8h.html">stm32f4xx_hal.h</a></div><div class="ttdoc">This file contains all the functions prototypes for the HAL module driver.</div></div>
-<div class="ttc" id="astruct_t_i_m___handle_type_def_html"><div class="ttname"><a href="struct_t_i_m___handle_type_def.html">TIM_HandleTypeDef</a></div><div class="ttdoc">TIM Time Base Handle Structure definition.</div><div class="ttdef"><b>Definition</b> stm32f4xx_hal_tim.h:339</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

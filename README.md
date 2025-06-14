@@ -130,3 +130,20 @@ The goal of this project was to create a functional and robust autonomous target
 ---
 
 ## 📂 Repository Structure
+
+```
+📦 ME507_PONG
+├── CAD_MECHANICAL_SYSTEM/      # CAD files for mechanical design
+├── Core/                       # Main firmware source code (.c/.h)
+├── Drivers/                    # Device drivers (e.g. HAL, custom)
+├── Images/                     # Images for Doxygen/README
+├── docs/                       # GitHub Pages deployment folder
+│   └── index.html              # Doxygen homepage
+├── .gitignore                  # Excludes build & local files
+├── .project, .cproject         # Eclipse project configs
+├── .mxproject                  # STM32CubeMX project file
+├── README.md                   # Project overview and documentation
+├── STM32F411CEUX_FLASH.ld      # Linker script (FLASH region)
+├── STM32F411CEUX_RAM.ld        # Linker script (RAM region)
+└── Term_Project_3.ioc          # STM32CubeMX configuration file
+```

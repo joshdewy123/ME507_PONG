@@ -9,14 +9,14 @@ Main header for ping pong launcher project.
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{main_8h_ae70bce6c39d0b570a7523b86738cec4b}{HAL\+\_\+\+TIM\+\_\+\+Msp\+Post\+Init}} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}htim)
+void \mbox{\hyperlink{main_8h_ae70bce6c39d0b570a7523b86738cec4b}{HAL\+\_\+\+TIM\+\_\+\+Msp\+Post\+Init}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim)
 \item 
 void \mbox{\hyperlink{main_8h_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
 \begin{DoxyCompactList}\small\item\em General error handler; enters infinite loop on fault. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{main_8h_a2cf715bef37f7e8ef385a30974a5f0d5}{huart1}}
+UART\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8h_a2cf715bef37f7e8ef385a30974a5f0d5}{huart1}}
 \begin{DoxyCompactList}\small\item\em UART interface used for IMU debug and user command output. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -66,7 +66,7 @@ General error handler; enters infinite loop on fault.
 \index{HAL\_TIM\_MspPostInit@{HAL\_TIM\_MspPostInit}!main.h@{main.h}}
 \doxysubsubsection{\texorpdfstring{HAL\_TIM\_MspPostInit()}{HAL\_TIM\_MspPostInit()}}
 {\footnotesize\ttfamily \label{main_8h_ae70bce6c39d0b570a7523b86738cec4b} 
-void HAL\+\_\+\+TIM\+\_\+\+Msp\+Post\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}}]{htim}{}\end{DoxyParamCaption})}
+void HAL\+\_\+\+TIM\+\_\+\+Msp\+Post\+Init (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim}{}\end{DoxyParamCaption})}
 
 TIM1 GPIO Configuration PB0 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH2N PB1 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH3N PA8 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH1 PA11 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH4
 
@@ -83,7 +83,7 @@ TIM11 GPIO Configuration PB9 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM11\+\_
 \index{huart1@{huart1}!main.h@{main.h}}
 \doxysubsubsection{\texorpdfstring{huart1}{huart1}}
 {\footnotesize\ttfamily \label{main_8h_a2cf715bef37f7e8ef385a30974a5f0d5} 
-\mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} huart1\hspace{0.3cm}{\ttfamily [extern]}}
+UART\+\_\+\+Handle\+Type\+Def huart1\hspace{0.3cm}{\ttfamily [extern]}}
 
 
 

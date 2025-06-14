@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['🔧_20major_20hardware_20components_0',['🔧 Major Hardware Components',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]]
+  ['🧠_20software_20control_20strategy_0',['🧠 Software &amp;amp; Control Strategy',['../index.html#autotoc_md22',1,'']]]
 ];

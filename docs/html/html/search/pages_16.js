@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['📈_20future_20work_0',['📈 Future Work',['../md__r_e_a_d_m_e.html#autotoc_md24',1,'']]]
+  ['📦_20pcb_20design_20and_20iteration_0',['📦 PCB Design and Iteration',['../index.html#autotoc_md6',1,'']]]
 ];

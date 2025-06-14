@@ -46,14 +46,14 @@ void \mbox{\hyperlink{main_8c_a161515d302eceb8f79859465cadcdbc0}{servo\+\_\+pwm\
 \item 
 int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
 \begin{DoxyCompactList}\small\item\em Main entry point — configures peripherals and enters control loop. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{group___u_a_r_t___exported___functions___group2_gae494a9643f29b87d6d81e5264e60e57b}{HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback}} (\mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}huart)
+void \mbox{\hyperlink{main_8c_ae494a9643f29b87d6d81e5264e60e57b}{HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback}} (UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}huart)
 \item 
 void \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
 \begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{struct_i2_c___handle_type_def}{I2\+C\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{main_8c_ac379bcc152d860f08b1279fd3e232295}{hi2c2}}
+I2\+C\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_ac379bcc152d860f08b1279fd3e232295}{hi2c2}}
 \item 
 volatile uint8\+\_\+t \mbox{\hyperlink{main_8c_a79c01541f789e6b0e9da9bd118ef1681}{imu\+\_\+mode}} = 0
 \item 
@@ -63,23 +63,23 @@ volatile uint8\+\_\+t \mbox{\hyperlink{main_8c_adce9412a27849ba591609b337dbc1369
 \item 
 uint8\+\_\+t \mbox{\hyperlink{main_8c_a5c1c771a6bca2a8939852e597c8054f6}{lidar\+\_\+buf}} \mbox{[}4\mbox{]}
 \item 
-\mbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{main_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}
+ADC\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}
 \item 
-\mbox{\hyperlink{struct_i2_c___handle_type_def}{I2\+C\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{main_8c_af7b2c26e44dadaaa798a5c3d82914ba7}{hi2c1}}
+I2\+C\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_af7b2c26e44dadaaa798a5c3d82914ba7}{hi2c1}}
 \item 
-\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{main_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}}
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}}
 \item 
-\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{main_8c_a2c80fd5510e2990a59a5c90d745c716c}{htim2}}
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a2c80fd5510e2990a59a5c90d745c716c}{htim2}}
 \item 
-\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{main_8c_aac3d2c59ee0e3bbae1b99529a154eb62}{htim3}}
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_aac3d2c59ee0e3bbae1b99529a154eb62}{htim3}}
 \item 
-\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{main_8c_a31f6f787777409af5ed0d131b52b7988}{htim9}}
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a31f6f787777409af5ed0d131b52b7988}{htim9}}
 \item 
-\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{main_8c_a3c386e4f1937c518c1beccddef92045e}{htim10}}
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a3c386e4f1937c518c1beccddef92045e}{htim10}}
 \item 
-\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{main_8c_a2f22f985c4f33318fdcd4cc996623bf4}{htim11}}
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a2f22f985c4f33318fdcd4cc996623bf4}{htim11}}
 \item 
-\mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{main_8c_a2cf715bef37f7e8ef385a30974a5f0d5}{huart1}}
+UART\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a2cf715bef37f7e8ef385a30974a5f0d5}{huart1}}
 \begin{DoxyCompactList}\small\item\em UART interface used for IMU debug and user command output. \end{DoxyCompactList}\item 
 int32\+\_\+t \mbox{\hyperlink{main_8c_a7575fff8f1cf20db06571845911ac5ac}{duty\+\_\+flywheel1}} = 0
 \item 
@@ -251,6 +251,12 @@ General error handler; enters infinite loop on fault.
 {\em None} & \\
 \hline
 \end{DoxyRetVals}
+\Hypertarget{main_8c_ae494a9643f29b87d6d81e5264e60e57b}\index{main.c@{main.c}!HAL\_UART\_RxCpltCallback@{HAL\_UART\_RxCpltCallback}}
+\index{HAL\_UART\_RxCpltCallback@{HAL\_UART\_RxCpltCallback}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_UART\_RxCpltCallback()}{HAL\_UART\_RxCpltCallback()}}
+{\footnotesize\ttfamily \label{main_8c_ae494a9643f29b87d6d81e5264e60e57b} 
+void HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{huart}{}\end{DoxyParamCaption})}
+
 \Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{main.c@{main.c}!main@{main}}
 \index{main@{main}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
@@ -289,7 +295,7 @@ System Clock Configuration.
 \end{DoxyRetVals}
 Configure the main internal regulator output voltage
 
-Initializes the RCC Oscillators according to the specified parameters in the \doxylink{struct_r_c_c___osc_init_type_def}{RCC\+\_\+\+Osc\+Init\+Type\+Def} structure.
+Initializes the RCC Oscillators according to the specified parameters in the RCC\+\_\+\+Osc\+Init\+Type\+Def structure.
 
 Initializes the CPU, AHB and APB buses clocks
 
@@ -359,8 +365,8 @@ int32\+\_\+t duty\+\_\+turret2 = 0}
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{=\ \{}
-\DoxyCodeLine{\ \ \ \ .htim\_forward\ =\ \&\mbox{\hyperlink{main_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ .channel\_forward\ =\ \mbox{\hyperlink{group___t_i_m___channel_ga6b1541e4a49d62610899e24bf23f4879}{TIM\_CHANNEL\_1}},}
-\DoxyCodeLine{\ \ \ \ .htim\_reverse\ =\ \&\mbox{\hyperlink{main_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ .channel\_reverse\ =\ \mbox{\hyperlink{group___t_i_m___channel_gad59ef74820ee8bf77fa1f8d589fde2ac}{TIM\_CHANNEL\_4}},}
+\DoxyCodeLine{\ \ \ \ .htim\_forward\ =\ \&\mbox{\hyperlink{main_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ .channel\_forward\ =\ TIM\_CHANNEL\_1,}
+\DoxyCodeLine{\ \ \ \ .htim\_reverse\ =\ \&\mbox{\hyperlink{main_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ .channel\_reverse\ =\ TIM\_CHANNEL\_4,}
 \DoxyCodeLine{\ \ \ \ .duty\ =\ 0,\ .target\ =\ 0,\ .actual\ =\ 0}
 \DoxyCodeLine{\}}
 
@@ -374,8 +380,8 @@ int32\+\_\+t duty\+\_\+turret2 = 0}
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{=\ \{}
-\DoxyCodeLine{\ \ \ \ .htim\_forward\ =\ \&\mbox{\hyperlink{main_8c_a31f6f787777409af5ed0d131b52b7988}{htim9}},\ .channel\_forward\ =\ \mbox{\hyperlink{group___t_i_m___channel_ga6b1541e4a49d62610899e24bf23f4879}{TIM\_CHANNEL\_1}},}
-\DoxyCodeLine{\ \ \ \ .htim\_reverse\ =\ \&\mbox{\hyperlink{main_8c_a31f6f787777409af5ed0d131b52b7988}{htim9}},\ .channel\_reverse\ =\ \mbox{\hyperlink{group___t_i_m___channel_ga33e02d43345a7ac5886f01b39e4f7ccd}{TIM\_CHANNEL\_2}},}
+\DoxyCodeLine{\ \ \ \ .htim\_forward\ =\ \&\mbox{\hyperlink{main_8c_a31f6f787777409af5ed0d131b52b7988}{htim9}},\ .channel\_forward\ =\ TIM\_CHANNEL\_1,}
+\DoxyCodeLine{\ \ \ \ .htim\_reverse\ =\ \&\mbox{\hyperlink{main_8c_a31f6f787777409af5ed0d131b52b7988}{htim9}},\ .channel\_reverse\ =\ TIM\_CHANNEL\_2,}
 \DoxyCodeLine{\ \ \ \ .duty\ =\ 0,\ .target\ =\ 0,\ .actual\ =\ 0}
 \DoxyCodeLine{\}}
 
@@ -384,61 +390,61 @@ int32\+\_\+t duty\+\_\+turret2 = 0}
 \index{hadc1@{hadc1}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{hadc1}{hadc1}}
 {\footnotesize\ttfamily \label{main_8c_a22b804736f5648d52f639b2647d4ed13} 
-\mbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} hadc1}
+ADC\+\_\+\+Handle\+Type\+Def hadc1}
 
 \Hypertarget{main_8c_af7b2c26e44dadaaa798a5c3d82914ba7}\index{main.c@{main.c}!hi2c1@{hi2c1}}
 \index{hi2c1@{hi2c1}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{hi2c1}{hi2c1}}
 {\footnotesize\ttfamily \label{main_8c_af7b2c26e44dadaaa798a5c3d82914ba7} 
-\mbox{\hyperlink{struct_i2_c___handle_type_def}{I2\+C\+\_\+\+Handle\+Type\+Def}} hi2c1}
+I2\+C\+\_\+\+Handle\+Type\+Def hi2c1}
 
 \Hypertarget{main_8c_ac379bcc152d860f08b1279fd3e232295}\index{main.c@{main.c}!hi2c2@{hi2c2}}
 \index{hi2c2@{hi2c2}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{hi2c2}{hi2c2}}
 {\footnotesize\ttfamily \label{main_8c_ac379bcc152d860f08b1279fd3e232295} 
-\mbox{\hyperlink{struct_i2_c___handle_type_def}{I2\+C\+\_\+\+Handle\+Type\+Def}} hi2c2}
+I2\+C\+\_\+\+Handle\+Type\+Def hi2c2}
 
 \Hypertarget{main_8c_a25fc663547539bc49fecc0011bd76ab5}\index{main.c@{main.c}!htim1@{htim1}}
 \index{htim1@{htim1}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{htim1}{htim1}}
 {\footnotesize\ttfamily \label{main_8c_a25fc663547539bc49fecc0011bd76ab5} 
-\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} htim1}
+TIM\+\_\+\+Handle\+Type\+Def htim1}
 
 \Hypertarget{main_8c_a3c386e4f1937c518c1beccddef92045e}\index{main.c@{main.c}!htim10@{htim10}}
 \index{htim10@{htim10}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{htim10}{htim10}}
 {\footnotesize\ttfamily \label{main_8c_a3c386e4f1937c518c1beccddef92045e} 
-\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} htim10}
+TIM\+\_\+\+Handle\+Type\+Def htim10}
 
 \Hypertarget{main_8c_a2f22f985c4f33318fdcd4cc996623bf4}\index{main.c@{main.c}!htim11@{htim11}}
 \index{htim11@{htim11}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{htim11}{htim11}}
 {\footnotesize\ttfamily \label{main_8c_a2f22f985c4f33318fdcd4cc996623bf4} 
-\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} htim11}
+TIM\+\_\+\+Handle\+Type\+Def htim11}
 
 \Hypertarget{main_8c_a2c80fd5510e2990a59a5c90d745c716c}\index{main.c@{main.c}!htim2@{htim2}}
 \index{htim2@{htim2}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{htim2}{htim2}}
 {\footnotesize\ttfamily \label{main_8c_a2c80fd5510e2990a59a5c90d745c716c} 
-\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} htim2}
+TIM\+\_\+\+Handle\+Type\+Def htim2}
 
 \Hypertarget{main_8c_aac3d2c59ee0e3bbae1b99529a154eb62}\index{main.c@{main.c}!htim3@{htim3}}
 \index{htim3@{htim3}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{htim3}{htim3}}
 {\footnotesize\ttfamily \label{main_8c_aac3d2c59ee0e3bbae1b99529a154eb62} 
-\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} htim3}
+TIM\+\_\+\+Handle\+Type\+Def htim3}
 
 \Hypertarget{main_8c_a31f6f787777409af5ed0d131b52b7988}\index{main.c@{main.c}!htim9@{htim9}}
 \index{htim9@{htim9}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{htim9}{htim9}}
 {\footnotesize\ttfamily \label{main_8c_a31f6f787777409af5ed0d131b52b7988} 
-\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} htim9}
+TIM\+\_\+\+Handle\+Type\+Def htim9}
 
 \Hypertarget{main_8c_a2cf715bef37f7e8ef385a30974a5f0d5}\index{main.c@{main.c}!huart1@{huart1}}
 \index{huart1@{huart1}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{huart1}{huart1}}
 {\footnotesize\ttfamily \label{main_8c_a2cf715bef37f7e8ef385a30974a5f0d5} 
-\mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\+\_\+\+Handle\+Type\+Def}} huart1}
+UART\+\_\+\+Handle\+Type\+Def huart1}
 
 
 
@@ -549,8 +555,8 @@ uint32\+\_\+t servo\+\_\+step\+\_\+time = 0}
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{=\ \{}
-\DoxyCodeLine{\ \ \ \ .htim\_forward\ =\ \&\mbox{\hyperlink{main_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ .channel\_forward\ =\ \mbox{\hyperlink{group___t_i_m___channel_ga33e02d43345a7ac5886f01b39e4f7ccd}{TIM\_CHANNEL\_2}},}
-\DoxyCodeLine{\ \ \ \ .htim\_reverse\ =\ \&\mbox{\hyperlink{main_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ .channel\_reverse\ =\ \mbox{\hyperlink{group___t_i_m___channel_ga4ea100c1789b178f3cb46721b7257e2d}{TIM\_CHANNEL\_3}},}
+\DoxyCodeLine{\ \ \ \ .htim\_forward\ =\ \&\mbox{\hyperlink{main_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ .channel\_forward\ =\ TIM\_CHANNEL\_2,}
+\DoxyCodeLine{\ \ \ \ .htim\_reverse\ =\ \&\mbox{\hyperlink{main_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}},\ .channel\_reverse\ =\ TIM\_CHANNEL\_3,}
 \DoxyCodeLine{\ \ \ \ .duty\ =\ 0,\ .target\ =\ 0,\ .actual\ =\ 0}
 \DoxyCodeLine{\}}
 
@@ -582,8 +588,8 @@ int32\+\_\+t turret1\+\_\+target = 0}
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{=\ \{}
-\DoxyCodeLine{\ \ \ \ .htim\_forward\ =\ \&\mbox{\hyperlink{main_8c_a3c386e4f1937c518c1beccddef92045e}{htim10}},\ .channel\_forward\ =\ \mbox{\hyperlink{group___t_i_m___channel_ga6b1541e4a49d62610899e24bf23f4879}{TIM\_CHANNEL\_1}},}
-\DoxyCodeLine{\ \ \ \ .htim\_reverse\ =\ \&\mbox{\hyperlink{main_8c_a2f22f985c4f33318fdcd4cc996623bf4}{htim11}},\ .channel\_reverse\ =\ \mbox{\hyperlink{group___t_i_m___channel_ga6b1541e4a49d62610899e24bf23f4879}{TIM\_CHANNEL\_1}},}
+\DoxyCodeLine{\ \ \ \ .htim\_forward\ =\ \&\mbox{\hyperlink{main_8c_a3c386e4f1937c518c1beccddef92045e}{htim10}},\ .channel\_forward\ =\ TIM\_CHANNEL\_1,}
+\DoxyCodeLine{\ \ \ \ .htim\_reverse\ =\ \&\mbox{\hyperlink{main_8c_a2f22f985c4f33318fdcd4cc996623bf4}{htim11}},\ .channel\_reverse\ =\ TIM\_CHANNEL\_1,}
 \DoxyCodeLine{\ \ \ \ .duty\ =\ 0,\ .target\ =\ 0,\ .actual\ =\ 0}
 \DoxyCodeLine{\}}
 
