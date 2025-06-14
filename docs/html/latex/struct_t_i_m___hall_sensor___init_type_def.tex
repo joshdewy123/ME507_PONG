@@ -1,0 +1,59 @@
+\doxysection{TIM\+\_\+\+Hall\+Sensor\+\_\+\+Init\+Type\+Def Struct Reference}
+\hypertarget{struct_t_i_m___hall_sensor___init_type_def}{}\label{struct_t_i_m___hall_sensor___init_type_def}\index{TIM\_HallSensor\_InitTypeDef@{TIM\_HallSensor\_InitTypeDef}}
+
+
+TIM Hall sensor Configuration Structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32f4xx\+\_\+hal\+\_\+tim\+\_\+ex.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def_ac1191c7421a3ca4c53ec7875870812e5}{IC1\+Polarity}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def_aa913a8df0a4c97fefa87ff760fae10cb}{IC1\+Prescaler}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def_a5efa2ad5085fe72fb0b5dc2e2fc61def}{IC1\+Filter}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def_a5d74bf14283eb95439d6d37952274f07}{Commutation\+\_\+\+Delay}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+TIM Hall sensor Configuration Structure definition. 
+
+\label{doc-variable-members}
+\Hypertarget{struct_t_i_m___hall_sensor___init_type_def_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_t_i_m___hall_sensor___init_type_def_a5d74bf14283eb95439d6d37952274f07}\index{TIM\_HallSensor\_InitTypeDef@{TIM\_HallSensor\_InitTypeDef}!Commutation\_Delay@{Commutation\_Delay}}
+\index{Commutation\_Delay@{Commutation\_Delay}!TIM\_HallSensor\_InitTypeDef@{TIM\_HallSensor\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{Commutation\_Delay}{Commutation\_Delay}}
+{\footnotesize\ttfamily \label{struct_t_i_m___hall_sensor___init_type_def_a5d74bf14283eb95439d6d37952274f07} 
+uint32\+\_\+t Commutation\+\_\+\+Delay}
+
+Specifies the pulse value to be loaded into the Capture Compare Register. This parameter can be a number between Min\+\_\+\+Data = 0x0000 and Max\+\_\+\+Data = 0x\+FFFF \Hypertarget{struct_t_i_m___hall_sensor___init_type_def_a5efa2ad5085fe72fb0b5dc2e2fc61def}\index{TIM\_HallSensor\_InitTypeDef@{TIM\_HallSensor\_InitTypeDef}!IC1Filter@{IC1Filter}}
+\index{IC1Filter@{IC1Filter}!TIM\_HallSensor\_InitTypeDef@{TIM\_HallSensor\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{IC1Filter}{IC1Filter}}
+{\footnotesize\ttfamily \label{struct_t_i_m___hall_sensor___init_type_def_a5efa2ad5085fe72fb0b5dc2e2fc61def} 
+uint32\+\_\+t IC1\+Filter}
+
+Specifies the input capture filter. This parameter can be a number between Min\+\_\+\+Data = 0x0 and Max\+\_\+\+Data = 0xF \Hypertarget{struct_t_i_m___hall_sensor___init_type_def_ac1191c7421a3ca4c53ec7875870812e5}\index{TIM\_HallSensor\_InitTypeDef@{TIM\_HallSensor\_InitTypeDef}!IC1Polarity@{IC1Polarity}}
+\index{IC1Polarity@{IC1Polarity}!TIM\_HallSensor\_InitTypeDef@{TIM\_HallSensor\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{IC1Polarity}{IC1Polarity}}
+{\footnotesize\ttfamily \label{struct_t_i_m___hall_sensor___init_type_def_ac1191c7421a3ca4c53ec7875870812e5} 
+uint32\+\_\+t IC1\+Polarity}
+
+Specifies the active edge of the input signal. This parameter can be a value of \doxylink{group___t_i_m___input___capture___polarity}{TIM Input Capture Polarity} \Hypertarget{struct_t_i_m___hall_sensor___init_type_def_aa913a8df0a4c97fefa87ff760fae10cb}\index{TIM\_HallSensor\_InitTypeDef@{TIM\_HallSensor\_InitTypeDef}!IC1Prescaler@{IC1Prescaler}}
+\index{IC1Prescaler@{IC1Prescaler}!TIM\_HallSensor\_InitTypeDef@{TIM\_HallSensor\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{IC1Prescaler}{IC1Prescaler}}
+{\footnotesize\ttfamily \label{struct_t_i_m___hall_sensor___init_type_def_aa913a8df0a4c97fefa87ff760fae10cb} 
+uint32\+\_\+t IC1\+Prescaler}
+
+Specifies the Input Capture Prescaler. This parameter can be a value of \doxylink{group___t_i_m___input___capture___prescaler}{TIM Input Capture Prescaler} 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Drivers/\+STM32\+F4xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32f4xx__hal__tim__ex_8h}{stm32f4xx\+\_\+hal\+\_\+tim\+\_\+ex.\+h}}\end{DoxyCompactItemize}

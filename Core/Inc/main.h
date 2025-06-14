@@ -1,9 +1,20 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
+  * @file main.h
+  * @brief Main header for ping pong launcher project
+  *
+  * This file contains global includes, definitions, and peripheral handles used throughout
+  * the autonomous ping pong ball launcher project.
+  *
+  * Core modules include:
+  * - FSM for control logic
+  * - IMU (BNO055) for orientation (demo only)
+  * - Motor control for turret and flywheel
+  * - Servo control for ball loading
+  *
+  * The IMU is functional and reports heading data, but is not used in closed-loop control.
+  * This was left as future work.
   ******************************************************************************
   * @attention
   *
@@ -16,6 +27,7 @@
   *
   ******************************************************************************
   */
+
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -29,8 +41,12 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
 
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+/**
+ * @brief UART interface used for IMU debug and user command output
+ */
 extern UART_HandleTypeDef huart1; // Added by Josh when incorporating IMU code
 /* USER CODE END Includes */
 
@@ -52,6 +68,9 @@ extern UART_HandleTypeDef huart1; // Added by Josh when incorporating IMU code
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 /* Exported functions prototypes ---------------------------------------------*/
+/**
+ * @brief General error handler; enters infinite loop on fault
+ */
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */

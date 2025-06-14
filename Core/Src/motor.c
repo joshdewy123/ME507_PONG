@@ -1,3 +1,11 @@
+/**
+ * @file motor.c
+ * @brief Implementation of bidirectional PWM motor driver functions
+ *
+ * Provides PWM control for motors using two timer channels (forward and reverse).
+ * Includes proportional control logic to move toward target angles for turret motors.
+ */
+
 #include "motor.h"
 #include "main.h"
 #include <stdio.h>
@@ -5,6 +13,13 @@
 
 #define PWM_MAX 2399
 
+
+/**
+ * @brief Set the motor's PWM output based on signed duty cycle
+ *
+ * Adjusts direction and magnitude using complementary PWM logic.
+ * For turret1, logic is inverted to account for wiring or mechanical setup.
+ */
 void set_duty(motor_t* motor, int32_t duty)
 {
     // Invert logic for turret1 using complementary outputs
@@ -51,6 +66,11 @@ void set_duty(motor_t* motor, int32_t duty)
     }
 }
 
+/**
+ * @brief Move the motor toward a target using proportional control
+ *
+ * Uses a simple P-controller with anti-windup and deadband handling.
+ */
 void move_to(motor_t* p_mot, int32_t target, int32_t actual)
 {
     int32_t error = target - actual;
@@ -81,12 +101,18 @@ void move_to(motor_t* p_mot, int32_t target, int32_t actual)
     set_duty(p_mot, duty);
 }
 
+/**
+ * @brief Disable PWM output (stop both channels)
+ */
 void disable(motor_t* p_mot)
 {
     HAL_TIM_PWM_Stop(p_mot->htim_forward, p_mot->channel_forward);
     HAL_TIM_PWM_Stop(p_mot->htim_reverse, p_mot->channel_reverse);
 }
 
+/**
+ * @brief Enable both channels to full PWM output
+ */
 void enable(motor_t* p_mot)
 {
     HAL_TIM_PWM_Start(p_mot->htim_forward, p_mot->channel_forward);

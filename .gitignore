@@ -3,7 +3,6 @@
 *.mex
 *.db
 
-
 # Build files
 Debug/
 Release/

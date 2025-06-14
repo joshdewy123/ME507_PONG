@@ -1,8 +1,18 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
+  * @file main.c
+  * @brief Application entry point for ping pong launcher project
+  *
+  * This file initializes the STM32 peripherals, sets up the finite state machine (FSM),
+  * and starts the main control loop. The IMU is initialized and verified, but not actively
+  * used in the FSM during runtime.
+  *
+  * Major functions:
+  * - Setup clocks, timers, I2C, and UART
+  * - Initialize motors and servo
+  * - Run FSM in infinite loop
+  * - Provide IMU debug output for calibration and heading
   ******************************************************************************
   * @attention
   *
@@ -198,7 +208,7 @@ void servo_pwm_update(void) {
 /* USER CODE END 0 */
 
 /**
-  * @brief  The application entry point.
+  * @brief Main entry point — configures peripherals and enters control loop
   * @retval int
   */
 int main(void)
